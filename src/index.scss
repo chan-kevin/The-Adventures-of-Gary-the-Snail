@@ -5,11 +5,14 @@
 }
 
 #snail-game {
-    border: 5px solid black;
+    border: 1px solid black;
     position: absolute;
-    top:50%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 800px;
-    height: 800px;
+    // width: 1000px;
+    // height: 500px;
+    // display: flex;
+    // background-image: "../assets/image/background.jpeg";
+
 }
