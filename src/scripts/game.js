@@ -1,4 +1,5 @@
 import Frame from "./frame";
+import Gary from "./gary";
 
 export default class SnailGame {
     // constructor(ctx){
@@ -16,6 +17,7 @@ export default class SnailGame {
 
     draw (){
         new Frame(this.ctx, this.width, this.height);
+        new Gary(this.ctx, this.width, this.height);
         // const background = new Image();
         // background.src = '../../assets/image/background.jpg';
         // // background.onload = function(){
