@@ -1,5 +1,7 @@
 import Frame from "./frame";
 import Gary from "./gary";
+import Obstacles from "./obstacles";
+import Goal from "./goal";
 
 export default class Game {
     // constructor(ctx){
@@ -18,6 +20,8 @@ export default class Game {
     draw (){
         new Frame(this.ctx, this.width, this.height);
         new Gary(this.ctx, this.width, this.height);
+        new Obstacles(this.ctx, this.width, this.height);
+        new Goal(this.ctx, this.width, this.height);
         // const background = new Image();
         // background.src = '../../assets/image/background.jpg';
         // // background.onload = function(){
