@@ -24,6 +24,6 @@
   transform: translate(-50%, -50%);
 }
 
-#board, #gary {
+#board, #gary, #gary2, #gary3 {
   display: none;
 }
