@@ -10,8 +10,6 @@ export default class Gary {
         this.image_height = 115;
         // this.image_width = 00;
         // this.image_height = 200;
-        this.gameFrame = 0;
-        this.staggerFrames = 100;
         this.image_num = 0;
         this.image = [document.getElementById("gary"), document.getElementById("gary2"), document.getElementById("gary3")]
         this.drawIt();
@@ -27,12 +25,13 @@ export default class Gary {
         // if (this.frame_x < 3) this.frame_x ++;
         // else this.frame_x = 1;
         // if (this.gameFrame % this.staggerFrames == 0){
+
         setTimeout(() => {
             if (this.image_num < 2) this.image_num ++;
             else this.image_num = 0; 
-            this.x+=5;
+            // this.x+=5;
             window.requestAnimationFrame(this.drawIt.bind(this));}, "90"
         )
-        // }
+        this.x+=10;
     } 
 }
