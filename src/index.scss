@@ -4,6 +4,12 @@
     color: $color;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 #snail-game {
     border: 1px solid black;
     position: absolute;
@@ -15,4 +21,8 @@
     // display: flex;
     // background-image: "../assets/image/background.jpeg";
 
+}
+
+#board {
+    display: none;
 }

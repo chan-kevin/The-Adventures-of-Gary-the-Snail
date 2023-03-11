@@ -10,8 +10,8 @@ import SnailGame from "./scripts/game";
 
 document.addEventListener("DOMContentLoaded", () => {
     const canvas = document.getElementById("snail-game");
-    const ctx = canvas.getContext("2d");
-    new SnailGame(ctx);
+
+    new SnailGame(canvas);
 
     // var background = new Image();
     // background.src = '../assets/image/background.jpeg';
