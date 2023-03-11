@@ -1,7 +1,7 @@
 import Frame from "./frame";
 import Gary from "./gary";
 
-export default class SnailGame {
+export default class Game {
     // constructor(ctx){
     //     this.ctx = ctx;
     //     this.draw(ctx);

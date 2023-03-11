@@ -1,5 +1,5 @@
 // import Example from "./scripts/example";
-import SnailGame from "./scripts/game";
+import Game from "./scripts/game";
 
 // // document.addEventListener("DOMContentLoaded", () => {
 //     // console.log("Hello World!")
@@ -9,9 +9,9 @@ import SnailGame from "./scripts/game";
 // // });
 
 document.addEventListener("DOMContentLoaded", () => {
-    const canvas = document.getElementById("snail-game");
+    const canvas = document.getElementById("game");
 
-    new SnailGame(canvas);
+    new Game(canvas);
 
     // var background = new Image();
     // background.src = '../assets/image/background.jpeg';

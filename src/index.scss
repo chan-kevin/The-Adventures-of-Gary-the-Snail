@@ -10,7 +10,7 @@
     box-sizing: border-box;
 }
 
-#snail-game {
+#game {
     border: 1px solid black;
     position: absolute;
     top: 50%;
@@ -23,6 +23,6 @@
 
 }
 
-#board {
+#board, #gary {
     display: none;
 }
