@@ -15,20 +15,20 @@ export default class Game {
         // this.dimension = {width: canvas.width, height: canvas.height}
         this.width = canvas.width;
         this.height = canvas.height;
-        // this.frame = new Frame(this);
-        // this.gary = new Gary(this);
-        // this.obstacles = new Obstacles(this);
-        // this.goal = new Goal(this);
-        this.draw();
+        this.frame = new Frame(this);
+        this.obstacles = new Obstacles(this);
+        this.goal = new Goal(this);
+        this.gary = new Gary(this);
+        // this.draw();
         // this.debug = new Debug(this);
         // this.debug_status = true;
     }
 
-    draw (){
-        new Frame(this.ctx, this.width, this.height);
-        new Gary(this.ctx, this.width, this.height);
-        new Obstacles(this.ctx, this.width, this.height);
-        new Goal(this.ctx, this.width, this.height);
+    // draw (){
+    //     new Frame(this.ctx, this.width, this.height);
+    //     new Gary(this.ctx, this.width, this.height);
+    //     new Obstacles(this.ctx, this.width, this.height);
+    //     new Goal(this.ctx, this.width, this.height);
         // const background = new Image();
         // background.src = '../../assets/image/background.jpg';
         // // background.onload = function(){
@@ -46,5 +46,5 @@ export default class Game {
         //     }
         //     // }
         // }
-    } 
+    // } 
 }

@@ -1,8 +1,9 @@
 export default class Frame {
-    constructor(ctx, width, height){
-        this.width = width;
-        this.height = height;
-        this.ctx = ctx;
+    constructor(game){
+        // this.width = width;
+        // this.height = height;
+        // this.ctx = ctx;
+        this.game = game
         this.background = document.getElementById("board");
         this.drawFrames();
     }
@@ -14,14 +15,14 @@ export default class Frame {
             // const width = 1000;
             // const height = 500;
 
-        this.ctx.drawImage(this.background, 0, 0, this.width, this.height);
-        const x = this.width/3;
-        const y = this.height/2;
-        for (let row = 0; row <= this.width - x; row += x){
-            for (let col = 0; col <= this.height - y; col += y){
-                this.ctx.strokeStyle = "lightgray";
-                this.ctx.strokeRect(row, col, x, y);
-                this.ctx.stroke();
+        this.game.ctx.drawImage(this.background, 0, 0, this.game.width, this.game.height);
+        const x = this.game.width/3;
+        const y = this.game.height/2;
+        for (let row = 0; row <= this.game.width - x; row += x){
+            for (let col = 0; col <= this.game.height - y; col += y){
+                this.game.ctx.strokeStyle = "lightgray";
+                this.game.ctx.strokeRect(row, col, x, y);
+                this.game.ctx.stroke();
             }
             // }
         }

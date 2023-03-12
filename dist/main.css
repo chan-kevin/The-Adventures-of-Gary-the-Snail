@@ -24,6 +24,6 @@
   transform: translate(-50%, -50%);
 }
 
-#board, #gary, #gary2, #gary3, #obstacles, #goal {
+#board, #gary, #gary2, #gary3, #gary4, #gary5, #gary6, #obstacles, #goal {
   display: none;
 }
