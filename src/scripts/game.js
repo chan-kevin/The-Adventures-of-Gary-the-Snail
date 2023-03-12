@@ -9,7 +9,7 @@ export default class Game {
     //     this.ctx = ctx;
     //     this.draw(ctx);
     // }
-    constructor(canvas, background){
+    constructor(canvas){
         this.canvas = canvas;
         this.ctx = canvas.getContext("2d");
         // this.dimension = {width: canvas.width, height: canvas.height}
