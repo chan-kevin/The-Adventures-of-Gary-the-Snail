@@ -53,10 +53,17 @@ export default class Gary {
             if (this.image_num < 2) this.image_num ++;
             else this.image_num = 0;
             // this.x+=5;
-            window.requestAnimationFrame(this.draw.bind(this));}, "90"
+            window.requestAnimationFrame(this.draw.bind(this));}, "60"
         )  
         // this.x+=5;
-        if (this.game.obstacles.x < (this.x + this.objectWidth)) this.direction = "left";
+        if (this.game.obstacles.x < (this.x + this.objectWidth)) {
+            this.direction = "left";
+            while (this.game.obstacles.frame < this.game.obstacles.maxFrame){
+            this.game.ctx.drawImage(this.game.obstacles.image, this.game.obstacles.frame * this.game.obstacles.sourceX, this.game.obstacles.sourceY, this.game.obstacles.sourceWidth, this.game.obstacles.sourceHeight, this.game.obstacles.x, this.game.obstacles.y, this.game.obstacles.objectWidth, this.game.obstacles.objectHeight);
+            this.game.obstacles.frame ++;
+            console.log(this.game.obstacles.frame)
+            }
+        }
         if (this.direction === "right"){
             this.x += 5;
             // console.log(this.x);
