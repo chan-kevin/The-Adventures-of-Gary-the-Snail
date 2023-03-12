@@ -1,6 +1,7 @@
 import Frame from "./frame";
 import Obstacles from "./obstacles";
 import Goal from "./goal";
+import Ground from "./ground";
 
 export default class Gary {
     constructor(game){
@@ -28,6 +29,7 @@ export default class Gary {
     draw(){  
         this.game.ctx.clearRect(0,0,this.game.width,this.game.height); 
         new Frame(this.game);
+        new Ground(this.game);
         new Obstacles(this.game);
         new Goal(this.game);
         // this.ctx.fillStyle = "red"; 

@@ -13,6 +13,7 @@ export default class Frame {
         this.botRight = [];
         this.drawFrames();
         this.hover_check();
+        this.click();
     }
 
     drawFrames(){
@@ -126,9 +127,28 @@ export default class Frame {
             }
         })
 
+        
+
         // this.game.canvas.addEventListener("mouseup", el => {
         //     console.log("mouseup");
         //     console.log(el);
         // })
+    }
+    click(){
+        this.game.canvas.addEventListener("click", e => {
+            e.preventDefault();
+            e.stopPropagation();
+            const x = this.game.width/3;
+            const y = this.game.height/2;
+
+            if (
+                (e.offsetX > this.topLeft[0] && e.offsetX < this.topLeft[1]) &&
+                (e.offsetY > this.topLeft[2] && e.offsetY < this.topLeft[3])
+            ){ 
+                this.game.ctx.strokeStyle = "black";
+                this.game.ctx.strokeRect(this.topLeft[0], this.topLeft[2], x, y);
+                this.game.ctx.stroke();
+            }
+        })
     }
 }

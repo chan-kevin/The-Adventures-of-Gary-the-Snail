@@ -3,6 +3,7 @@ import Gary from "./gary";
 import Obstacles from "./obstacles";
 import Goal from "./goal";
 import Debug from "./debug";
+import Ground from "./ground";
 
 export default class Game {
     // constructor(ctx){
@@ -16,6 +17,7 @@ export default class Game {
         this.width = canvas.width;
         this.height = canvas.height;
         this.frame = new Frame(this);
+        this.ground = new Ground(this);
         this.obstacles = new Obstacles(this);
         this.goal = new Goal(this);
         this.gary = new Gary(this);

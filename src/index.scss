@@ -12,7 +12,8 @@
 
 
 #game {
-    border: 1px solid black;
+    // border: 1px solid black;
+    box-shadow: 10px 10px rgb(194, 188, 188);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -32,7 +33,7 @@
     z-index: 0;
 }
 
-#board, #gary, #gary2, #gary3, #gary4, #gary5, #gary6, #obstacles, #goal {
+#board, #gary, #gary2, #gary3, #gary4, #gary5, #gary6, #obstacles, #goal, #ground, #ground2, #ground3, #ground4, #ground5, #ground6{
     display: none;
 }
 
