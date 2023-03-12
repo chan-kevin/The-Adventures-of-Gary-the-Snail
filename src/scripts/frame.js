@@ -11,12 +11,12 @@ export default class Frame {
         this.botLeft = [];
         this.botMid = [];
         this.botRight = [];
-        this.drawFrames();
+        this.draw();
         this.hover_check();
         this.click();
     }
 
-    drawFrames(){
+    draw(){
         // const background = document.getElementById("board")
         // background.src = '../../assets/image/background.jpg';
         // background.onload = function(){

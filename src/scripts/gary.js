@@ -1,7 +1,7 @@
-import Frame from "./frame";
-import Obstacles from "./obstacles";
-import Goal from "./goal";
-import Ground from "./ground";
+// import Frame from "./frame";
+// import Obstacles from "./obstacles";
+// import Goal from "./goal";
+// import Ground from "./ground";
 
 export default class Gary {
     constructor(game){
@@ -22,20 +22,25 @@ export default class Gary {
         this.image_num = 0;
         this.rightGary = [document.getElementById("gary"), document.getElementById("gary2"), document.getElementById("gary3")]
         this.leftGary = [document.getElementById("gary4"), document.getElementById("gary5"), document.getElementById("gary6")]
-        this.draw();
+        // this.draw();
         this.direction = "right";
     }
 
+    update(){
+        if (this.direction === "right") this.x++;
+        else if (this.direction === "left") this.x--;
+
+        if (this.image_num < 2) this.image_num ++;
+        else this.image_num = 0;
+    }
+
     draw(){  
-        this.game.ctx.clearRect(0,0,this.game.width,this.game.height); 
-        new Frame(this.game);
-        new Ground(this.game);
-        new Obstacles(this.game);
-        new Goal(this.game);
-        // this.ctx.fillStyle = "red"; 
-        // this.ctx.fillRect(this.x,450,200,100); 
-        // this.ctx.drawImage(this.image, this.sourceX, this.sourceY, 350, 400, this.x, 500, 80, 100);
-        // this.ctx.drawImage(this.image[this.image_num], this.sourceX, this.sourceY, 380, 430, this.x, 500, 80, 100);
+        // this.game.ctx.clearRect(0,0,this.game.width,this.game.height); 
+        // new Frame(this.game);
+        // new Ground(this.game);
+        // new Obstacles(this.game);
+        // new Goal(this.game);
+
         if (this.direction === "right") {
             this.game.ctx.strokeRect(this.x, this.y, this.objectWidth, this.objectHeight);
             this.game.ctx.drawImage(this.rightGary[this.image_num], this.sourceX, this.sourceY, this.sourceWidth, this.sourceHeight, this.x, this.y, this.objectWidth, this.objectHeight);
@@ -49,19 +54,20 @@ export default class Gary {
         // else this.frameX = 1;
         // if (this.gameFrame % this.staggerFrames == 0){
 
-        setTimeout(() => {
-            if (this.image_num < 2) this.image_num ++;
-            else this.image_num = 0;
-            // this.x+=5;
-            window.requestAnimationFrame(this.draw.bind(this));}, "60"
-        )  
+        // setTimeout(() => {
+        //     if (this.image_num < 2) this.image_num ++;
+        //     else this.image_num = 0;
+        //     // this.x+=5;
+        //     window.requestAnimationFrame(this.draw.bind(this));}, "60"
+        // )  
+
         // this.x+=5;
         if (this.game.obstacles.x < (this.x + this.objectWidth)) {
             this.direction = "left";
             while (this.game.obstacles.frame < this.game.obstacles.maxFrame){
             this.game.ctx.drawImage(this.game.obstacles.image, this.game.obstacles.frame * this.game.obstacles.sourceX, this.game.obstacles.sourceY, this.game.obstacles.sourceWidth, this.game.obstacles.sourceHeight, this.game.obstacles.x, this.game.obstacles.y, this.game.obstacles.objectWidth, this.game.obstacles.objectHeight);
             this.game.obstacles.frame ++;
-            console.log(this.game.obstacles.frame)
+            // console.log(this.game.obstacles.frame)
             }
         }
         if (this.direction === "right"){

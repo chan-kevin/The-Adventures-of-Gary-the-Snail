@@ -21,9 +21,31 @@ export default class Game {
         this.obstacles = new Obstacles(this);
         this.goal = new Goal(this);
         this.gary = new Gary(this);
+        this.animate();
         // this.draw();
         // this.debug = new Debug(this);
         // this.debug_status = true;
+    }
+
+    update(){
+        this.gary.update();
+    }
+
+    draw(){
+        this.frame.draw();
+        this.ground.draw();
+        this.obstacles.draw();
+        this.goal.draw();
+        this.gary.draw();
+    }
+
+    animate(){
+        this.ctx.clearRect(0,0,this.width,this.height);
+        this.update();
+        this.draw();
+        setTimeout(() => 
+        {requestAnimationFrame(this.animate.bind(this))}, "60"
+        )
     }
 
     // draw (){

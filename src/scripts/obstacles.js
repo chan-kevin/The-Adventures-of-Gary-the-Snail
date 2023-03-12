@@ -20,7 +20,7 @@ export default class Obstacles {
         this.image = document.getElementById("obstacles");
         this.positionX = [170, 560, 810];
         this.positionY = [100, 400];
-        this.draw();
+        // this.draw();
         // this.collision();
     }
 
