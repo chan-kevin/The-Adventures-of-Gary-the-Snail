@@ -8,11 +8,16 @@ export default class Gary {
         this.ctx = ctx;
         this.width = width;
         this.height = height;
+
+        this.source_x = 80;
+        this.source_y = 115;
+        this.source_width = 380;
+        this.source_height = 210;
         this.x = 0;
-        this.image_width = 80;
-        this.image_height = 115;
-        // this.image_width = 00;
-        // this.image_height = 200;
+        this.y = 500;
+        this.object_width = 80;
+        this.object_height = 50;
+
         this.image_num = 0;
         this.image = [document.getElementById("gary"), document.getElementById("gary2"), document.getElementById("gary3")]
         this.drawIt();
@@ -26,10 +31,10 @@ export default class Gary {
         new Goal(this.ctx, this.width, this.height);
         // this.ctx.fillStyle = "red"; 
         // this.ctx.fillRect(this.x,450,200,100); 
-        // this.ctx.drawImage(this.image, this.image_width, this.image_height, 350, 400, this.x, 500, 80, 100);
-        // this.ctx.drawImage(this.image[this.image_num], this.image_width, this.image_height, 380, 430, this.x, 500, 80, 100);
-        this.ctx.strokeRect(this.x, 500, 80, 50);
-        this.ctx.drawImage(this.image[this.image_num], this.image_width, this.image_height, 380, 210, this.x, 500, 80, 50);
+        // this.ctx.drawImage(this.image, this.source_x, this.source_y, 350, 400, this.x, 500, 80, 100);
+        // this.ctx.drawImage(this.image[this.image_num], this.source_x, this.source_y, 380, 430, this.x, 500, 80, 100);
+        this.ctx.strokeRect(this.x, this.y, this.object_width, this.object_height);
+        this.ctx.drawImage(this.image[this.image_num], this.source_x, this.source_y, this.source_width, this.source_height, this.x, this.y, this.object_width, this.object_height);
         // if (this.frame_x < 3) this.frame_x ++;
         // else this.frame_x = 1;
         // if (this.gameFrame % this.staggerFrames == 0){
@@ -41,15 +46,17 @@ export default class Gary {
             window.requestAnimationFrame(this.drawIt.bind(this));}, "90"
         )
         // this.x+=5;
+        if (Obstacles.x < this.x + this.object_width) this.direction = "left";
         if (this.direction === "right"){
             this.x += 5;
-            console.log(this.x);
-            if (this.x > this.width - this.image_width) this.direction = "left";
+            // console.log(this.x);
+            if (this.x > this.width - this.source_x) this.direction = "left";
         }
-        if (this.direction === "left"){
+        if (this.direction === "left") {
             this.x -= 5;
             if (this.x <= 0) this.direction = "right";
         }
+
         // if (this.x <= 0) this.x = 0;
         // if (this.x < this.width - this.image_width) this.x+=5;
         // if (this.x > this.width - this.image_width) this.x-=5;
