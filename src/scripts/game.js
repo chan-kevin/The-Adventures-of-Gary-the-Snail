@@ -2,6 +2,7 @@ import Frame from "./frame";
 import Gary from "./gary";
 import Obstacles from "./obstacles";
 import Goal from "./goal";
+import Debug from "./debug";
 
 export default class Game {
     // constructor(ctx){
@@ -14,7 +15,13 @@ export default class Game {
         // this.dimension = {width: canvas.width, height: canvas.height}
         this.width = canvas.width;
         this.height = canvas.height;
+        // this.frame = new Frame(this);
+        // this.gary = new Gary(this);
+        // this.obstacles = new Obstacles(this);
+        // this.goal = new Goal(this);
         this.draw();
+        // this.debug = new Debug(this);
+        // this.debug_status = true;
     }
 
     draw (){
