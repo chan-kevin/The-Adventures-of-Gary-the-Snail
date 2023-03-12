@@ -21,14 +21,16 @@ export default class Game {
         this.obstacles = new Obstacles(this);
         this.goal = new Goal(this);
         this.gary = new Gary(this);
-        this.animate();
+        this.lastTime = 0;
+        this.animate(0);
         // this.draw();
         // this.debug = new Debug(this);
         // this.debug_status = true;
     }
 
-    update(){
-        this.gary.update();
+    update(deltaTime){
+        this.obstacles.update(deltaTime);
+        this.gary.update(deltaTime);
     }
 
     draw(){
@@ -39,13 +41,16 @@ export default class Game {
         this.gary.draw();
     }
 
-    animate(){
+    animate(timeStamp){
+        const deltaTime = timeStamp - this.lastTime;
+        this.lastTime = timeStamp;
         this.ctx.clearRect(0,0,this.width,this.height);
-        this.update();
+        this.update(deltaTime);
         this.draw();
-        setTimeout(() => 
-        {requestAnimationFrame(this.animate.bind(this))}, "60"
-        )
+        // console.log(this.gary.x)
+        // setTimeout(() => {
+        requestAnimationFrame(this.animate.bind(this))
+        // )
     }
 
     // draw (){

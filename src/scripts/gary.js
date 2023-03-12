@@ -9,6 +9,11 @@ export default class Gary {
         // this.ctx = ctx;
         // this.width = width;
         // this.height = height;
+        this.fps = 20;
+        this.frameInterval = 1000/this.fps;
+        this.frameTimer = 0;
+        // this.frame = 0;
+        // this.maxFrame = 2;
 
         this.sourceX = 80;
         this.sourceY = 115;
@@ -26,12 +31,20 @@ export default class Gary {
         this.direction = "right";
     }
 
-    update(){
-        if (this.direction === "right") this.x++;
-        else if (this.direction === "left") this.x--;
+    update(deltaTime){
 
-        if (this.image_num < 2) this.image_num ++;
-        else this.image_num = 0;
+        // if (this.image_num < 2) this.image_num ++;
+        // else this.image_num = 0;
+
+        if (this.frameTimer > this.frameInterval){
+            this.frameTimer = 0;
+            if (this.image_num < 2) this.image_num++;
+            else this.image_num = 0;
+            if (this.direction === "right") this.x++;
+            else if (this.direction === "left") this.x--;
+        } else {
+            this.frameTimer += deltaTime;
+        }
     }
 
     draw(){  
@@ -64,11 +77,11 @@ export default class Gary {
         // this.x+=5;
         if (this.game.obstacles.x < (this.x + this.objectWidth)) {
             this.direction = "left";
-            while (this.game.obstacles.frame < this.game.obstacles.maxFrame){
-            this.game.ctx.drawImage(this.game.obstacles.image, this.game.obstacles.frame * this.game.obstacles.sourceX, this.game.obstacles.sourceY, this.game.obstacles.sourceWidth, this.game.obstacles.sourceHeight, this.game.obstacles.x, this.game.obstacles.y, this.game.obstacles.objectWidth, this.game.obstacles.objectHeight);
-            this.game.obstacles.frame ++;
+            // while (this.game.obstacles.frame < this.game.obstacles.maxFrame){
+            // this.game.ctx.drawImage(this.game.obstacles.image, this.game.obstacles.frame * this.game.obstacles.sourceX, this.game.obstacles.sourceY, this.game.obstacles.sourceWidth, this.game.obstacles.sourceHeight, this.game.obstacles.x, this.game.obstacles.y, this.game.obstacles.objectWidth, this.game.obstacles.objectHeight);
+            // this.game.obstacles.frame ++;
             // console.log(this.game.obstacles.frame)
-            }
+            // }
         }
         if (this.direction === "right"){
             this.x += 5;
