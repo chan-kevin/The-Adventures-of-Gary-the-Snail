@@ -10,17 +10,26 @@
     box-sizing: border-box;
 }
 
+
 #game {
     border: 1px solid black;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    z-index: 1;
     // width: 1000px;
     // height: 500px;
     // display: flex;
     // background-image: "../assets/image/background.jpeg";
+}
 
+#background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
 }
 
 #board, #gary, #gary2, #gary3, #gary4, #gary5, #gary6, #obstacles, #goal {

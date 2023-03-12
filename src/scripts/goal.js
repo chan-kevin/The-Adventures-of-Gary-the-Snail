@@ -5,14 +5,14 @@ export default class Goal{
         // this.height = height;
         this.game = game;
 
-        this.source_x = 150;
-        this.source_y = 160;
-        this.source_width = 400;
-        this.source_height = 360;
+        this.sourceX = 150;
+        this.sourceY = 160;
+        this.sourceWidth = 400;
+        this.sourceHeight = 360;
         this.x = 1040;
         this.y = 440;
-        this.object_width = 150;
-        this.object_height = 145;
+        this.objectWidth = 150;
+        this.objectHeight = 145;
 
         this.image = document.getElementById("goal");
         this.positionX = [170, 560, 810];
@@ -21,9 +21,9 @@ export default class Goal{
     }
 
     draw(){
-        this.game.ctx.strokeRect(this.x, this.y, this.object_width, this.object_height);
-        this.game.ctx.drawImage(this.image, this.source_x, this.source_y, this.source_width, this.source_height, this.x, this.y, this.object_width, this.object_height);
-        // this.ctx.drawImage(this.image, this.image_width, this.image_height, 180, 500, this.positionX[Math.floor(Math.random()*this.positionX.length)], 400, 300, 1000);
+        this.game.ctx.strokeRect(this.x, this.y, this.objectWidth, this.objectHeight);
+        this.game.ctx.drawImage(this.image, this.sourceX, this.sourceY, this.sourceWidth, this.sourceHeight, this.x, this.y, this.objectWidth, this.objectHeight);
+        // this.ctx.drawImage(this.image, this.imageWidth, this.imageHeight, 180, 500, this.positionX[Math.floor(Math.random()*this.positionX.length)], 400, 300, 1000);
         // this.ctx.drawImage(this.image, 0, 0);
     }
 }

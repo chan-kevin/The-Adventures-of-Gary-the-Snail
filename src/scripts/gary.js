@@ -9,18 +9,18 @@ export default class Gary {
         // this.width = width;
         // this.height = height;
 
-        this.source_x = 80;
-        this.source_y = 115;
-        this.source_width = 380;
-        this.source_height = 210;
+        this.sourceX = 80;
+        this.sourceY = 115;
+        this.sourceWidth = 380;
+        this.sourceHeight = 210;
         this.x = 1;
         this.y = 500;
-        this.object_width = 80;
-        this.object_height = 50;
+        this.objectWidth = 80;
+        this.objectHeight = 50;
 
         this.image_num = 0;
-        this.right_gary = [document.getElementById("gary"), document.getElementById("gary2"), document.getElementById("gary3")]
-        this.left_gary = [document.getElementById("gary4"), document.getElementById("gary5"), document.getElementById("gary6")]
+        this.rightGary = [document.getElementById("gary"), document.getElementById("gary2"), document.getElementById("gary3")]
+        this.leftGary = [document.getElementById("gary4"), document.getElementById("gary5"), document.getElementById("gary6")]
         this.draw();
         this.direction = "right";
     }
@@ -32,19 +32,19 @@ export default class Gary {
         new Goal(this.game);
         // this.ctx.fillStyle = "red"; 
         // this.ctx.fillRect(this.x,450,200,100); 
-        // this.ctx.drawImage(this.image, this.source_x, this.source_y, 350, 400, this.x, 500, 80, 100);
-        // this.ctx.drawImage(this.image[this.image_num], this.source_x, this.source_y, 380, 430, this.x, 500, 80, 100);
+        // this.ctx.drawImage(this.image, this.sourceX, this.sourceY, 350, 400, this.x, 500, 80, 100);
+        // this.ctx.drawImage(this.image[this.image_num], this.sourceX, this.sourceY, 380, 430, this.x, 500, 80, 100);
         if (this.direction === "right") {
-            this.game.ctx.strokeRect(this.x, this.y, this.object_width, this.object_height);
-            this.game.ctx.drawImage(this.right_gary[this.image_num], this.source_x, this.source_y, this.source_width, this.source_height, this.x, this.y, this.object_width, this.object_height);
+            this.game.ctx.strokeRect(this.x, this.y, this.objectWidth, this.objectHeight);
+            this.game.ctx.drawImage(this.rightGary[this.image_num], this.sourceX, this.sourceY, this.sourceWidth, this.sourceHeight, this.x, this.y, this.objectWidth, this.objectHeight);
         }
 
         if (this.direction === "left") {
-            this.game.ctx.strokeRect(this.x, this.y, this.object_width, this.object_height);
-            this.game.ctx.drawImage(this.left_gary[this.image_num], this.source_x-20, this.source_y, this.source_width, this.source_height+10, this.x, this.y, this.object_width, this.object_height);
+            this.game.ctx.strokeRect(this.x, this.y, this.objectWidth, this.objectHeight);
+            this.game.ctx.drawImage(this.leftGary[this.image_num], this.sourceX-20, this.sourceY, this.sourceWidth, this.sourceHeight+10, this.x, this.y, this.objectWidth, this.objectHeight);
         }
-        // if (this.frame_x < 3) this.frame_x ++;
-        // else this.frame_x = 1;
+        // if (this.frameX < 3) this.frameX ++;
+        // else this.frameX = 1;
         // if (this.gameFrame % this.staggerFrames == 0){
 
         setTimeout(() => {
@@ -54,11 +54,11 @@ export default class Gary {
             window.requestAnimationFrame(this.draw.bind(this));}, "90"
         )  
         // this.x+=5;
-        if (this.game.obstacles.x < (this.x + this.object_width)) this.direction = "left";
+        if (this.game.obstacles.x < (this.x + this.objectWidth)) this.direction = "left";
         if (this.direction === "right"){
             this.x += 5;
             // console.log(this.x);
-            if (this.x > this.game.width - this.source_x) this.direction = "left";
+            if (this.x > this.game.width - this.sourceX) this.direction = "left";
         }
         if (this.direction === "left") {
             this.x -= 5;
@@ -66,7 +66,7 @@ export default class Gary {
         }
 
         // if (this.x <= 0) this.x = 0;
-        // if (this.x < this.width - this.image_width) this.x+=5;
-        // if (this.x > this.width - this.image_width) this.x-=5;
+        // if (this.x < this.width - this.imageWidth) this.x+=5;
+        // if (this.x > this.width - this.imageWidth) this.x-=5;
     } 
 }

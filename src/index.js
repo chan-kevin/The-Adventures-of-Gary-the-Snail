@@ -10,9 +10,14 @@ import Game from "./scripts/game";
 
 document.addEventListener("DOMContentLoaded", () => {
     const canvas = document.getElementById("game");
-
+    const background = document.getElementById("background");
+    const ctx = background.getContext("2d");
+    // ctx.fillStyle = "red";
+    // ctx.fillRect(0, 0, background.width, background.height);
+    // ctx.fill;
+    const pic = document.getElementById("board");
+    ctx.drawImage(pic, 0, 0, background.width, background.height)
     new Game(canvas);
-
     // var background = new Image();
     // background.src = '../assets/image/background.jpeg';
     // background.onload = function(){
