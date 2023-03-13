@@ -42,6 +42,12 @@ export default class Jellyfish {
         }
     }
 
+    // update(){
+    //     this.collision();
+    //     if (this.frame < this.maxFrame) this.frame++;
+    //     else this.frame = 0;
+    // }
+
     draw(){
         this.game.ctx.strokeRect(this.x, this.y, this.objectWidth, this.objectHeight);
         this.game.ctx.drawImage(this.image, this.frame * (this.sourceX + this.sourceWidth), this.sourceY, this.sourceWidth, this.sourceHeight, this.x, this.y, this.objectWidth, this.objectHeight);

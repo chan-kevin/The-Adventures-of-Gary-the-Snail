@@ -40,6 +40,8 @@ export default class Frame {
         }
         if (this.selectFrame === 0) {
             this.game.pause = false;
+            // console.log(this.game.pause)
+            // this.game.animate(0);
         }
         requestAnimationFrame(this.checkStatus.bind(this));
     }

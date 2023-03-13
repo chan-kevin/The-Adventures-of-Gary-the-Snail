@@ -9,7 +9,7 @@ export default class Gary {
         // this.ctx = ctx;
         // this.width = width;
         // this.height = height;
-        this.fps = 20;
+        this.fps = 30;
         this.frameInterval = 1000/this.fps;
         this.frameTimer = 0;
         // this.frame = 0;
@@ -55,8 +55,12 @@ export default class Gary {
     }
 
     // update(){
-    //     if (this.image_num < 2) this.image_num ++;
+    //     this.checkCollision();
+
+    //     if (this.image_num < 2) this.image_num++;
     //     else this.image_num = 0;
+    //     if (this.direction === "right") this.x+=3;
+    //     else if (this.direction === "left") this.x-=3;
     // }
 
     draw(){  

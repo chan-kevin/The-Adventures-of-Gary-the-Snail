@@ -29,13 +29,22 @@ export default class Game {
         // this.event = new Event(this);
         this.lastTime = 0;
         this.pause = false;
-        this.animate(0);
+        // requestAnimationFrame(this.animate.bind(this, 0))
+        setInterval(this.resume.bind(this), 0)
+        // this.animate(0);
         // this.event.hover_check();
         // this.animate();
         // this.draw();
         // this.debug = new Debug(this);
         // this.debug_status = true;
     }
+
+    resume(){
+        if (!this.pause){
+            // this.animate(0);
+            requestAnimationFrame(this.animate.bind(this, 0))
+        }
+    }    
 
     update(deltaTime){
         // let animateUpdate = ""
@@ -50,6 +59,7 @@ export default class Game {
 
     // update(){
     //     this.obstacles.update();
+    //     this.jellyfish.update();
     //     this.gary.update();
     // }
 
@@ -76,9 +86,10 @@ export default class Game {
         // console.log(this.gary.x)
         // setTimeout(() => {
         if (!this.pause){
-        requestAnimationFrame(this.animate.bind(this))
+            requestAnimationFrame(this.animate.bind(this))
         }
-        // })
+        // }, 20)
+        // setInterval(this.resume.bind(this))
     }
 
     // draw (){

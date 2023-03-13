@@ -5,7 +5,7 @@ export default class Obstacles {
         // this.height = height;
         // 28
         this.game = game;
-        this.fps = 20;
+        this.fps = 100;
         this.frameInterval = 1000/this.fps;
         this.frameTimer = 0;
         this.frame = 0;
@@ -30,7 +30,12 @@ export default class Obstacles {
     }
 
     // update(){
-
+    //     this.collision();
+    //         if (this.frame < this.maxFrame) this.frame++;
+    //         if (this.frame === this.maxFrame) {
+    //             this.maxFrame = 0;
+    //             this.frame = 0;
+    //         }
     // }
     update(deltaTime){
         // this.collision();
