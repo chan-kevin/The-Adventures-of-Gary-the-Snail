@@ -1,9 +1,10 @@
-import Frame from "./frame";
+// import Frame from "./frame";
 import Gary from "./gary";
 import Obstacles from "./obstacles";
 import Goal from "./goal";
 import Debug from "./debug";
 import Ground from "./ground";
+import Event from "./event";
 
 export default class Game {
     // constructor(ctx){
@@ -16,41 +17,58 @@ export default class Game {
         // this.dimension = {width: canvas.width, height: canvas.height}
         this.width = canvas.width;
         this.height = canvas.height;
-        this.frame = new Frame(this);
+        // this.frame = new Frame(this);
         this.ground = new Ground(this);
         this.obstacles = new Obstacles(this);
         this.goal = new Goal(this);
         this.gary = new Gary(this);
+        // this.event = new Event(this);
         this.lastTime = 0;
         this.animate(0);
+        // this.event.hover_check();
+        // this.animate();
         // this.draw();
         // this.debug = new Debug(this);
         // this.debug_status = true;
     }
 
     update(deltaTime){
+        // let animateUpdate = ""
+        // if (this.obstacles.collision()){
+        //     animateUpdate = this.obstacles.update(deltaTime);
+        // }
+        // animateUpdate;
         this.obstacles.update(deltaTime);
         this.gary.update(deltaTime);
     }
 
+    // update(){
+    //     this.obstacles.update();
+    //     this.gary.update();
+    // }
+
     draw(){
-        this.frame.draw();
+        // this.frame.draw();
         this.ground.draw();
+        // if (this.obstacles.collision()) this.obstacles.collision();
+        // else this.obstacles.draw();
         this.obstacles.draw();
         this.goal.draw();
         this.gary.draw();
     }
 
     animate(timeStamp){
-        const deltaTime = timeStamp - this.lastTime;
+    // animate(){
+        let deltaTime = timeStamp - this.lastTime;
         this.lastTime = timeStamp;
         this.ctx.clearRect(0,0,this.width,this.height);
         this.update(deltaTime);
+        // this.update();
         this.draw();
         // console.log(this.gary.x)
         // setTimeout(() => {
         requestAnimationFrame(this.animate.bind(this))
-        // )
+        // })
     }
 
     // draw (){

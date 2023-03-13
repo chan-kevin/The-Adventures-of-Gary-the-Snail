@@ -1,5 +1,6 @@
 // import Example from "./scripts/example";
 import Game from "./scripts/game";
+import Frame from "./scripts/frame";
 
 // // document.addEventListener("DOMContentLoaded", () => {
 //     // console.log("Hello World!")
@@ -11,6 +12,7 @@ import Game from "./scripts/game";
 document.addEventListener("DOMContentLoaded", () => {
     const canvas = document.getElementById("game");
     const background = document.getElementById("background");
+    const frame = document.getElementById("frame");
     const ctx = background.getContext("2d");
     // ctx.fillStyle = "red";
     // ctx.fillRect(0, 0, background.width, background.height);
@@ -18,6 +20,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const pic = document.getElementById("board");
     ctx.drawImage(pic, 0, 0, background.width, background.height)
     new Game(canvas);
+    new Frame(frame);
+
     // var background = new Image();
     // background.src = '../assets/image/background.jpeg';
     // background.onload = function(){
