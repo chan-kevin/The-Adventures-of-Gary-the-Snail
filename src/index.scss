@@ -10,10 +10,27 @@
     box-sizing: border-box;
 }
 
+h1 {
+    margin-top: 30px;
+    text-align: center;
+}
+
+// .border {
+//     // border: 20px solid transparent;
+//     background-image: url("../assets/image/frame.png");
+//     background-size: 120% 120%;
+//     // background-size: cover;
+//     // padding: 20px;
+//     // background-clip: padding-box;
+// }
 
 #game {
-    // border: 1px solid black;
-    box-shadow: 10px 10px rgb(194, 188, 188);
+    // background-image: url("../assets/image/frame.png");
+    
+    border: 3px solid black;
+    // border-image: url("../assets/image/frame.png");
+    // box-shadow: 25px 25px rgb(194, 188, 188);
+    // border-image: url("../assets/image/bg_frame.png");
     position: absolute;
     top: 50%;
     left: 50%;
@@ -45,3 +62,11 @@
     display: none;
 }
 
+body {
+    background-image: url("../assets/image/bg.png");
+    background-size: cover;
+    // background-position: center;
+    top: 0%;
+    left: 0%;
+    // background-color: rgb(219, 216, 162);
+}

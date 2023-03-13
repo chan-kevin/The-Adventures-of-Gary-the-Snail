@@ -1,9 +1,10 @@
 export default class Frame {
-    constructor(frame){
+    constructor(frame, game){
         // this.width = width;
         // this.height = height;
         // this.ctx = ctx;
-        this.frame = frame
+        this.game = game;
+        this.frame = frame;
         this.ctx = frame.getContext("2d");
         // this.background = document.getElementById("board");
         this.topLeft = [];
@@ -29,8 +30,17 @@ export default class Frame {
     }
 
     checkStatus(){
-        if (this.selectFrame === 2) this.selectFrame = 0;
-        if (this.selectFrame < 2) this.hover();
+        if (this.selectFrame === 2) {
+            this.selectFrame = 0;
+            // this.game.pause = true;
+        }
+        if (this.selectFrame < 2) {
+            this.hover();
+            // this.game.pause = false;
+        }
+        if (this.selectFrame === 0) {
+            this.game.pause = false;
+        }
         requestAnimationFrame(this.checkStatus.bind(this));
     }
 
@@ -226,6 +236,7 @@ export default class Frame {
                 // this.frame.ctx.isPointInPath(x, y)
             ){ 
                 // console.log(this.selectFrame);
+                this.game.pause = true;
                 this.selectFrame += 1;
                 this.ctx.strokeStyle = "red";
                 this.ctx.strokeRect(this.topLeft[0], this.topLeft[2], this.x, this.y);
@@ -241,6 +252,7 @@ export default class Frame {
                 (e.offsetX > this.topMid[0] && e.offsetX < this.topMid[1]) &&
                 (e.offsetY > this.topMid[2] && e.offsetY < this.topMid[3])
             ){ 
+                this.game.pause = true;
                 this.selectFrame += 1;
                 this.ctx.strokeStyle = "red";
                 this.ctx.strokeRect(this.topMid[0], this.topMid[2], this.x, this.y);
@@ -257,6 +269,7 @@ export default class Frame {
                 (e.offsetX > this.topRight[0] && e.offsetX < this.topRight[1]) &&
                 (e.offsetY > this.topRight[2] && e.offsetY < this.topRight[3])
             ){ 
+                this.game.pause = true;
                 this.selectFrame += 1;
                 this.ctx.strokeStyle = "red";
                 this.ctx.strokeRect(this.topRight[0], this.topRight[2], this.x, this.y);
@@ -273,6 +286,7 @@ export default class Frame {
                 (e.offsetX > this.botLeft[0] && e.offsetX < this.botLeft[1]) &&
                 (e.offsetY > this.botLeft[2] && e.offsetY < this.botLeft[3])
             ){ 
+                this.game.pause = true;
                 this.selectFrame += 1;
                 this.ctx.strokeStyle = "red";
                 this.ctx.strokeRect(this.botLeft[0], this.botLeft[2], this.x, this.y);
@@ -287,6 +301,7 @@ export default class Frame {
                 (e.offsetX > this.botMid[0] && e.offsetX < this.botMid[1]) &&
                 (e.offsetY > this.botMid[2] && e.offsetY < this.botMid[3])
             ){ 
+                this.game.pause = true;
                 this.selectFrame += 1;
                 this.ctx.strokeStyle = "red";
                 this.ctx.strokeRect(this.botMid[0], this.botMid[2], this.x, this.y);
@@ -301,6 +316,7 @@ export default class Frame {
                 (e.offsetX > this.botRight[0] && e.offsetX < this.botRight[1]) &&
                 (e.offsetY > this.botRight[2] && e.offsetY < this.botRight[3])
             ){ 
+                this.game.pause = true;
                 this.selectFrame += 1;
                 this.ctx.strokeStyle = "red";
                 this.ctx.strokeRect(this.botRight[0], this.botRight[2], this.x, this.y);

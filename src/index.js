@@ -19,8 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // ctx.fill;
     const pic = document.getElementById("board");
     ctx.drawImage(pic, 0, 0, background.width, background.height)
-    new Game(canvas);
-    new Frame(frame);
+    new Game(canvas, frame);
+    // new Frame(frame);
 
     // var background = new Image();
     // background.src = '../assets/image/background.jpeg';

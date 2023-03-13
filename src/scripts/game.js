@@ -5,14 +5,16 @@ import Goal from "./goal";
 import Ground from "./ground";
 import Jellyfish from "./jellyfish";
 import Swap from "./swap";
+import Frame from "./frame";
 
 export default class Game {
     // constructor(ctx){
     //     this.ctx = ctx;
     //     this.draw(ctx);
     // }
-    constructor(canvas){
+    constructor(canvas, frame){
         this.canvas = canvas;
+        this.frame = new Frame(frame, this);
         this.ctx = canvas.getContext("2d");
         // this.dimension = {width: canvas.width, height: canvas.height}
         this.width = canvas.width;
@@ -26,7 +28,7 @@ export default class Game {
         this.gary = new Gary(this);
         // this.event = new Event(this);
         this.lastTime = 0;
-        this.swap.click();
+        this.pause = false;
         this.animate(0);
         // this.event.hover_check();
         // this.animate();
@@ -70,9 +72,12 @@ export default class Game {
         this.update(deltaTime);
         // this.update();
         this.draw();
+        this.swap.click();
         // console.log(this.gary.x)
         // setTimeout(() => {
+        if (!this.pause){
         requestAnimationFrame(this.animate.bind(this))
+        }
         // })
     }
 
