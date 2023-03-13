@@ -225,7 +225,7 @@ export default class Frame {
                 (e.offsetY > this.topLeft[2] && e.offsetY < this.topLeft[3])
                 // this.frame.ctx.isPointInPath(x, y)
             ){ 
-                console.log(this.selectFrame);
+                // console.log(this.selectFrame);
                 this.selectFrame += 1;
                 this.ctx.strokeStyle = "red";
                 this.ctx.strokeRect(this.topLeft[0], this.topLeft[2], this.x, this.y);
