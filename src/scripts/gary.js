@@ -20,7 +20,7 @@ export default class Gary {
         this.sourceWidth = 380;
         this.sourceHeight = 210;
         this.speedX = 1;
-        this.y = 500;
+        this.y = 485;
         this.objectWidth = 80;
         this.objectHeight = 50;
 

@@ -67,6 +67,22 @@ export default class Frame {
         }
 
         this.game.addEventListener("mousemove", e => {
+        // refresh every frames
+        if (e.offsetX){
+            this.ctx.clearRect(0, 0, this.game.width, this.game.height);
+            for (let row = 0; row <= this.game.width; row += x){
+                for (let col = 0; col <= this.game.height; col += y){
+                    this.ctx.strokeStyle = this.strokeStyle;
+                    this.ctx.strokeRect(row, col, x, y);
+                    // (row,col), (row+x,col), (row, col+y), (row+x, col+y)
+                    // (row,col,row+x,col+y)
+                    this.ctx.stroke();
+                }
+                // }
+            }
+        }
+
+        //top left frame
         if (
             (e.offsetX > this.topLeft[0] && e.offsetX < this.topLeft[1]) &&
             (e.offsetY > this.topLeft[2] && e.offsetY < this.topLeft[3])
@@ -76,15 +92,26 @@ export default class Frame {
             this.ctx.strokeStyle = "black";
             this.ctx.strokeRect(this.topLeft[0], this.topLeft[2], x, y);
             this.ctx.stroke();
+        } else {
+            this.ctx.clearRect(0, 0, this.game.width, this.game.height);
+            for (let row = 0; row <= this.game.width; row += x){
+                for (let col = 0; col <= this.game.height; col += y){
+                    this.ctx.strokeStyle = this.strokeStyle;
+                    this.ctx.strokeRect(row, col, x, y);
+                    // (row,col), (row+x,col), (row, col+y), (row+x, col+y)
+                    // (row,col,row+x,col+y)
+                    this.ctx.stroke();
+                }
+                // }
+            }
         }
-        // this.ctx.clearRect(0, 0, this.game.width, this.game.height);
         // this.ctx.strokeStyle = "lightgray";
         // this.ctx.strokeRect(this.topLeft[0], this.topLeft[2], x, y);
         // this.ctx.stroke();
         // }
 
         //top mid frame
-        else if (
+        if (
             (e.offsetX > this.topMid[0] && e.offsetX < this.topMid[1]) &&
             (e.offsetY > this.topMid[2] && e.offsetY < this.topMid[3])
         ){ 
@@ -99,7 +126,7 @@ export default class Frame {
         // }
 
         //top right frame
-        else if (
+        if (
             (e.offsetX > this.topRight[0] && e.offsetX < this.topRight[1]) &&
             (e.offsetY > this.topRight[2] && e.offsetY < this.topRight[3])
         ){ 
@@ -114,7 +141,7 @@ export default class Frame {
         // }
 
         //bot left frame
-        else if (
+        if (
             (e.offsetX > this.botLeft[0] && e.offsetX < this.botLeft[1]) &&
             (e.offsetY > this.botLeft[2] && e.offsetY < this.botLeft[3])
         ){ 
@@ -127,7 +154,7 @@ export default class Frame {
         // this.ctx.stroke();
         
         //bot mid frame
-        else if (
+        if (
             (e.offsetX > this.botMid[0] && e.offsetX < this.botMid[1]) &&
             (e.offsetY > this.botMid[2] && e.offsetY < this.botMid[3])
         ){ 
@@ -140,17 +167,13 @@ export default class Frame {
         // this.ctx.stroke();
 
         //bot right frame
-        else if (
+        if (
             (e.offsetX > this.botRight[0] && e.offsetX < this.botRight[1]) &&
             (e.offsetY > this.botRight[2] && e.offsetY < this.botRight[3])
         ){ 
             this.ctx.strokeStyle = "black";
             this.ctx.strokeRect(this.botRight[0], this.botRight[2], x, y);
             this.ctx.stroke();
-        }
-
-        else {
-            this.ctx.clearRect(0, 0, this.game.width, this.game.height);
         }
         // this.ctx.strokeStyle = "lightgray";
         // this.ctx.strokeRect(this.topMid[0], this.topMid[2], x, y);

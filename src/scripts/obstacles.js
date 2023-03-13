@@ -17,7 +17,7 @@ export default class Obstacles {
         this.sourceWidth = 642
         this.sourceHeight = 500;
         this.x = 620;
-        this.y = 400;
+        this.y = 375;
         this.boxX = 655;
         this.objectWidth = 180;
         this.objectHeight = 180;
@@ -68,7 +68,7 @@ export default class Obstacles {
 
     draw(){
         // this.game.ctx.strokeRect(this.boxX, this.y, this.objectWidth, this.objectHeight);
-        
+
         // if (this.frame < this.maxFrame) this.frame++;
         // else this.frame = 0;
         this.game.ctx.drawImage(this.image, this.frame * (this.sourceX + this.sourceWidth), this.sourceY, this.sourceWidth, this.sourceHeight, this.x, this.y, this.objectWidth, this.objectHeight);
