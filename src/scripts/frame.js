@@ -13,9 +13,25 @@ export default class Frame {
         this.botMid = [];
         this.botRight = [];
         this.strokeStyle = "lightgray";
+        this.x = this.frame.width/3;
+        this.y = this.frame.height/2;
+        this.selectFrame = 0;
         this.draw();
+        this.select();
+        // this.hover();
+        this.checkStatus();
+        // this.select();
+        // if (this.selectFrame === 2) this.selectFrame = 0;
+        // if (this.selectFrame < 2) this.hover();
+
         // this.hover_check();
         // this.click();
+    }
+
+    checkStatus(){
+        if (this.selectFrame === 2) this.selectFrame = 0;
+        if (this.selectFrame < 2) this.hover();
+        requestAnimationFrame(this.checkStatus.bind(this));
     }
 
     draw(){
@@ -26,17 +42,15 @@ export default class Frame {
             // const height = 500;
 
         // this.frame.ctx.drawImage(this.background, 0, 0, this.frame.width, this.frame.height);
-        const x = this.frame.width/3;
-        const y = this.frame.height/2;
 
         const xPts = []
         const yPts = []
 
-        for (let row = 0; row <= this.frame.width; row += x){
+        for (let row = 0; row <= this.frame.width; row += this.x){
             xPts.push(row);
         }
 
-        for (let col = 0; col <= this.frame.height; col += y){
+        for (let col = 0; col <= this.frame.height; col += this.y){
             yPts.push(col);
         }
 
@@ -47,7 +61,7 @@ export default class Frame {
         this.botMid = [xPts[1], xPts[2], yPts[1], yPts[2]];
         this.botRight = [xPts[2], xPts[3], yPts[1], yPts[2]];
 
-        // this.topLeft = [xPts[0], yPts[0], x, y];
+        // this.topLeft = [xPts[0], yPts[0], this.x, this.y];
         // this.topMid = [xPts[1], yPts[0], x, y];
         // this.topRight = [xPts[2], yPts[0], x, y];
         // this.botLeft = [xPts[0], yPts[1], x, y];
@@ -55,141 +69,258 @@ export default class Frame {
         // this.botRight = [xPts[2], yPts[1], x, y];
 
         
-        for (let row = 0; row <= this.frame.width; row += x){
-            for (let col = 0; col <= this.frame.height; col += y){
+        for (let row = 0; row <= this.frame.width; row += this.x){
+            for (let col = 0; col <= this.frame.height; col += this.y){
                 this.ctx.strokeStyle = this.strokeStyle;
-                this.ctx.strokeRect(row, col, x, y);
+                this.ctx.strokeRect(row, col, this.x, this.y);
                 // (row,col), (row+x,col), (row, col+y), (row+x, col+y)
                 // (row,col,row+x,col+y)
                 this.ctx.stroke();
             }
             // }
         }
+    }
 
+    hover(){
         this.frame.addEventListener("mousemove", e => {
-        // refresh every frames
-        if (e.offsetX){
-            this.ctx.clearRect(0, 0, this.frame.width, this.frame.height);
-            for (let row = 0; row <= this.frame.width; row += x){
-                for (let col = 0; col <= this.frame.height; col += y){
-                    this.ctx.strokeStyle = this.strokeStyle;
-                    this.ctx.strokeRect(row, col, x, y);
-                    // (row,col), (row+x,col), (row, col+y), (row+x, col+y)
-                    // (row,col,row+x,col+y)
-                    this.ctx.stroke();
+            // refresh every frames
+            if (this.selectFrame < 1){
+                this.ctx.clearRect(0, 0, this.frame.width, this.frame.height);
+                for (let row = 0; row <= this.frame.width; row += this.x){
+                    for (let col = 0; col <= this.frame.height; col += this.y){
+                        this.ctx.strokeStyle = this.strokeStyle;
+                        this.ctx.strokeRect(row, col, this.x, this.y);
+                        // (row,col), (row+x,col), (row, col+y), (row+x, col+y)
+                        // (row,col,row+x,col+y)
+                        this.ctx.stroke();
+                    }
+                    // }
                 }
-                // }
             }
-        }
-
-        //top left frame
-        if (
-            (e.offsetX > this.topLeft[0] && e.offsetX < this.topLeft[1]) &&
-            (e.offsetY > this.topLeft[2] && e.offsetY < this.topLeft[3])
-            // this.frame.ctx.isPointInPath(x, y)
-        ){ 
-            // console.log("hi");
-            this.ctx.strokeStyle = "black";
-            this.ctx.strokeRect(this.topLeft[0], this.topLeft[2], x, y);
-            this.ctx.stroke();
-        } else {
-            this.ctx.clearRect(0, 0, this.frame.width, this.frame.height);
-            for (let row = 0; row <= this.frame.width; row += x){
-                for (let col = 0; col <= this.frame.height; col += y){
-                    this.ctx.strokeStyle = this.strokeStyle;
-                    this.ctx.strokeRect(row, col, x, y);
-                    // (row,col), (row+x,col), (row, col+y), (row+x, col+y)
-                    // (row,col,row+x,col+y)
-                    this.ctx.stroke();
-                }
-                // }
+    
+            //top left frame
+            if (
+                (e.offsetX > this.topLeft[0] && e.offsetX < this.topLeft[1]) &&
+                (e.offsetY > this.topLeft[2] && e.offsetY < this.topLeft[3]) &&
+                (this.selectFrame < 1)
+                // this.frame.ctx.isPointInPath(x, y)
+            ){ 
+                // console.log("hi");
+                this.ctx.strokeStyle = "black";
+                this.ctx.strokeRect(this.topLeft[0], this.topLeft[2], this.x, this.y);
+                this.ctx.stroke();
+            } 
+            // this.ctx.strokeStyle = "lightgray";
+            // this.ctx.strokeRect(this.topLeft[0], this.topLeft[2], this.x, this.y);
+            // this.ctx.stroke();
+            // }
+    
+            //top mid frame
+            if (
+                (e.offsetX > this.topMid[0] && e.offsetX < this.topMid[1]) &&
+                (e.offsetY > this.topMid[2] && e.offsetY < this.topMid[3]) &&
+                (this.selectFrame < 1)
+            ){ 
+                this.ctx.strokeStyle = "black";
+                this.ctx.strokeRect(this.topMid[0], this.topMid[2], this.x, this.y);
+                this.ctx.stroke();
             }
-        }
-        // this.ctx.strokeStyle = "lightgray";
-        // this.ctx.strokeRect(this.topLeft[0], this.topLeft[2], x, y);
-        // this.ctx.stroke();
-        // }
+            // this.ctx.clearRect(0, 0, this.frame.width, this.frame.height);
+            // this.ctx.strokeStyle = "lightgray";
+            // this.ctx.strokeRect(this.topMid[0], this.topMid[2], this.x, this.y);
+            // this.ctx.stroke();
+            // }
+    
+            //top right frame
+            if (
+                (e.offsetX > this.topRight[0] && e.offsetX < this.topRight[1]) &&
+                (e.offsetY > this.topRight[2] && e.offsetY < this.topRight[3]) &&
+                (this.selectFrame < 1)
+            ){ 
+                this.ctx.strokeStyle = "black";
+                this.ctx.strokeRect(this.topRight[0], this.topRight[2], this.x, this.y);
+                this.ctx.stroke();
+            }
+            // this.ctx.clearRect(0, 0, this.frame.width, this.frame.height);
+            // this.ctx.strokeStyle = "lightgray";
+            // this.ctx.strokeRect(this.topMid[0], this.topMid[2], this.x, this.y);
+            // this.ctx.stroke();
+            // }
+    
+            //bot left frame
+            if (
+                (e.offsetX > this.botLeft[0] && e.offsetX < this.botLeft[1]) &&
+                (e.offsetY > this.botLeft[2] && e.offsetY < this.botLeft[3]) &&
+                (this.selectFrame < 1)
+            ){ 
+                this.ctx.strokeStyle = "black";
+                this.ctx.strokeRect(this.botLeft[0], this.botLeft[2], this.x, this.y);
+                this.ctx.stroke();
+            }
+            // this.ctx.strokeStyle = "lightgray";
+            // this.ctx.strokeRect(this.topMid[0], this.topMid[2], this.x, this.y);
+            // this.ctx.stroke();
+            
+            //bot mid frame
+            if (
+                (e.offsetX > this.botMid[0] && e.offsetX < this.botMid[1]) &&
+                (e.offsetY > this.botMid[2] && e.offsetY < this.botMid[3]) &&
+                (this.selectFrame < 1)
+            ){ 
+                this.ctx.strokeStyle = "black";
+                this.ctx.strokeRect(this.botMid[0], this.botMid[2], this.x, this.y);
+                this.ctx.stroke();
+            }
+            // this.ctx.strokeStyle = "lightgray";
+            // this.ctx.strokeRect(this.topMid[0], this.topMid[2], this.x, this.y);
+            // this.ctx.stroke();
+    
+            //bot right frame
+            if (
+                (e.offsetX > this.botRight[0] && e.offsetX < this.botRight[1]) &&
+                (e.offsetY > this.botRight[2] && e.offsetY < this.botRight[3]) &&
+                (this.selectFrame < 1)
+            ){ 
+                this.ctx.strokeStyle = "black";
+                this.ctx.strokeRect(this.botRight[0], this.botRight[2], this.x, this.y);
+                this.ctx.stroke();
+            }
+            // this.ctx.strokeStyle = "lightgray";
+            // this.ctx.strokeRect(this.topMid[0], this.topMid[2], this.x, this.y);
+            // this.ctx.stroke();
+    
+            // for (let row = 0; row <= this.game.width; row += x){
+            //     for (let col = 0; col <= this.game.height; col += y){
+            //         this.game.ctx.strokeStyle = this.strokeStyle;
+            //         this.game.ctx.strokeRect(row, col, this.x, this.y);
+            //         // (row,col), (row+x,col), (row, col+y), (row+x, col+y)
+            //         // (row,col,row+x,col+y)
+            //         this.game.ctx.stroke();
+            //     }
+            //     // }
+            // }
+            })
+    }
 
-        //top mid frame
-        if (
-            (e.offsetX > this.topMid[0] && e.offsetX < this.topMid[1]) &&
-            (e.offsetY > this.topMid[2] && e.offsetY < this.topMid[3])
-        ){ 
-            this.ctx.strokeStyle = "black";
-            this.ctx.strokeRect(this.topMid[0], this.topMid[2], x, y);
-            this.ctx.stroke();
-        }
-        // this.ctx.clearRect(0, 0, this.frame.width, this.frame.height);
-        // this.ctx.strokeStyle = "lightgray";
-        // this.ctx.strokeRect(this.topMid[0], this.topMid[2], x, y);
-        // this.ctx.stroke();
-        // }
-
-        //top right frame
-        if (
-            (e.offsetX > this.topRight[0] && e.offsetX < this.topRight[1]) &&
-            (e.offsetY > this.topRight[2] && e.offsetY < this.topRight[3])
-        ){ 
-            this.ctx.strokeStyle = "black";
-            this.ctx.strokeRect(this.topRight[0], this.topRight[2], x, y);
-            this.ctx.stroke();
-        }
-        // this.ctx.clearRect(0, 0, this.frame.width, this.frame.height);
-        // this.ctx.strokeStyle = "lightgray";
-        // this.ctx.strokeRect(this.topMid[0], this.topMid[2], x, y);
-        // this.ctx.stroke();
-        // }
-
-        //bot left frame
-        if (
-            (e.offsetX > this.botLeft[0] && e.offsetX < this.botLeft[1]) &&
-            (e.offsetY > this.botLeft[2] && e.offsetY < this.botLeft[3])
-        ){ 
-            this.ctx.strokeStyle = "black";
-            this.ctx.strokeRect(this.botLeft[0], this.botLeft[2], x, y);
-            this.ctx.stroke();
-        }
-        // this.ctx.strokeStyle = "lightgray";
-        // this.ctx.strokeRect(this.topMid[0], this.topMid[2], x, y);
-        // this.ctx.stroke();
-        
-        //bot mid frame
-        if (
-            (e.offsetX > this.botMid[0] && e.offsetX < this.botMid[1]) &&
-            (e.offsetY > this.botMid[2] && e.offsetY < this.botMid[3])
-        ){ 
-            this.ctx.strokeStyle = "black";
-            this.ctx.strokeRect(this.botMid[0], this.botMid[2], x, y);
-            this.ctx.stroke();
-        }
-        // this.ctx.strokeStyle = "lightgray";
-        // this.ctx.strokeRect(this.topMid[0], this.topMid[2], x, y);
-        // this.ctx.stroke();
-
-        //bot right frame
-        if (
-            (e.offsetX > this.botRight[0] && e.offsetX < this.botRight[1]) &&
-            (e.offsetY > this.botRight[2] && e.offsetY < this.botRight[3])
-        ){ 
-            this.ctx.strokeStyle = "black";
-            this.ctx.strokeRect(this.botRight[0], this.botRight[2], x, y);
-            this.ctx.stroke();
-        }
-        // this.ctx.strokeStyle = "lightgray";
-        // this.ctx.strokeRect(this.topMid[0], this.topMid[2], x, y);
-        // this.ctx.stroke();
-
-        // for (let row = 0; row <= this.game.width; row += x){
-        //     for (let col = 0; col <= this.game.height; col += y){
-        //         this.game.ctx.strokeStyle = this.strokeStyle;
-        //         this.game.ctx.strokeRect(row, col, x, y);
-        //         // (row,col), (row+x,col), (row, col+y), (row+x, col+y)
-        //         // (row,col,row+x,col+y)
-        //         this.game.ctx.stroke();
-        //     }
-        //     // }
-        // }
-        })
+    select(){
+        this.frame.addEventListener("click", e => {
+            // refresh every frames
+            // if (e.offsetX){
+            //     this.ctx.clearRect(0, 0, this.frame.width, this.frame.height);
+            //     for (let row = 0; row <= this.frame.width; row += this.x){
+            //         for (let col = 0; col <= this.frame.height; col += this.y){
+            //             this.ctx.strokeStyle = this.strokeStyle;
+            //             this.ctx.strokeRect(row, col, this.x, this.y);
+            //             // (row,col), (row+x,col), (row, col+y), (row+x, col+y)
+            //             // (row,col,row+x,col+y)
+            //             this.ctx.stroke();
+            //         }
+            //         // }
+            //     }
+            // }
+    
+            //top left frame
+            if (
+                (e.offsetX > this.topLeft[0] && e.offsetX < this.topLeft[1]) &&
+                (e.offsetY > this.topLeft[2] && e.offsetY < this.topLeft[3])
+                // this.frame.ctx.isPointInPath(x, y)
+            ){ 
+                console.log(this.selectFrame);
+                this.selectFrame += 1;
+                this.ctx.strokeStyle = "red";
+                this.ctx.strokeRect(this.topLeft[0], this.topLeft[2], this.x, this.y);
+                this.ctx.stroke();
+            } 
+            // this.ctx.strokeStyle = "lightgray";
+            // this.ctx.strokeRect(this.topLeft[0], this.topLeft[2], this.x, this.y);
+            // this.ctx.stroke();
+            // }
+    
+            //top mid frame
+            if (
+                (e.offsetX > this.topMid[0] && e.offsetX < this.topMid[1]) &&
+                (e.offsetY > this.topMid[2] && e.offsetY < this.topMid[3])
+            ){ 
+                this.selectFrame += 1;
+                this.ctx.strokeStyle = "red";
+                this.ctx.strokeRect(this.topMid[0], this.topMid[2], this.x, this.y);
+                this.ctx.stroke();
+            }
+            // this.ctx.clearRect(0, 0, this.frame.width, this.frame.height);
+            // this.ctx.strokeStyle = "lightgray";
+            // this.ctx.strokeRect(this.topMid[0], this.topMid[2], this.x, this.y);
+            // this.ctx.stroke();
+            // }
+    
+            //top right frame
+            if (
+                (e.offsetX > this.topRight[0] && e.offsetX < this.topRight[1]) &&
+                (e.offsetY > this.topRight[2] && e.offsetY < this.topRight[3])
+            ){ 
+                this.selectFrame += 1;
+                this.ctx.strokeStyle = "red";
+                this.ctx.strokeRect(this.topRight[0], this.topRight[2], this.x, this.y);
+                this.ctx.stroke();
+            }
+            // this.ctx.clearRect(0, 0, this.frame.width, this.frame.height);
+            // this.ctx.strokeStyle = "lightgray";
+            // this.ctx.strokeRect(this.topMid[0], this.topMid[2], this.x, this.y);
+            // this.ctx.stroke();
+            // }
+    
+            //bot left frame
+            if (
+                (e.offsetX > this.botLeft[0] && e.offsetX < this.botLeft[1]) &&
+                (e.offsetY > this.botLeft[2] && e.offsetY < this.botLeft[3])
+            ){ 
+                this.selectFrame += 1;
+                this.ctx.strokeStyle = "red";
+                this.ctx.strokeRect(this.botLeft[0], this.botLeft[2], this.x, this.y);
+                this.ctx.stroke();
+            }
+            // this.ctx.strokeStyle = "lightgray";
+            // this.ctx.strokeRect(this.topMid[0], this.topMid[2], this.x, this.y);
+            // this.ctx.stroke();
+            
+            //bot mid frame
+            if (
+                (e.offsetX > this.botMid[0] && e.offsetX < this.botMid[1]) &&
+                (e.offsetY > this.botMid[2] && e.offsetY < this.botMid[3])
+            ){ 
+                this.selectFrame += 1;
+                this.ctx.strokeStyle = "red";
+                this.ctx.strokeRect(this.botMid[0], this.botMid[2], this.x, this.y);
+                this.ctx.stroke();
+            }
+            // this.ctx.strokeStyle = "lightgray";
+            // this.ctx.strokeRect(this.topMid[0], this.topMid[2], this.x, this.y);
+            // this.ctx.stroke();
+    
+            //bot right frame
+            if (
+                (e.offsetX > this.botRight[0] && e.offsetX < this.botRight[1]) &&
+                (e.offsetY > this.botRight[2] && e.offsetY < this.botRight[3])
+            ){ 
+                this.selectFrame += 1;
+                this.ctx.strokeStyle = "red";
+                this.ctx.strokeRect(this.botRight[0], this.botRight[2], this.x, this.y);
+                this.ctx.stroke();
+            }
+            // this.ctx.strokeStyle = "lightgray";
+            // this.ctx.strokeRect(this.topMid[0], this.topMid[2], this.x, this.y);
+            // this.ctx.stroke();
+    
+            // for (let row = 0; row <= this.game.width; row += x){
+            //     for (let col = 0; col <= this.game.height; col += y){
+            //         this.game.ctx.strokeStyle = this.strokeStyle;
+            //         this.game.ctx.strokeRect(row, col, this.x, this.y);
+            //         // (row,col), (row+x,col), (row, col+y), (row+x, col+y)
+            //         // (row,col,row+x,col+y)
+            //         this.game.ctx.stroke();
+            //     }
+            //     // }
+            // }
+            })
     }
 
     // hover_check(){
@@ -207,7 +338,7 @@ export default class Frame {
     //             (e.offsetY > this.topLeft[2] && e.offsetY < this.topLeft[3])
     //         ){ 
     //             this.game.ctx.strokeStyle = "black";
-    //             this.game.ctx.strokeRect(this.topLeft[0], this.topLeft[2], x, y);
+    //             this.game.ctx.strokeRect(this.topLeft[0], this.topLeft[2], this.x, this.y);
     //             this.game.ctx.stroke();
     //         }
 
@@ -217,7 +348,7 @@ export default class Frame {
     //             (e.offsetY > this.topMid[2] && e.offsetY < this.topMid[3])
     //         ){ 
     //             this.game.ctx.strokeStyle = "black";
-    //             this.game.ctx.strokeRect(this.topMid[0], this.topMid[2], x, y);
+    //             this.game.ctx.strokeRect(this.topMid[0], this.topMid[2], this.x, this.y);
     //             this.game.ctx.stroke();
     //         }
 
@@ -227,7 +358,7 @@ export default class Frame {
     //             (e.offsetY > this.topRight[2] && e.offsetY < this.topRight[3])
     //         ){ 
     //             this.game.ctx.strokeStyle = "black";
-    //             this.game.ctx.strokeRect(this.topRight[0], this.topRight[2], x, y);
+    //             this.game.ctx.strokeRect(this.topRight[0], this.topRight[2], this.x, this.y);
     //             this.game.ctx.stroke();
     //         }
 
@@ -237,7 +368,7 @@ export default class Frame {
     //             (e.offsetY > this.botLeft[2] && e.offsetY < this.botLeft[3])
     //         ){ 
     //             this.game.ctx.strokeStyle = "black";
-    //             this.game.ctx.strokeRect(this.botLeft[0], this.botLeft[2], x, y);
+    //             this.game.ctx.strokeRect(this.botLeft[0], this.botLeft[2], this.x, this.y);
     //             this.game.ctx.stroke();
     //         }
             
@@ -247,7 +378,7 @@ export default class Frame {
     //             (e.offsetY > this.botMid[2] && e.offsetY < this.botMid[3])
     //         ){ 
     //             this.game.ctx.strokeStyle = "black";
-    //             this.game.ctx.strokeRect(this.botMid[0], this.botMid[2], x, y);
+    //             this.game.ctx.strokeRect(this.botMid[0], this.botMid[2], this.x, this.y);
     //             this.game.ctx.stroke();
     //         }
 
@@ -257,7 +388,7 @@ export default class Frame {
     //             (e.offsetY > this.botRight[2] && e.offsetY < this.botRight[3])
     //         ){ 
     //             this.game.ctx.strokeStyle = "black";
-    //             this.game.ctx.strokeRect(this.botRight[0], this.botRight[2], x, y);
+    //             this.game.ctx.strokeRect(this.botRight[0], this.botRight[2], this.x, this.y);
     //             this.game.ctx.stroke();
     //         }
     //     })
@@ -281,7 +412,7 @@ export default class Frame {
     //             (e.offsetY > this.topLeft[2] && e.offsetY < this.topLeft[3])
     //         ){ 
     //             this.game.ctx.strokeStyle = "black";
-    //             this.game.ctx.strokeRect(this.topLeft[0], this.topLeft[2], x, y);
+    //             this.game.ctx.strokeRect(this.topLeft[0], this.topLeft[2], this.x, this.y);
     //             this.game.ctx.stroke();
     //         }
     //     })

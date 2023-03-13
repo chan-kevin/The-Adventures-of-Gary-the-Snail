@@ -4,6 +4,7 @@ import Obstacles from "./obstacles";
 import Goal from "./goal";
 import Ground from "./ground";
 import Jellyfish from "./jellyfish";
+import Swap from "./swap";
 
 export default class Game {
     // constructor(ctx){
@@ -21,9 +22,11 @@ export default class Game {
         this.obstacles = new Obstacles(this);
         this.goal = new Goal(this);
         this.jellyfish = new Jellyfish(this);
+        this.swap = new Swap(this);
         this.gary = new Gary(this);
         // this.event = new Event(this);
         this.lastTime = 0;
+        this.swap.click();
         this.animate(0);
         // this.event.hover_check();
         // this.animate();

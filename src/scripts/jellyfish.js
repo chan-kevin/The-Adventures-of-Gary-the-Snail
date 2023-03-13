@@ -30,7 +30,9 @@ export default class Jellyfish {
             this.collision();
             if (this.frame < this.maxFrame) this.frame++;
             else this.frame = 0;
-            this.maxFrame = 1;
+            // setTimeout(() => {this.maxFrame = 1;}, 5000)
+            // this.maxFrame = 1;
+            
             // if (this.frame === this.maxFrame) {
             //     this.maxFrame = 1;
             //     this.frame = 0;

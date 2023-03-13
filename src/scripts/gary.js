@@ -113,6 +113,7 @@ export default class Gary {
         // if (this.x > this.width - this.imageWidth) this.x-=5;
     }
     checkCollision(){
+        //check if gary hits rock
         if (this.game.obstacles.boxX < (this.x + this.objectWidth)) {
                 this.direction = "left";
                 // while (this.game.obstacles.frame < this.game.obstacles.maxFrame){
@@ -120,6 +121,11 @@ export default class Gary {
                 // this.game.obstacles.frame ++;
                 // console.log(this.game.obstacles.frame)
                 // }
+        }
+
+        //check if gary hits jellyfish
+        if ((this.game.jellyfish.x + this.game.jellyfish.objectWidth) > this.x) {
+            this.direction = "right";
         }
 
         if (this.x > this.game.width - this.sourceX) this.direction = "left";

@@ -29,28 +29,28 @@ export default class Ground{
         // this.game.ctx.drawImage(img, this.sourceX, this.sourceY, this.sourceWidth, this.sourceHeight, this.x, this.y, this.objectWidth, this.objectHeight);
         // })
 
-        this.game.ctx.strokeRect(this.x, this.y, this.objectWidth, this.objectHeight);
+        // this.game.ctx.strokeRect(this.x, this.y, this.objectWidth, this.objectHeight);
         this.game.ctx.drawImage(this.image[0], this.sourceX, this.sourceY, this.sourceWidth, this.sourceHeight, this.x, this.y, this.objectWidth, this.objectHeight);
         // this.x += this.game.canvas.width/3;
 
-        this.game.ctx.strokeRect(this.x + this.game.canvas.width/3, this.y, this.objectWidth, this.objectHeight);
+        // this.game.ctx.strokeRect(this.x + this.game.canvas.width/3, this.y, this.objectWidth, this.objectHeight);
         this.game.ctx.drawImage(this.image[1], this.sourceX, this.sourceY, this.sourceWidth, this.sourceHeight, this.x + this.game.canvas.width/3, this.y, this.objectWidth, this.objectHeight);
         // this.x += this.game.canvas.width/3;
 
-        this.game.ctx.strokeRect(this.x + (2 * this.game.canvas.width/3), this.y, this.objectWidth, this.objectHeight);
+        // this.game.ctx.strokeRect(this.x + (2 * this.game.canvas.width/3), this.y, this.objectWidth, this.objectHeight);
         this.game.ctx.drawImage(this.image[2], this.sourceX, this.sourceY, this.sourceWidth, this.sourceHeight, this.x + (2 * this.game.canvas.width/3), this.y, this.objectWidth, this.objectHeight);
         // this.x = 0;
         // this.y += this.game.canvas.height/2;
 
-        this.game.ctx.strokeRect(this.x, this.y + this.game.canvas.height/2, this.objectWidth, this.objectHeight);
+        // this.game.ctx.strokeRect(this.x, this.y + this.game.canvas.height/2, this.objectWidth, this.objectHeight);
         this.game.ctx.drawImage(this.image[3], this.sourceX, this.sourceY, this.sourceWidth, this.sourceHeight, this.x, this.y + this.game.canvas.height/2, this.objectWidth, this.objectHeight);
         // this.x += this.game.canvas.width/3;
 
-        this.game.ctx.strokeRect(this.x + this.game.canvas.width/3, this.y + this.game.canvas.height/2, this.objectWidth, this.objectHeight);
+        // this.game.ctx.strokeRect(this.x + this.game.canvas.width/3, this.y + this.game.canvas.height/2, this.objectWidth, this.objectHeight);
         this.game.ctx.drawImage(this.image[4], this.sourceX, this.sourceY, this.sourceWidth, this.sourceHeight, this.x + this.game.canvas.width/3, this.y + this.game.canvas.height/2, this.objectWidth, this.objectHeight);
         // this.x += this.game.canvas.width/3;
 
-        this.game.ctx.strokeRect(this.x + (2 * this.game.canvas.width/3), this.y + this.game.canvas.height/2, this.objectWidth, this.objectHeight);
+        // this.game.ctx.strokeRect(this.x + (2 * this.game.canvas.width/3), this.y + this.game.canvas.height/2, this.objectWidth, this.objectHeight);
         this.game.ctx.drawImage(this.image[5], this.sourceX, this.sourceY, this.sourceWidth, this.sourceHeight, this.x + (2 * this.game.canvas.width/3), this.y + this.game.canvas.height/2, this.objectWidth, this.objectHeight);
 
         // this.ctx.drawImage(this.image, this.imageWidth, this.imageHeight, 180, 500, this.positionX[Math.floor(Math.random()*this.positionX.length)], 400, 300, 1000);
