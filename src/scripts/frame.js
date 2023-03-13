@@ -1,10 +1,10 @@
 export default class Frame {
-    constructor(game){
+    constructor(frame){
         // this.width = width;
         // this.height = height;
         // this.ctx = ctx;
-        this.game = game
-        this.ctx = game.getContext("2d");
+        this.frame = frame
+        this.ctx = frame.getContext("2d");
         // this.background = document.getElementById("board");
         this.topLeft = [];
         this.topMid = [];
@@ -25,18 +25,18 @@ export default class Frame {
             // const width = 1000;
             // const height = 500;
 
-        // this.game.ctx.drawImage(this.background, 0, 0, this.game.width, this.game.height);
-        const x = this.game.width/3;
-        const y = this.game.height/2;
+        // this.frame.ctx.drawImage(this.background, 0, 0, this.frame.width, this.frame.height);
+        const x = this.frame.width/3;
+        const y = this.frame.height/2;
 
         const xPts = []
         const yPts = []
 
-        for (let row = 0; row <= this.game.width; row += x){
+        for (let row = 0; row <= this.frame.width; row += x){
             xPts.push(row);
         }
 
-        for (let col = 0; col <= this.game.height; col += y){
+        for (let col = 0; col <= this.frame.height; col += y){
             yPts.push(col);
         }
 
@@ -55,8 +55,8 @@ export default class Frame {
         // this.botRight = [xPts[2], yPts[1], x, y];
 
         
-        for (let row = 0; row <= this.game.width; row += x){
-            for (let col = 0; col <= this.game.height; col += y){
+        for (let row = 0; row <= this.frame.width; row += x){
+            for (let col = 0; col <= this.frame.height; col += y){
                 this.ctx.strokeStyle = this.strokeStyle;
                 this.ctx.strokeRect(row, col, x, y);
                 // (row,col), (row+x,col), (row, col+y), (row+x, col+y)
@@ -66,12 +66,12 @@ export default class Frame {
             // }
         }
 
-        this.game.addEventListener("mousemove", e => {
+        this.frame.addEventListener("mousemove", e => {
         // refresh every frames
         if (e.offsetX){
-            this.ctx.clearRect(0, 0, this.game.width, this.game.height);
-            for (let row = 0; row <= this.game.width; row += x){
-                for (let col = 0; col <= this.game.height; col += y){
+            this.ctx.clearRect(0, 0, this.frame.width, this.frame.height);
+            for (let row = 0; row <= this.frame.width; row += x){
+                for (let col = 0; col <= this.frame.height; col += y){
                     this.ctx.strokeStyle = this.strokeStyle;
                     this.ctx.strokeRect(row, col, x, y);
                     // (row,col), (row+x,col), (row, col+y), (row+x, col+y)
@@ -86,16 +86,16 @@ export default class Frame {
         if (
             (e.offsetX > this.topLeft[0] && e.offsetX < this.topLeft[1]) &&
             (e.offsetY > this.topLeft[2] && e.offsetY < this.topLeft[3])
-            // this.game.ctx.isPointInPath(x, y)
+            // this.frame.ctx.isPointInPath(x, y)
         ){ 
             // console.log("hi");
             this.ctx.strokeStyle = "black";
             this.ctx.strokeRect(this.topLeft[0], this.topLeft[2], x, y);
             this.ctx.stroke();
         } else {
-            this.ctx.clearRect(0, 0, this.game.width, this.game.height);
-            for (let row = 0; row <= this.game.width; row += x){
-                for (let col = 0; col <= this.game.height; col += y){
+            this.ctx.clearRect(0, 0, this.frame.width, this.frame.height);
+            for (let row = 0; row <= this.frame.width; row += x){
+                for (let col = 0; col <= this.frame.height; col += y){
                     this.ctx.strokeStyle = this.strokeStyle;
                     this.ctx.strokeRect(row, col, x, y);
                     // (row,col), (row+x,col), (row, col+y), (row+x, col+y)
@@ -119,7 +119,7 @@ export default class Frame {
             this.ctx.strokeRect(this.topMid[0], this.topMid[2], x, y);
             this.ctx.stroke();
         }
-        // this.ctx.clearRect(0, 0, this.game.width, this.game.height);
+        // this.ctx.clearRect(0, 0, this.frame.width, this.frame.height);
         // this.ctx.strokeStyle = "lightgray";
         // this.ctx.strokeRect(this.topMid[0], this.topMid[2], x, y);
         // this.ctx.stroke();
@@ -134,7 +134,7 @@ export default class Frame {
             this.ctx.strokeRect(this.topRight[0], this.topRight[2], x, y);
             this.ctx.stroke();
         }
-        // this.ctx.clearRect(0, 0, this.game.width, this.game.height);
+        // this.ctx.clearRect(0, 0, this.frame.width, this.frame.height);
         // this.ctx.strokeStyle = "lightgray";
         // this.ctx.strokeRect(this.topMid[0], this.topMid[2], x, y);
         // this.ctx.stroke();

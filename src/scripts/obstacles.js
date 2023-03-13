@@ -14,7 +14,7 @@ export default class Obstacles {
         this.sourceX = 0;
         this.sourceY = 120;
         // this.sourceWidth = 590;
-        this.sourceWidth = 642
+        this.sourceWidth = 642;
         this.sourceHeight = 500;
         this.x = 620;
         this.y = 375;
@@ -49,7 +49,7 @@ export default class Obstacles {
 
             // this.collision();
             // console.log(this.game.gary.x)
-            // if (this.x < (this.game.gary.speedX + this.objectWidth)) {
+            // if (this.x < (this.game.gary.x + this.objectWidth)) {
             //     // console.log(this.frame)
             //     this.game.ctx.drawImage(this.image, this.frame * this.sourceX, this.sourceY, this.sourceWidth, this.sourceHeight, this.x, this.y, this.objectWidth, this.objectHeight);
             // }
@@ -87,7 +87,7 @@ export default class Obstacles {
     }
 
     collision(){
-        if ((this.game.gary.speedX + this.game.gary.objectWidth) > this.boxX){
+        if ((this.game.gary.x + this.game.gary.objectWidth) > this.boxX){
             // for (let frame = 0; frame < this.maxFrame; frame ++){
             // this.animate(frame);
             // }

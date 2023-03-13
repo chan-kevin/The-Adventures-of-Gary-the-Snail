@@ -2,9 +2,8 @@
 import Gary from "./gary";
 import Obstacles from "./obstacles";
 import Goal from "./goal";
-import Debug from "./debug";
 import Ground from "./ground";
-import Event from "./event";
+import Jellyfish from "./jellyfish";
 
 export default class Game {
     // constructor(ctx){
@@ -21,6 +20,7 @@ export default class Game {
         this.ground = new Ground(this);
         this.obstacles = new Obstacles(this);
         this.goal = new Goal(this);
+        this.jellyfish = new Jellyfish(this);
         this.gary = new Gary(this);
         // this.event = new Event(this);
         this.lastTime = 0;
@@ -39,6 +39,7 @@ export default class Game {
         // }
         // animateUpdate;
         this.obstacles.update(deltaTime);
+        this.jellyfish.update(deltaTime);
         this.gary.update(deltaTime);
     }
 
@@ -53,6 +54,7 @@ export default class Game {
         // if (this.obstacles.collision()) this.obstacles.collision();
         // else this.obstacles.draw();
         this.obstacles.draw();
+        this.jellyfish.draw();
         this.goal.draw();
         this.gary.draw();
     }
