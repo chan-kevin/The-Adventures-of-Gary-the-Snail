@@ -1,11 +1,12 @@
 // import Frame from "./frame";
 import Gary from "./gary";
-import Obstacles from "./obstacles";
+import Rock from "./rock";
 import Goal from "./goal";
 import Ground from "./ground";
 import Jellyfish from "./jellyfish";
 import Swap from "./swap";
 import Frame from "./frame";
+import Obstacles from "./rock";
 
 export default class Game {
     // constructor(ctx){
@@ -21,7 +22,7 @@ export default class Game {
         this.height = canvas.height;
         // this.frame = new Frame(this);
         this.ground = new Ground(this);
-        this.obstacles = new Obstacles(this);
+        this.rock = new Rock(this);
         this.goal = new Goal(this);
         this.jellyfish = new Jellyfish(this);
         this.swap = new Swap(this);
@@ -41,24 +42,24 @@ export default class Game {
 
     resume(){
         if (!this.pause){
-            // this.animate(0);
-            requestAnimationFrame(this.animate.bind(this, 0))
+            this.animate(0);
+            // requestAnimationFrame(this.animate.bind(this, 0))
         }
     }    
 
     update(deltaTime){
         // let animateUpdate = ""
-        // if (this.obstacles.collision()){
-        //     animateUpdate = this.obstacles.update(deltaTime);
+        // if (this.rock.collision()){
+        //     animateUpdate = this.rock.update(deltaTime);
         // }
         // animateUpdate;
-        this.obstacles.update(deltaTime);
+        this.rock.update(deltaTime);
         this.jellyfish.update(deltaTime);
         this.gary.update(deltaTime);
     }
 
     // update(){
-    //     this.obstacles.update();
+    //     this.rock.update();
     //     this.jellyfish.update();
     //     this.gary.update();
     // }
@@ -66,9 +67,9 @@ export default class Game {
     draw(){
         // this.frame.draw();
         this.ground.draw();
-        // if (this.obstacles.collision()) this.obstacles.collision();
-        // else this.obstacles.draw();
-        this.obstacles.draw();
+        // if (this.rock.collision()) this.rock.collision();
+        // else this.rock.draw();
+        this.rock.draw();
         this.jellyfish.draw();
         this.goal.draw();
         this.gary.draw();
@@ -86,7 +87,8 @@ export default class Game {
         // console.log(this.gary.x)
         // setTimeout(() => {
         if (!this.pause){
-            requestAnimationFrame(this.animate.bind(this))
+            // setInterval(() => requestAnimationFrame(this.animate.bind(this), 0), 5000)
+            requestAnimationFrame(this.animate.bind(this), 0)
         }
         // }, 20)
         // setInterval(this.resume.bind(this))
@@ -95,7 +97,7 @@ export default class Game {
     // draw (){
     //     new Frame(this.ctx, this.width, this.height);
     //     new Gary(this.ctx, this.width, this.height);
-    //     new Obstacles(this.ctx, this.width, this.height);
+    //     new rock(this.ctx, this.width, this.height);
     //     new Goal(this.ctx, this.width, this.height);
         // const background = new Image();
         // background.src = '../../assets/image/background.jpg';

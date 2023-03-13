@@ -1,4 +1,4 @@
-export default class Obstacles {
+export default class Rock {
     constructor(game){
         // this.ctx = ctx;
         // this.width = width;
@@ -22,7 +22,7 @@ export default class Obstacles {
         this.objectWidth = 180;
         this.objectHeight = 180;
 
-        this.image = document.getElementById("obstacles");
+        this.image = document.getElementById("rock");
         this.positionX = [170, 560, 810];
         this.positionY = [100, 400];
         // this.draw();

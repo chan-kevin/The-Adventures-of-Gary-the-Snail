@@ -8,6 +8,8 @@ export default class Swap{
         this.botMid = [];
         this.botRight = [];
         this.selectFrame = 0;
+        this.box1 = {};
+        this.box2 = {};
         this.x = this.game.canvas.width/3;
         this.y = this.game.canvas.height/2;
     }
@@ -43,6 +45,26 @@ export default class Swap{
                 // this.frame.ctx.isPointInPath(x, y)
             ){ 
                 this.selectFrame += 1;
+                if (
+                    (this.game.gary.x > this.topLeft[0] && this.game.gary.x < this.topLeft[1])
+                ){
+                    this.box1[gary] = this.game.gary.x;
+                }
+
+                if (
+                    (this.game.rock.x > this.topLeft[0] && this.game.rock.x < this.topLeft[1])
+                ){
+                    this.box1[rock] = this.game.rock.x;
+                }
+
+                if (
+                    (this.game.jellyfish.x > this.topLeft[0] && this.game.jellyfish.x < this.topLeft[1])
+                ){
+                    this.box1[jellyfish] = this.game.jellyfish.x;
+                }
+                // if (this.selectFrame === 1){
+                //     if (this.game.gary){}
+                // }
                 // this.ctx.strokeStyle = "red";
                 // this.ctx.strokeRect(this.topLeft[0], this.topLeft[2], this.x, this.y);
                 // this.ctx.stroke();

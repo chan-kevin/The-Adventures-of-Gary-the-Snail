@@ -1,5 +1,5 @@
 // import Frame from "./frame";
-// import Obstacles from "./obstacles";
+// import rock from "./rock";
 // import Goal from "./goal";
 // import Ground from "./ground";
 
@@ -67,7 +67,7 @@ export default class Gary {
         // this.game.ctx.clearRect(0,0,this.game.width,this.game.height); 
         // new Frame(this.game);
         // new Ground(this.game);
-        // new Obstacles(this.game);
+        // new rock(this.game);
         // new Goal(this.game);
 
        
@@ -94,12 +94,12 @@ export default class Gary {
 
         // this.x+=5;
 
-        // if (this.game.obstacles.x < (this.x + this.objectWidth)) {
+        // if (this.game.rock.x < (this.x + this.objectWidth)) {
         //     this.direction = "left";
-        //     // while (this.game.obstacles.frame < this.game.obstacles.maxFrame){
-        //     // this.game.ctx.drawImage(this.game.obstacles.image, this.game.obstacles.frame * this.game.obstacles.sourceX, this.game.obstacles.sourceY, this.game.obstacles.sourceWidth, this.game.obstacles.sourceHeight, this.game.obstacles.x, this.game.obstacles.y, this.game.obstacles.objectWidth, this.game.obstacles.objectHeight);
-        //     // this.game.obstacles.frame ++;
-        //     // console.log(this.game.obstacles.frame)
+        //     // while (this.game.rock.frame < this.game.rock.maxFrame){
+        //     // this.game.ctx.drawImage(this.game.rock.image, this.game.rock.frame * this.game.rock.sourceX, this.game.rock.sourceY, this.game.rock.sourceWidth, this.game.rock.sourceHeight, this.game.rock.x, this.game.rock.y, this.game.rock.objectWidth, this.game.rock.objectHeight);
+        //     // this.game.rock.frame ++;
+        //     // console.log(this.game.rock.frame)
         //     // }
         // }
         // if (this.direction === "right"){
@@ -118,12 +118,12 @@ export default class Gary {
     }
     checkCollision(){
         //check if gary hits rock
-        if (this.game.obstacles.boxX < (this.x + this.objectWidth)) {
+        if (this.game.rock.boxX < (this.x + this.objectWidth)) {
                 this.direction = "left";
-                // while (this.game.obstacles.frame < this.game.obstacles.maxFrame){
-                // this.game.ctx.drawImage(this.game.obstacles.image, this.game.obstacles.frame * this.game.obstacles.sourceX, this.game.obstacles.sourceY, this.game.obstacles.sourceWidth, this.game.obstacles.sourceHeight, this.game.obstacles.x, this.game.obstacles.y, this.game.obstacles.objectWidth, this.game.obstacles.objectHeight);
-                // this.game.obstacles.frame ++;
-                // console.log(this.game.obstacles.frame)
+                // while (this.game.rock.frame < this.game.rock.maxFrame){
+                // this.game.ctx.drawImage(this.game.rock.image, this.game.rock.frame * this.game.rock.sourceX, this.game.rock.sourceY, this.game.rock.sourceWidth, this.game.rock.sourceHeight, this.game.rock.x, this.game.rock.y, this.game.rock.objectWidth, this.game.rock.objectHeight);
+                // this.game.rock.frame ++;
+                // console.log(this.game.rock.frame)
                 // }
         }
 
