@@ -31,8 +31,8 @@ export default class Game {
         this.lastTime = 0;
         this.pause = false;
         // requestAnimationFrame(this.animate.bind(this, 0))
-        setInterval(this.resume.bind(this), 0)
-        // this.animate(0);
+        // setInterval(this.resume.bind(this), 0)  //slowed down the animate
+        this.animate(0);
         // this.event.hover_check();
         // this.animate();
         // this.draw();
@@ -40,12 +40,12 @@ export default class Game {
         // this.debug_status = true;
     }
 
-    resume(){
-        if (!this.pause){
-            this.animate(0);
-            // requestAnimationFrame(this.animate.bind(this, 0))
-        }
-    }    
+    // resume(){
+    //     if (!this.pause){
+    //         this.animate(0);
+    //         // requestAnimationFrame(this.animate.bind(this, 0))
+    //     }
+    // }    
 
     update(deltaTime){
         // let animateUpdate = ""
@@ -77,8 +77,11 @@ export default class Game {
 
     animate(timeStamp){
     // animate(){
-        let deltaTime = timeStamp - this.lastTime;
+        // console.log(timeStamp)
+        const deltaTime = timeStamp - this.lastTime;
+        // console.log(deltaTime)
         this.lastTime = timeStamp;
+        // console.log(this.lastTime)
         this.ctx.clearRect(0,0,this.width,this.height);
         this.update(deltaTime);
         // this.update();
@@ -86,10 +89,14 @@ export default class Game {
         this.swap.click();
         // console.log(this.gary.x)
         // setTimeout(() => {
-        if (!this.pause){
-            // setInterval(() => requestAnimationFrame(this.animate.bind(this), 0), 5000)
-            requestAnimationFrame(this.animate.bind(this), 0)
-        }
+        setInterval(() => {
+            if (!this.pause){
+                // setInterval(() => requestAnimationFrame(this.animate.bind(this), 0), 5000)
+                requestAnimationFrame(this.animate.bind(this))
+            }
+        }, 0)
+            // setInterval(() => {(this.animate.bind(this))}, 2000)
+        // }
         // }, 20)
         // setInterval(this.resume.bind(this))
     }
