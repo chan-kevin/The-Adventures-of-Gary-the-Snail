@@ -1,3 +1,5 @@
+import Game from "./game";
+
 export default class Frame {
     constructor(frame, game){
         // this.width = width;
@@ -30,6 +32,7 @@ export default class Frame {
     }
 
     checkStatus(){
+        // console.log(this.game.pause)
         if (this.selectFrame === 2) {
             this.selectFrame = 0;
             // this.game.pause = true;
@@ -40,6 +43,8 @@ export default class Frame {
         }
         if (this.selectFrame === 0) {
             this.game.pause = false;
+            // this.game.animate.call(this.game);
+            // this.game.animate;
             // console.log(this.game.pause)
             // this.game.animate(0);
         }

@@ -30,9 +30,13 @@ export default class Game {
         // this.event = new Event(this);
         this.lastTime = 0;
         this.pause = false;
+        // this.swap.click();
         // requestAnimationFrame(this.animate.bind(this, 0))
-        // setInterval(this.resume.bind(this), 0)  //slowed down the animate
-        this.animate(0);
+        setInterval(this.resume.bind(this), 0)  //slowed down the animate
+        // while (!this.pause){
+        // this.animate(0);
+        // }
+        // this.resume();
         // this.event.hover_check();
         // this.animate();
         // this.draw();
@@ -40,12 +44,14 @@ export default class Game {
         // this.debug_status = true;
     }
 
-    // resume(){
-    //     if (!this.pause){
-    //         this.animate(0);
-    //         // requestAnimationFrame(this.animate.bind(this, 0))
-    //     }
-    // }    
+    resume(){
+        if (!this.pause){
+            // this.animate(0);
+            requestAnimationFrame(this.animate.bind(this))
+        } else {
+            cancelAnimationFrame(this.animate.bind(this))
+        }
+    }    
 
     update(deltaTime){
         // let animateUpdate = ""
@@ -86,15 +92,18 @@ export default class Game {
         this.update(deltaTime);
         // this.update();
         this.draw();
-        this.swap.click();
+        // console.log(this.pause)
+        // console.log(this.swap.box1)
         // console.log(this.gary.x)
         // setTimeout(() => {
-        setInterval(() => {
+        // setInterval(() => {
+        // requestAnimationFrame(() => {
             if (!this.pause){
                 // setInterval(() => requestAnimationFrame(this.animate.bind(this), 0), 5000)
                 requestAnimationFrame(this.animate.bind(this))
             }
-        }, 0)
+        // })
+        // }, 0)
             // setInterval(() => {(this.animate.bind(this))}, 2000)
         // }
         // }, 20)
