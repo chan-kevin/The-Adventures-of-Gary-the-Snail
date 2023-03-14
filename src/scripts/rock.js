@@ -1,5 +1,5 @@
 export default class Rock {
-    constructor(game){
+    constructor(game, x, y){
         // this.ctx = ctx;
         // this.width = width;
         // this.height = height;
