@@ -171,6 +171,7 @@ export default class Gary {
             // this.game.gary = [];
             // this.directionRight = !this.directionRight;
             this.shocked = true;
+            // this.game.gameover = true;
         }
 
         if (this.x > this.game.width - this.sourceX) this.directionRight = !this.directionRight;

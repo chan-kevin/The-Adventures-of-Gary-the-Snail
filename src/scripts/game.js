@@ -7,6 +7,7 @@ import Jellyfish from "./jellyfish";
 import Swap from "./swap";
 import Frame from "./frame";
 import Obstacles from "./rock";
+import Gameover from "./gameover";
 
 export default class Game {
     // constructor(ctx){
@@ -27,9 +28,11 @@ export default class Game {
         this.jellyfish = new Jellyfish(this);
         this.swap = new Swap(this);
         this.gary = new Gary(this);
+        this.over = new Gameover(this);
         // this.event = new Event(this);
         this.lastTime = 0;
         this.pause = false;
+        this.gameover = false;
         // this.swap.click();
         // requestAnimationFrame(this.animate.bind(this, 0))
         setInterval(this.resume.bind(this), 0)  //slowed down the animate
@@ -100,10 +103,15 @@ export default class Game {
         // setTimeout(() => {
         // setInterval(() => {
         // requestAnimationFrame(() => {
-        if (!this.pause){
+        if (!this.pause && !this.gameover){
             // setInterval(() => requestAnimationFrame(this.animate.bind(this), 0), 5000)
             requestAnimationFrame(this.animate.bind(this))
         }
+
+        // if (this.gameover) {
+        //     this.over.draw();
+        // }
+
         // })
         // }, 0)
             // setInterval(() => {(this.animate.bind(this))}, 2000)
