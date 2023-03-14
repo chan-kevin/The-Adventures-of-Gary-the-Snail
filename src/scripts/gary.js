@@ -28,7 +28,7 @@ export default class Gary {
         this.rightGary = [document.getElementById("gary"), document.getElementById("gary2"), document.getElementById("gary3")]
         this.leftGary = [document.getElementById("gary4"), document.getElementById("gary5"), document.getElementById("gary6")]
         // this.draw();
-        this.direction = "right";
+        this.directionRight = true;
     }
 
     update(deltaTime){
@@ -46,8 +46,8 @@ export default class Gary {
 
             if (this.image_num < 2) this.image_num++;
             else this.image_num = 0;
-            if (this.direction === "right") this.x+=6;
-            else if (this.direction === "left") this.x-=6;
+            if (this.directionRight) this.x+=6;
+            else if (!this.directionRight) this.x-=6;
 
         } else {
             this.frameTimer += deltaTime;
@@ -59,8 +59,8 @@ export default class Gary {
 
     //     if (this.image_num < 2) this.image_num++;
     //     else this.image_num = 0;
-    //     if (this.direction === "right") this.x+=3;
-    //     else if (this.direction === "left") this.x-=3;
+    //     if (this.directionRight === "right") this.x+=3;
+    //     else if (this.directionRight === "left") this.x-=3;
     // }
 
     draw(){  
@@ -72,12 +72,12 @@ export default class Gary {
 
        
 
-        if (this.direction === "right") {
+        if (this.directionRight) {
             this.game.ctx.strokeRect(this.x, this.y, this.objectWidth, this.objectHeight);
             this.game.ctx.drawImage(this.rightGary[this.image_num], this.sourceX, this.sourceY, this.sourceWidth, this.sourceHeight, this.x, this.y, this.objectWidth, this.objectHeight);
         }
 
-        if (this.direction === "left") {
+        if (!this.directionRight) {
             this.game.ctx.strokeRect(this.x, this.y, this.objectWidth, this.objectHeight);
             this.game.ctx.drawImage(this.leftGary[this.image_num], this.sourceX-20, this.sourceY, this.sourceWidth, this.sourceHeight+10, this.x, this.y, this.objectWidth, this.objectHeight);
         }
@@ -95,21 +95,21 @@ export default class Gary {
         // this.x+=5;
 
         // if (this.game.rock.x < (this.x + this.objectWidth)) {
-        //     this.direction = "left";
+        //     this.directionRight = "left";
         //     // while (this.game.rock.frame < this.game.rock.maxFrame){
         //     // this.game.ctx.drawImage(this.game.rock.image, this.game.rock.frame * this.game.rock.sourceX, this.game.rock.sourceY, this.game.rock.sourceWidth, this.game.rock.sourceHeight, this.game.rock.x, this.game.rock.y, this.game.rock.objectWidth, this.game.rock.objectHeight);
         //     // this.game.rock.frame ++;
         //     // console.log(this.game.rock.frame)
         //     // }
         // }
-        // if (this.direction === "right"){
+        // if (this.directionRight === "right"){
         //     this.x += 5;
         //     // console.log(this.x);
-        //     if (this.x > this.game.width - this.sourceX) this.direction = "left";
+        //     if (this.x > this.game.width - this.sourceX) this.directionRight = "left";
         // }
-        // if (this.direction === "left") {
+        // if (this.directionRight === "left") {
         //     this.x -= 5;
-        //     if (this.x <= 0) this.direction = "right";
+        //     if (this.x <= 0) this.directionRight = "right";
         // }
 
         // if (this.x <= 0) this.x = 0;
@@ -118,8 +118,13 @@ export default class Gary {
     }
     checkCollision(){
         //check if gary hits rock
-        if (this.game.rock.boxX < (this.x + this.objectWidth)) {
-                this.direction = "left";
+        if (
+            (this.game.rock.x + 35 < (this.x + this.objectWidth)) &&
+            ((this.game.rock.x + 35 + this.game.rock.objectWidth) > this.x) &&
+            (this.game.rock.y < (this.y + this.objectHeight)) &&
+            ((this.game.rock.y + this.game.rock.objectHeight) > this.y)
+            ){
+                this.directionRight = !this.directionRight;
                 // while (this.game.rock.frame < this.game.rock.maxFrame){
                 // this.game.ctx.drawImage(this.game.rock.image, this.game.rock.frame * this.game.rock.sourceX, this.game.rock.sourceY, this.game.rock.sourceWidth, this.game.rock.sourceHeight, this.game.rock.x, this.game.rock.y, this.game.rock.objectWidth, this.game.rock.objectHeight);
                 // this.game.rock.frame ++;
@@ -128,20 +133,26 @@ export default class Gary {
         }
 
         //check if gary hits jellyfish
-        if ((this.game.jellyfish.x + this.game.jellyfish.objectWidth) > this.x) {
-            this.direction = "right";
+        if (
+            (this.game.jellyfish.x < (this.x + this.objectWidth)) &&
+            ((this.game.jellyfish.x + this.game.jellyfish.objectWidth) > this.x) &&
+            (this.game.jellyfish.y < (this.y + this.objectHeight)) &&
+            ((this.game.jellyfish.y + this.game.jellyfish.objectHeight) > this.y)
+            ){
+            // this.game.gary = [];
+            this.directionRight = !this.directionRight;
         }
 
-        if (this.x > this.game.width - this.sourceX) this.direction = "left";
-        if (this.x <= 0) this.direction = "right";
-            // if (this.direction === "right"){
+        if (this.x > this.game.width - this.sourceX) this.directionRight = !this.directionRight;
+        if (this.x <= 0) this.directionRight = !this.directionRight;
+            // if (this.directionRight === "right"){
             //     this.x += 5;
             //     // console.log(this.x);
-            //     if (this.x > this.game.width - this.sourceX) this.direction = "left";
+            //     if (this.x > this.game.width - this.sourceX) this.directionRight = "left";
             // }
-            // if (this.direction === "left") {
+            // if (this.directionRight === "left") {
             //     this.x -= 5;
-            //     if (this.x <= 0) this.direction = "right";
+            //     if (this.x <= 0) this.directionRight = "right";
             // }
     } 
 }

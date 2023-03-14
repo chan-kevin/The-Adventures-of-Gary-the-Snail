@@ -413,8 +413,394 @@ export default class Swap{
                     }
                 }
             }
-            console.log(this.box1)
+
+
+            for (const obj in this.box2){
+                if (this.box2Frame === "topLeft"){
+                    // this.game.gary.x += 100;
+                    // console.log(this.game.gary.x)
+                    // console.log(this.game.gary.x)
+                    // console.log(obj)
+                    // console.log(this.box1)
+                    // console.log("hi")
+                    if (obj === "gary"){
+                        if (this.box1Frame === "topMid"){
+                            this.game.gary.x += frameWidth;
+                        }
+                        if (this.box1Frame === "topRight"){
+                            this.game.gary.x += (2 * frameWidth);
+                        }
+                        if (this.box1Frame === "botLeft"){
+                            this.game.gary.y += frameHeight;
+                        }
+                        if (this.box1Frame === "botMid"){
+                            this.game.gary.x += frameWidth;
+                            this.game.gary.y += frameHeight;
+                        }
+                        if (this.box1Frame === "botRight"){
+                            this.game.gary.x += (2 * frameWidth);
+                            this.game.gary.y += frameHeight;
+                        }
+                    }
+
+                    if (obj === "rock"){
+                        if (this.box1Frame === "topMid"){
+                            this.game.rock.x += frameWidth;
+                        }
+                        if (this.box1Frame === "topRight"){
+                            this.game.rock.x += (2 * frameWidth);
+                        }
+                        if (this.box1Frame === "botLeft"){
+                            this.game.rock.y += frameHeight;
+                        }
+                        if (this.box1Frame === "botMid"){
+                            this.game.rock.x += frameWidth;
+                            this.game.rock.y += frameHeight;
+                        }
+                        if (this.box1Frame === "botRight"){
+                            this.game.rock.x += (2 * frameWidth);
+                            this.game.rock.y += frameHeight;
+                        }
+                    }
+
+                    if (obj === "jellyfish"){
+                        if (this.box1Frame === "topMid"){
+                            this.game.jellyfish.x += frameWidth;
+                        }
+                        if (this.box1Frame === "topRight"){
+                            this.game.jellyfish.x += (2 * frameWidth);
+                        }
+                        if (this.box1Frame === "botLeft"){
+                            this.game.jellyfish.y += frameHeight;
+                        }
+                        if (this.box1Frame === "botMid"){
+                            this.game.jellyfish.x += frameWidth;
+                            this.game.jellyfish.y += frameHeight;
+                        }
+                        if (this.box1Frame === "botRight"){
+                            this.game.jellyfish.x += (2 * frameWidth);
+                            this.game.jellyfish.y += frameHeight;
+                        }
+                    }
+                }
+
+                if (this.box2Frame === "topMid"){
+                    if (obj === "gary"){
+                        if (this.box1Frame === "topLeft"){
+                            this.game.gary.x -= frameWidth;
+                        }
+                        if (this.box1Frame === "topRight"){
+                            this.game.gary.x += frameWidth;
+                        }
+                        if (this.box1Frame === "botLeft"){
+                            this.game.gary.x -= frameWidth;
+                            this.game.gary.y += frameHeight;
+                        }
+                        if (this.box1Frame === "botMid"){
+                            this.game.gary.y += frameHeight;
+                        }
+                        if (this.box1Frame === "botRight"){
+                            this.game.gary.x += frameWidth;
+                            this.game.gary.y += frameHeight;
+                        }
+                    }
+
+                    if (obj === "rock"){
+                        if (this.box1Frame === "topLeft"){
+                            this.game.rock.x -= frameWidth;
+                        }
+                        if (this.box1Frame === "topRight"){
+                            this.game.rock.x += frameWidth;
+                        }
+                        if (this.box1Frame === "botLeft"){
+                            this.game.rock.x -= frameWidth;
+                            this.game.rock.y += frameHeight;
+                        }
+                        if (this.box1Frame === "botMid"){
+                            this.game.rock.y += frameHeight;
+                        }
+                        if (this.box1Frame === "botRight"){
+                            this.game.rock.x += frameWidth;
+                            this.game.rock.y += frameHeight;
+                        }
+                    }
+
+                    if (obj === "jellyfish"){
+                        if (this.box1Frame === "topLeft"){
+                            this.game.jellyfish.x -= frameWidth;
+                        }
+                        if (this.box1Frame === "topRight"){
+                            this.game.jellyfish.x += frameWidth;
+                        }
+                        if (this.box1Frame === "botLeft"){
+                            this.game.jellyfish.x -= frameWidth;
+                            this.game.jellyfish.y += frameHeight;
+                        }
+                        if (this.box1Frame === "botMid"){
+                            this.game.jellyfish.y += frameHeight;
+                        }
+                        if (this.box1Frame === "botRight"){
+                            this.game.jellyfish.x += frameWidth;
+                            this.game.jellyfish.y += frameHeight;
+                        }
+                    }
+                }
+
+                if (this.box2Frame === "topRight"){
+                    if (obj === "gary"){
+                        if (this.box1Frame === "topLeft"){
+                            this.game.gary.x -= (2 * frameWidth);
+                        }
+                        if (this.box1Frame === "topMid"){
+                            this.game.gary.x -= frameWidth;
+                        }
+                        if (this.box1Frame === "botLeft"){
+                            this.game.gary.x -= (2 * frameWidth);
+                            this.game.gary.y += frameHeight;
+                        }
+                        if (this.box1Frame === "botMid"){
+                            this.game.gary.x -= frameWidth;
+                            this.game.gary.y += frameHeight;
+                        }
+                        if (this.box1Frame === "botRight"){
+                            this.game.gary.y += frameHeight;
+                        }
+                    }
+
+                    if (obj === "rock"){
+                        if (this.box1Frame === "topLeft"){
+                            this.game.rock.x -= (2 * frameWidth);
+                        }
+                        if (this.box1Frame === "topMid"){
+                            this.game.rock.x -= frameWidth;
+                        }
+                        if (this.box1Frame === "botLeft"){
+                            this.game.rock.x -= (2 * frameWidth);
+                            this.game.rock.y += frameHeight;
+                        }
+                        if (this.box1Frame === "botMid"){
+                            this.game.rock.x -= frameWidth;
+                            this.game.rock.y += frameHeight;
+                        }
+                        if (this.box1Frame === "botRight"){
+                            this.game.rock.y += frameHeight;
+                        }
+                    }
+
+                    if (obj === "jellyfish"){
+                        if (this.box1Frame === "topLeft"){
+                            this.game.jellyfish.x -= (2 * frameWidth);
+                        }
+                        if (this.box1Frame === "topMid"){
+                            this.game.jellyfish.x -= frameWidth;
+                        }
+                        if (this.box1Frame === "botLeft"){
+                            this.game.jellyfish.x -= (2 * frameWidth);
+                            this.game.jellyfish.y += frameHeight;
+                        }
+                        if (this.box1Frame === "botMid"){
+                            this.game.jellyfish.x -= frameWidth;
+                            this.game.jellyfish.y += frameHeight;
+                        }
+                        if (this.box1Frame === "botRight"){
+                            this.game.jellyfish.y += frameHeight;
+                        }
+                    }
+                }
+
+                if (this.box2Frame === "botLeft"){
+                    if (obj === "gary"){
+                        if (this.box1Frame === "topLeft"){
+                            this.game.gary.y -= frameHeight;
+                        }
+                        if (this.box1Frame === "topMid"){
+                            this.game.gary.x += frameWidth;
+                            this.game.gary.y -= frameHeight
+                        }
+                        if (this.box1Frame === "topRight"){
+                            this.game.gary.x += (2 * frameWidth);
+                            this.game.gary.y -= frameHeight;
+                        }
+                        if (this.box1Frame === "botMid"){
+                            this.game.gary.x += frameWidth;
+                        }
+                        if (this.box1Frame === "botRight"){
+                            this.game.gary.x += (2 * frameWidth);
+                        }
+                        // console.log(this.game.gary.x)
+                        // console.log(this.game.gary.y)
+                        // console.log(frameWidth)
+                        // console.log(frameHeight)
+                    }
+
+                    if (obj === "rock"){
+                        if (this.box1Frame === "topLeft"){
+                            this.game.rock.y -= frameHeight;
+                        }
+                        if (this.box1Frame === "topMid"){
+                            this.game.rock.x += frameWidth;
+                            this.game.rock.y -= frameHeight
+                        }
+                        if (this.box1Frame === "topRight"){
+                            this.game.rock.x += (2 * frameWidth);
+                            this.game.rock.y -= frameHeight;
+                        }
+                        if (this.box1Frame === "botMid"){
+                            this.game.rock.x += frameWidth;
+                        }
+                        if (this.box1Frame === "botRight"){
+                            this.game.rock.x += (2 * frameWidth);
+                        }
+                    }
+
+                    if (obj === "jellyfish"){
+                        if (this.box1Frame === "topLeft"){
+                            this.game.jellyfish.y -= frameHeight;
+                        }
+                        if (this.box1Frame === "topMid"){
+                            this.game.jellyfish.x += frameWidth;
+                            this.game.jellyfish.y -= frameHeight
+                        }
+                        if (this.box1Frame === "topRight"){
+                            this.game.jellyfish.x += (2 * frameWidth);
+                            this.game.jellyfish.y -= frameHeight;
+                        }
+                        if (this.box1Frame === "botMid"){
+                            this.game.jellyfish.x += frameWidth;
+                        }
+                        if (this.box1Frame === "botRight"){
+                            this.game.jellyfish.x += (2 * frameWidth);
+                        }
+                    }
+                }
+
+                if (this.box2Frame === "botMid"){
+                    if (obj === "gary"){
+                        if (this.box1Frame === "topLeft"){
+                            this.game.gary.x -= frameWidth
+                            this.game.gary.y -= frameHeight;
+                        }
+                        if (this.box1Frame === "topMid"){
+                            this.game.gary.y -= frameHeight
+                        }
+                        if (this.box1Frame === "topRight"){
+                            this.game.gary.x += frameWidth;
+                            this.game.gary.y -= frameHeight;
+                        }
+                        if (this.box1Frame === "botLeft"){
+                            this.game.gary.x -= frameWidth;
+                        }
+                        if (this.box1Frame === "botRight"){
+                            this.game.gary.x += frameWidth;
+                        }
+                    }
+
+                    if (obj === "rock"){
+                        if (this.box1Frame === "topLeft"){
+                            this.game.rock.x -= frameWidth
+                            this.game.rock.y -= frameHeight;
+                        }
+                        if (this.box1Frame === "topMid"){
+                            this.game.rock.y -= frameHeight
+                        }
+                        if (this.box1Frame === "topRight"){
+                            this.game.rock.x += frameWidth;
+                            this.game.rock.y -= frameHeight;
+                        }
+                        if (this.box1Frame === "botLeft"){
+                            this.game.rock.x -= frameWidth;
+                        }
+                        if (this.box1Frame === "botRight"){
+                            this.game.rock.x += frameWidth;
+                        }
+                    }
+
+                    if (obj === "jellyfish"){
+                        if (this.box1Frame === "topLeft"){
+                            this.game.jellyfish.x -= frameWidth
+                            this.game.jellyfish.y -= frameHeight;
+                        }
+                        if (this.box1Frame === "topMid"){
+                            this.game.jellyfish.y -= frameHeight
+                        }
+                        if (this.box1Frame === "topRight"){
+                            this.game.jellyfish.x += frameWidth;
+                            this.game.jellyfish.y -= frameHeight;
+                        }
+                        if (this.box1Frame === "botLeft"){
+                            this.game.jellyfish.x -= frameWidth;
+                        }
+                        if (this.box1Frame === "botRight"){
+                            this.game.jellyfish.x += frameWidth;
+                        }
+                    }
+                }
+
+                if (this.box2Frame === "botRight"){
+                    if (obj === "gary"){
+                        if (this.box1Frame === "topLeft"){
+                            this.game.gary.x -= (2 * frameWidth);
+                            this.game.gary.y -= frameHeight;
+                        }
+                        if (this.box1Frame === "topMid"){
+                            this.game.gary.x -= frameWidth
+                            this.game.gary.y -= frameHeight
+                        }
+                        if (this.box1Frame === "topRight"){
+                            this.game.gary.y -= frameHeight;
+                        }
+                        if (this.box1Frame === "botLeft"){
+                            this.game.gary.x -= (2 * frameWidth);
+                        }
+                        if (this.box1Frame === "botMid"){
+                            this.game.gary.x -= frameWidth;
+                        }
+                    }
+
+                    if (obj === "rock"){
+                        if (this.box1Frame === "topLeft"){
+                            this.game.rock.x -= frameWidth
+                            this.game.rock.y -= frameHeight;
+                        }
+                        if (this.box1Frame === "topMid"){
+                            this.game.rock.y -= frameHeight
+                        }
+                        if (this.box1Frame === "topRight"){
+                            this.game.rock.x += frameWidth;
+                            this.game.rock.y -= frameHeight;
+                        }
+                        if (this.box1Frame === "botLeft"){
+                            this.game.rock.x -= frameWidth;
+                        }
+                        if (this.box1Frame === "botRight"){
+                            this.game.rock.x += frameWidth;
+                        }
+                    }
+
+                    if (obj === "jellyfish"){
+                        if (this.box1Frame === "topLeft"){
+                            this.game.jellyfish.x -= frameWidth
+                            this.game.jellyfish.y -= frameHeight;
+                        }
+                        if (this.box1Frame === "topMid"){
+                            this.game.jellyfish.y -= frameHeight
+                        }
+                        if (this.box1Frame === "topRight"){
+                            this.game.jellyfish.x += frameWidth;
+                            this.game.jellyfish.y -= frameHeight;
+                        }
+                        if (this.box1Frame === "botLeft"){
+                            this.game.jellyfish.x -= frameWidth;
+                        }
+                        if (this.box1Frame === "botRight"){
+                            this.game.jellyfish.x += frameWidth;
+                        }
+                    }
+                }
+            }
+            // console.log(this.box1)
             this.box1 = {};
+            this.box2 = {};
             this.selectFrame = 0;
             // this.game.pause = true;
         }

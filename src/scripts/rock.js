@@ -18,7 +18,7 @@ export default class Rock {
         this.sourceHeight = 500;
         this.x = 620;
         this.y = 375;
-        this.boxX = 655;
+        this.boxX = 655; //want to hit
         this.objectWidth = 180;
         this.objectHeight = 180;
 
@@ -92,7 +92,12 @@ export default class Rock {
     }
 
     collision(){
-        if ((this.game.gary.x + this.game.gary.objectWidth) > this.boxX){
+        if (
+            ((this.game.gary.x + this.game.gary.objectWidth) > this.x + 35) &&
+            ((this.x + 35 + this.objectWidth) > this.game.gary.x) &&
+            (this.y < (this.game.gary.y + this.game.gary.objectHeight)) &&
+            ((this.y + this.objectHeight) > this.game.gary.y)
+            ){
             // for (let frame = 0; frame < this.maxFrame; frame ++){
             // this.animate(frame);
             // }

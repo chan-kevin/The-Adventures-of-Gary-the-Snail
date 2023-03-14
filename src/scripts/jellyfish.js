@@ -54,7 +54,12 @@ export default class Jellyfish {
     }
 
     collision(){
-        if ((this.x + this.objectWidth) > this.game.gary.x){
+        if (
+            (this.game.gary.x < (this.x + this.objectWidth)) &&
+            ((this.game.gary.x + this.game.gary.objectWidth) > this.x) &&
+            (this.game.gary.y < (this.y + this.objectHeight)) &&
+            ((this.game.gary.y + this.game.gary.objectHeight) > this.y)
+            ){
             this.maxFrame = 3;
             // console.log("hi")
         }
