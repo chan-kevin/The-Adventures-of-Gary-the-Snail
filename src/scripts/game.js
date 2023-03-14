@@ -89,6 +89,8 @@ export default class Game {
         this.lastTime = timeStamp;
         // console.log(this.lastTime)
         this.ctx.clearRect(0,0,this.width,this.height);
+        // this.swap.click();
+        // this.swap.checkStatus();
         this.update(deltaTime);
         // this.update();
         this.draw();
@@ -98,10 +100,10 @@ export default class Game {
         // setTimeout(() => {
         // setInterval(() => {
         // requestAnimationFrame(() => {
-            if (!this.pause){
-                // setInterval(() => requestAnimationFrame(this.animate.bind(this), 0), 5000)
-                requestAnimationFrame(this.animate.bind(this))
-            }
+        if (!this.pause){
+            // setInterval(() => requestAnimationFrame(this.animate.bind(this), 0), 5000)
+            requestAnimationFrame(this.animate.bind(this))
+        }
         // })
         // }, 0)
             // setInterval(() => {(this.animate.bind(this))}, 2000)

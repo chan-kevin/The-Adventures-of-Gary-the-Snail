@@ -28,11 +28,17 @@ export default class Swap{
         const frameHeight = this.game.height/2;
 
         if (this.selectFrame === 2) {
-            this.selectFrame = 0;
-            
-            for (const obj in box1){
-                if (this.box1Frame === "topLeft")
-                    if (obj === gary){
+        //     this.selectFrame = 0;
+        // }
+            for (const obj in this.box1){
+                if (this.box1Frame === "topLeft"){
+                    // this.game.gary.x += 100;
+                    // console.log(this.game.gary.x)
+                    // console.log(this.game.gary.x)
+                    // console.log(obj)
+                    // console.log(this.box1)
+                    // console.log("hi")
+                    if (obj === "gary"){
                         if (this.box2Frame === "topMid"){
                             this.game.gary.x += frameWidth;
                         }
@@ -40,19 +46,19 @@ export default class Swap{
                             this.game.gary.x += (2 * frameWidth);
                         }
                         if (this.box2Frame === "botLeft"){
-                            this.game.gary.y -= frameHeight;
+                            this.game.gary.y += frameHeight;
                         }
                         if (this.box2Frame === "botMid"){
                             this.game.gary.x += frameWidth;
-                            this.game.gary.y -= frameHeight;
+                            this.game.gary.y += frameHeight;
                         }
                         if (this.box2Frame === "botRight"){
                             this.game.gary.x += (2 * frameWidth);
-                            this.game.gary.y -= frameHeight;
+                            this.game.gary.y += frameHeight;
                         }
                     }
 
-                    if (obj === rock){
+                    if (obj === "rock"){
                         if (this.box2Frame === "topMid"){
                             this.game.rock.x += frameWidth;
                         }
@@ -60,19 +66,19 @@ export default class Swap{
                             this.game.rock.x += (2 * frameWidth);
                         }
                         if (this.box2Frame === "botLeft"){
-                            this.game.rock.y -= frameHeight;
+                            this.game.rock.y += frameHeight;
                         }
                         if (this.box2Frame === "botMid"){
                             this.game.rock.x += frameWidth;
-                            this.game.rock.y -= frameHeight;
+                            this.game.rock.y += frameHeight;
                         }
                         if (this.box2Frame === "botRight"){
                             this.game.rock.x += (2 * frameWidth);
-                            this.game.rock.y -= frameHeight;
+                            this.game.rock.y += frameHeight;
                         }
                     }
 
-                    if (obj === jellyfish){
+                    if (obj === "jellyfish"){
                         if (this.box2Frame === "topMid"){
                             this.game.jellyfish.x += frameWidth;
                         }
@@ -80,20 +86,21 @@ export default class Swap{
                             this.game.jellyfish.x += (2 * frameWidth);
                         }
                         if (this.box2Frame === "botLeft"){
-                            this.game.jellyfish.y -= frameHeight;
+                            this.game.jellyfish.y += frameHeight;
                         }
                         if (this.box2Frame === "botMid"){
                             this.game.jellyfish.x += frameWidth;
-                            this.game.jellyfish.y -= frameHeight;
+                            this.game.jellyfish.y += frameHeight;
                         }
                         if (this.box2Frame === "botRight"){
                             this.game.jellyfish.x += (2 * frameWidth);
-                            this.game.jellyfish.y -= frameHeight;
+                            this.game.jellyfish.y += frameHeight;
                         }
                     }
+                }
 
-                if (this.box1Frame === "topMid")
-                    if (obj === gary){
+                if (this.box1Frame === "topMid"){
+                    if (obj === "gary"){
                         if (this.box2Frame === "topLeft"){
                             this.game.gary.x -= frameWidth;
                         }
@@ -102,18 +109,18 @@ export default class Swap{
                         }
                         if (this.box2Frame === "botLeft"){
                             this.game.gary.x -= frameWidth;
-                            this.game.gary.y -= frameHeight;
+                            this.game.gary.y += frameHeight;
                         }
                         if (this.box2Frame === "botMid"){
-                            this.game.gary.y -= frameHeight;
+                            this.game.gary.y += frameHeight;
                         }
                         if (this.box2Frame === "botRight"){
                             this.game.gary.x += frameWidth;
-                            this.game.gary.y -= frameHeight;
+                            this.game.gary.y += frameHeight;
                         }
                     }
 
-                    if (obj === rock){
+                    if (obj === "rock"){
                         if (this.box2Frame === "topLeft"){
                             this.game.rock.x -= frameWidth;
                         }
@@ -122,18 +129,18 @@ export default class Swap{
                         }
                         if (this.box2Frame === "botLeft"){
                             this.game.rock.x -= frameWidth;
-                            this.game.rock.y -= frameHeight;
+                            this.game.rock.y += frameHeight;
                         }
                         if (this.box2Frame === "botMid"){
-                            this.game.rock.y -= frameHeight;
+                            this.game.rock.y += frameHeight;
                         }
                         if (this.box2Frame === "botRight"){
                             this.game.rock.x += frameWidth;
-                            this.game.rock.y -= frameHeight;
+                            this.game.rock.y += frameHeight;
                         }
                     }
 
-                    if (obj === jellyfish){
+                    if (obj === "jellyfish"){
                         if (this.box2Frame === "topLeft"){
                             this.game.jellyfish.x -= frameWidth;
                         }
@@ -142,19 +149,20 @@ export default class Swap{
                         }
                         if (this.box2Frame === "botLeft"){
                             this.game.jellyfish.x -= frameWidth;
-                            this.game.jellyfish.y -= frameHeight;
+                            this.game.jellyfish.y += frameHeight;
                         }
                         if (this.box2Frame === "botMid"){
-                            this.game.jellyfish.y -= frameHeight;
+                            this.game.jellyfish.y += frameHeight;
                         }
                         if (this.box2Frame === "botRight"){
                             this.game.jellyfish.x += frameWidth;
-                            this.game.jellyfish.y -= frameHeight;
+                            this.game.jellyfish.y += frameHeight;
                         }
                     }
+                }
 
-                    if (this.box1Frame === "topRight")
-                    if (obj === gary){
+                if (this.box1Frame === "topRight"){
+                    if (obj === "gary"){
                         if (this.box2Frame === "topLeft"){
                             this.game.gary.x -= (2 * frameWidth);
                         }
@@ -163,18 +171,18 @@ export default class Swap{
                         }
                         if (this.box2Frame === "botLeft"){
                             this.game.gary.x -= (2 * frameWidth);
-                            this.game.gary.y -= frameHeight;
+                            this.game.gary.y += frameHeight;
                         }
                         if (this.box2Frame === "botMid"){
                             this.game.gary.x -= frameWidth;
-                            this.game.gary.y -= frameHeight;
+                            this.game.gary.y += frameHeight;
                         }
                         if (this.box2Frame === "botRight"){
-                            this.game.gary.y -= frameHeight;
+                            this.game.gary.y += frameHeight;
                         }
                     }
 
-                    if (obj === rock){
+                    if (obj === "rock"){
                         if (this.box2Frame === "topLeft"){
                             this.game.rock.x -= (2 * frameWidth);
                         }
@@ -183,18 +191,18 @@ export default class Swap{
                         }
                         if (this.box2Frame === "botLeft"){
                             this.game.rock.x -= (2 * frameWidth);
-                            this.game.rock.y -= frameHeight;
+                            this.game.rock.y += frameHeight;
                         }
                         if (this.box2Frame === "botMid"){
                             this.game.rock.x -= frameWidth;
-                            this.game.rock.y -= frameHeight;
+                            this.game.rock.y += frameHeight;
                         }
                         if (this.box2Frame === "botRight"){
-                            this.game.rock.y -= frameHeight;
+                            this.game.rock.y += frameHeight;
                         }
                     }
 
-                    if (obj === jellyfish){
+                    if (obj === "jellyfish"){
                         if (this.box2Frame === "topLeft"){
                             this.game.jellyfish.x -= (2 * frameWidth);
                         }
@@ -203,29 +211,30 @@ export default class Swap{
                         }
                         if (this.box2Frame === "botLeft"){
                             this.game.jellyfish.x -= (2 * frameWidth);
-                            this.game.jellyfish.y -= frameHeight;
+                            this.game.jellyfish.y += frameHeight;
                         }
                         if (this.box2Frame === "botMid"){
                             this.game.jellyfish.x -= frameWidth;
-                            this.game.jellyfish.y -= frameHeight;
+                            this.game.jellyfish.y += frameHeight;
                         }
                         if (this.box2Frame === "botRight"){
-                            this.game.jellyfish.y -= frameHeight;
+                            this.game.jellyfish.y += frameHeight;
                         }
                     }
+                }
 
-                    if (this.box1Frame === "botLeft")
-                    if (obj === gary){
+                if (this.box1Frame === "botLeft"){
+                    if (obj === "gary"){
                         if (this.box2Frame === "topLeft"){
-                            this.game.gary.y += frameHeight;
+                            this.game.gary.y -= frameHeight;
                         }
                         if (this.box2Frame === "topMid"){
                             this.game.gary.x += frameWidth;
-                            this.game.gary.y += frameHeight
+                            this.game.gary.y -= frameHeight
                         }
                         if (this.box2Frame === "topRight"){
                             this.game.gary.x += (2 * frameWidth);
-                            this.game.gary.y += frameHeight;
+                            this.game.gary.y -= frameHeight;
                         }
                         if (this.box2Frame === "botMid"){
                             this.game.gary.x += frameWidth;
@@ -233,19 +242,23 @@ export default class Swap{
                         if (this.box2Frame === "botRight"){
                             this.game.gary.x += (2 * frameWidth);
                         }
+                        // console.log(this.game.gary.x)
+                        // console.log(this.game.gary.y)
+                        // console.log(frameWidth)
+                        // console.log(frameHeight)
                     }
 
-                    if (obj === rock){
+                    if (obj === "rock"){
                         if (this.box2Frame === "topLeft"){
-                            this.game.rock.y += frameHeight;
+                            this.game.rock.y -= frameHeight;
                         }
                         if (this.box2Frame === "topMid"){
                             this.game.rock.x += frameWidth;
-                            this.game.rock.y += frameHeight
+                            this.game.rock.y -= frameHeight
                         }
                         if (this.box2Frame === "topRight"){
                             this.game.rock.x += (2 * frameWidth);
-                            this.game.rock.y += frameHeight;
+                            this.game.rock.y -= frameHeight;
                         }
                         if (this.box2Frame === "botMid"){
                             this.game.rock.x += frameWidth;
@@ -255,17 +268,17 @@ export default class Swap{
                         }
                     }
 
-                    if (obj === jellyfish){
+                    if (obj === "jellyfish"){
                         if (this.box2Frame === "topLeft"){
-                            this.game.jellyfish.y += frameHeight;
+                            this.game.jellyfish.y -= frameHeight;
                         }
                         if (this.box2Frame === "topMid"){
                             this.game.jellyfish.x += frameWidth;
-                            this.game.jellyfish.y += frameHeight
+                            this.game.jellyfish.y -= frameHeight
                         }
                         if (this.box2Frame === "topRight"){
                             this.game.jellyfish.x += (2 * frameWidth);
-                            this.game.jellyfish.y += frameHeight;
+                            this.game.jellyfish.y -= frameHeight;
                         }
                         if (this.box2Frame === "botMid"){
                             this.game.jellyfish.x += frameWidth;
@@ -274,19 +287,20 @@ export default class Swap{
                             this.game.jellyfish.x += (2 * frameWidth);
                         }
                     }
+                }
 
-                    if (this.box1Frame === "botMid")
-                    if (obj === gary){
+                if (this.box1Frame === "botMid"){
+                    if (obj === "gary"){
                         if (this.box2Frame === "topLeft"){
                             this.game.gary.x -= frameWidth
-                            this.game.gary.y += frameHeight;
+                            this.game.gary.y -= frameHeight;
                         }
                         if (this.box2Frame === "topMid"){
-                            this.game.gary.y += frameHeight
+                            this.game.gary.y -= frameHeight
                         }
                         if (this.box2Frame === "topRight"){
                             this.game.gary.x += frameWidth;
-                            this.game.gary.y += frameHeight;
+                            this.game.gary.y -= frameHeight;
                         }
                         if (this.box2Frame === "botLeft"){
                             this.game.gary.x -= frameWidth;
@@ -296,17 +310,17 @@ export default class Swap{
                         }
                     }
 
-                    if (obj === rock){
+                    if (obj === "rock"){
                         if (this.box2Frame === "topLeft"){
                             this.game.rock.x -= frameWidth
-                            this.game.rock.y += frameHeight;
+                            this.game.rock.y -= frameHeight;
                         }
                         if (this.box2Frame === "topMid"){
-                            this.game.rock.y += frameHeight
+                            this.game.rock.y -= frameHeight
                         }
                         if (this.box2Frame === "topRight"){
                             this.game.rock.x += frameWidth;
-                            this.game.rock.y += frameHeight;
+                            this.game.rock.y -= frameHeight;
                         }
                         if (this.box2Frame === "botLeft"){
                             this.game.rock.x -= frameWidth;
@@ -316,17 +330,17 @@ export default class Swap{
                         }
                     }
 
-                    if (obj === jellyfish){
+                    if (obj === "jellyfish"){
                         if (this.box2Frame === "topLeft"){
                             this.game.jellyfish.x -= frameWidth
-                            this.game.jellyfish.y += frameHeight;
+                            this.game.jellyfish.y -= frameHeight;
                         }
                         if (this.box2Frame === "topMid"){
-                            this.game.jellyfish.y += frameHeight
+                            this.game.jellyfish.y -= frameHeight
                         }
                         if (this.box2Frame === "topRight"){
                             this.game.jellyfish.x += frameWidth;
-                            this.game.jellyfish.y += frameHeight;
+                            this.game.jellyfish.y -= frameHeight;
                         }
                         if (this.box2Frame === "botLeft"){
                             this.game.jellyfish.x -= frameWidth;
@@ -335,19 +349,20 @@ export default class Swap{
                             this.game.jellyfish.x += frameWidth;
                         }
                     }
+                }
 
-                    if (this.box1Frame === "botRight")
-                    if (obj === gary){
+                if (this.box1Frame === "botRight"){
+                    if (obj === "gary"){
                         if (this.box2Frame === "topLeft"){
                             this.game.gary.x -= (2 * frameWidth);
-                            this.game.gary.y += frameHeight;
+                            this.game.gary.y -= frameHeight;
                         }
                         if (this.box2Frame === "topMid"){
                             this.game.gary.x -= frameWidth
-                            this.game.gary.y += frameHeight
+                            this.game.gary.y -= frameHeight
                         }
                         if (this.box2Frame === "topRight"){
-                            this.game.gary.y += frameHeight;
+                            this.game.gary.y -= frameHeight;
                         }
                         if (this.box2Frame === "botLeft"){
                             this.game.gary.x -= (2 * frameWidth);
@@ -357,17 +372,17 @@ export default class Swap{
                         }
                     }
 
-                    if (obj === rock){
+                    if (obj === "rock"){
                         if (this.box2Frame === "topLeft"){
                             this.game.rock.x -= frameWidth
-                            this.game.rock.y += frameHeight;
+                            this.game.rock.y -= frameHeight;
                         }
                         if (this.box2Frame === "topMid"){
-                            this.game.rock.y += frameHeight
+                            this.game.rock.y -= frameHeight
                         }
                         if (this.box2Frame === "topRight"){
                             this.game.rock.x += frameWidth;
-                            this.game.rock.y += frameHeight;
+                            this.game.rock.y -= frameHeight;
                         }
                         if (this.box2Frame === "botLeft"){
                             this.game.rock.x -= frameWidth;
@@ -377,17 +392,17 @@ export default class Swap{
                         }
                     }
 
-                    if (obj === jellyfish){
+                    if (obj === "jellyfish"){
                         if (this.box2Frame === "topLeft"){
                             this.game.jellyfish.x -= frameWidth
-                            this.game.jellyfish.y += frameHeight;
+                            this.game.jellyfish.y -= frameHeight;
                         }
                         if (this.box2Frame === "topMid"){
-                            this.game.jellyfish.y += frameHeight
+                            this.game.jellyfish.y -= frameHeight
                         }
                         if (this.box2Frame === "topRight"){
                             this.game.jellyfish.x += frameWidth;
-                            this.game.jellyfish.y += frameHeight;
+                            this.game.jellyfish.y -= frameHeight;
                         }
                         if (this.box2Frame === "botLeft"){
                             this.game.jellyfish.x -= frameWidth;
@@ -396,8 +411,11 @@ export default class Swap{
                             this.game.jellyfish.x += frameWidth;
                         }
                     }
+                }
             }
-
+            console.log(this.box1)
+            this.box1 = {};
+            this.selectFrame = 0;
             // this.game.pause = true;
         }
         requestAnimationFrame(this.checkStatus.bind(this));
@@ -435,20 +453,21 @@ export default class Swap{
                 if (this.selectFrame === 1){
                     this.box1Frame = "topLeft";
                     if (
-                        (this.game.gary.x > this.topLeft[0] && this.game.gary.x < this.topLeft[1])
+                        (this.game.gary.x > this.topLeft[0] && this.game.gary.x < this.topLeft[1] && this.game.gary.y < this.topLeft[3])
                     ){
                         // this.box1.gary = 0;
+                        // console.log(this.box1Frame)
                         this.box1.gary = this.game.gary.x;
                     }
 
                     if (
-                        (this.game.rock.x > this.topLeft[0] && this.game.rock.x < this.topLeft[1])
+                        (this.game.rock.x > this.topLeft[0] && this.game.rock.x < this.topLeft[1] && this.game.rock.y < this.topLeft[3])
                     ){
                         this.box1.rock = this.game.rock.x;
                     }
 
                     if (
-                        (this.game.jellyfish.x > this.topLeft[0] && this.game.jellyfish.x < this.topLeft[1])
+                        (this.game.jellyfish.x > this.topLeft[0] && this.game.jellyfish.x < this.topLeft[1] && this.game.jellyfish.y < this.topLeft[3])
                     ){
                         this.box1.jellyfish = this.game.jellyfish.x;
                     }
@@ -457,19 +476,19 @@ export default class Swap{
                 if (this.selectFrame === 2){
                     this.box2Frame = "topLeft";
                     if (
-                        (this.game.gary.x > this.topLeft[0] && this.game.gary.x < this.topLeft[1])
+                        (this.game.gary.x > this.topLeft[0] && this.game.gary.x < this.topLeft[1] && this.game.gary.y < this.topLeft[3])
                     ){
                         this.box2.gary = this.game.gary.x;
                     }
 
                     if (
-                        (this.game.rock.x > this.topLeft[0] && this.game.rock.x < this.topLeft[1])
+                        (this.game.rock.x > this.topLeft[0] && this.game.rock.x < this.topLeft[1] && this.game.rock.y < this.topLeft[3])
                     ){
                         this.box2.rock = this.game.rock.x;
                     }
 
                     if (
-                        (this.game.jellyfish.x > this.topLeft[0] && this.game.jellyfish.x < this.topLeft[1])
+                        (this.game.jellyfish.x > this.topLeft[0] && this.game.jellyfish.x < this.topLeft[1] && this.game.jellyfish.y < this.topLeft[3])
                     ){
                         this.box2.jellyfish = this.game.jellyfish.x;
                     }
@@ -496,19 +515,22 @@ export default class Swap{
                 if (this.selectFrame === 1){
                     this.box1Frame = "topMid";
                     if (
-                        (this.game.gary.x > this.topMid[0] && this.game.gary.x < this.topMid[1])
+                        (this.game.gary.x > this.topMid[0] && this.game.gary.x < this.topMid[1] && this.game.gary.y < this.topLeft[3])
                     ){
+                        // console.log(this.topLeft[3])
                         this.box1.gary = this.game.gary.x;
+                        // console.log(this.box1)
+                        // console.log(this.box1Frame)
                     }
 
                     if (
-                        (this.game.rock.x > this.topMid[0] && this.game.rock.x < this.topMid[1])
+                        (this.game.rock.x > this.topMid[0] && this.game.rock.x < this.topMid[1] && this.game.rock.y < this.topLeft[3])
                     ){
                         this.box1.rock = this.game.rock.x;
                     }
 
                     if (
-                        (this.game.jellyfish.x > this.topMid[0] && this.game.jellyfish.x < this.topMid[1])
+                        (this.game.jellyfish.x > this.topMid[0] && this.game.jellyfish.x < this.topMid[1] && this.game.jellyfish.y < this.topLeft[3])
                     ){
                         this.box1.jellyfish = this.game.jellyfish.x;
                     }
@@ -517,19 +539,19 @@ export default class Swap{
                 if (this.selectFrame === 2){
                     this.box2Frame = "topMid";
                     if (
-                        (this.game.gary.x > this.topMid[0] && this.game.gary.x < this.topMid[1])
+                        (this.game.gary.x > this.topMid[0] && this.game.gary.x < this.topMid[1] && this.game.gary.y < this.topLeft[3])
                     ){
                         this.box2.gary = this.game.gary.x;
                     }
 
                     if (
-                        (this.game.rock.x > this.topMid[0] && this.game.rock.x < this.topMid[1])
+                        (this.game.rock.x > this.topMid[0] && this.game.rock.x < this.topMid[1] && this.game.rock.y < this.topLeft[3])
                     ){
                         this.box2.rock = this.game.rock.x;
                     }
 
                     if (
-                        (this.game.jellyfish.x > this.topMid[0] && this.game.jellyfish.x < this.topMid[1])
+                        (this.game.jellyfish.x > this.topMid[0] && this.game.jellyfish.x < this.topMid[1] && this.game.jellyfish.y < this.topLeft[3])
                     ){
                         this.box2.jellyfish = this.game.jellyfish.x;
                     }
@@ -554,42 +576,42 @@ export default class Swap{
                 if (this.selectFrame === 1){
                     this.box1Frame = "topRight";
                     if (
-                        (this.game.gary.x > this.topRight[0] && this.game.gary.x < this.topRight[1])
+                        (this.game.gary.x > this.topRight[0] && this.game.gary.x < this.topRight[1] && this.game.gary.y < this.topLeft[3])
                     ){
                         this.box1.gary = this.game.gary.x;
                     }
 
                     if (
-                        (this.game.rock.x > this.topRight[0] && this.game.rock.x < this.topRight[1])
+                        (this.game.rock.x > this.topRight[0] && this.game.rock.x < this.topRight[1] && this.game.rock.y < this.topLeft[3])
                     ){
                         this.box1.rock = this.game.rock.x;
                     }
 
                     if (
-                        (this.game.jellyfish.x > this.topRight[0] && this.game.jellyfish.x < this.topRight[1])
+                        (this.game.jellyfish.x > this.topRight[0] && this.game.jellyfish.x < this.topRight[1] && this.game.jellyfish.y < this.topLeft[3])
                     ){
-                        this.box1[jellyfish] = this.game.jellyfish.x;
+                        this.box1.jellyfish = this.game.jellyfish.x;
                     }
                 }
 
                 if (this.selectFrame === 2){
                     this.box2Frame = "topRight";
                     if (
-                        (this.game.gary.x > this.topRight[0] && this.game.gary.x < this.topRight[1])
+                        (this.game.gary.x > this.topRight[0] && this.game.gary.x < this.topRight[1] && this.game.gary.y < this.topLeft[3])
                     ){
                         this.box2.gary = this.game.gary.x;
                     }
 
                     if (
-                        (this.game.rock.x > this.topRight[0] && this.game.rock.x < this.topRight[1])
+                        (this.game.rock.x > this.topRight[0] && this.game.rock.x < this.topRight[1] && this.game.rock.y < this.topLeft[3])
                     ){
                         this.box2.rock = this.game.rock.x;
                     }
 
                     if (
-                        (this.game.jellyfish.x > this.topRight[0] && this.game.jellyfish.x < this.topRight[1])
+                        (this.game.jellyfish.x > this.topRight[0] && this.game.jellyfish.x < this.topRight[1] && this.game.jellyfish.y < this.topLeft[3])
                     ){
-                        this.box2[jellyfish] = this.game.jellyfish.x;
+                        this.box2.jellyfish = this.game.jellyfish.x;
                     }
                 }
                 // this.ctx.strokeStyle = "red";
@@ -612,7 +634,7 @@ export default class Swap{
                 if (this.selectFrame === 1){
                     this.box1Frame = "botLeft";
                     if (
-                        (this.game.gary.x > this.botLeft[0] && this.game.gary.x < this.botLeft[1])
+                        (this.game.gary.x > this.botLeft[0] && this.game.gary.x < this.botLeft[1] && this.game.gary.y > this.topLeft[3])
                     ){
                         // this.box1[gary_pos] = 0;
                         this.box1.gary = this.game.gary.x;
@@ -620,13 +642,13 @@ export default class Swap{
                     }
 
                     if (
-                        (this.game.rock.x > this.botLeft[0] && this.game.rock.x < this.botLeft[1])
+                        (this.game.rock.x > this.botLeft[0] && this.game.rock.x < this.botLeft[1] && this.game.rock.y > this.topLeft[3])
                     ){
                         this.box1.rock = this.game.rock.x;
                     }
 
                     if (
-                        (this.game.jellyfish.x > this.botLeft[0] && this.game.jellyfish.x < this.botLeft[1])
+                        (this.game.jellyfish.x > this.botLeft[0] && this.game.jellyfish.x < this.botLeft[1] && this.game.jellyfish.y > this.topLeft[3])
                     ){
                         this.box1.jellyfish = this.game.jellyfish.x;
                     }
@@ -635,19 +657,19 @@ export default class Swap{
                 if (this.selectFrame === 2){
                     this.box2Frame = "botLeft";
                     if (
-                        (this.game.gary.x > this.botLeft[0] && this.game.gary.x < this.botLeft[1])
+                        (this.game.gary.x > this.botLeft[0] && this.game.gary.x < this.botLeft[1] && this.game.gary.y > this.topLeft[3])
                     ){
                         this.box2.gary = this.game.gary.x;
                     }
 
                     if (
-                        (this.game.rock.x > this.botLeft[0] && this.game.rock.x < this.botLeft[1])
+                        (this.game.rock.x > this.botLeft[0] && this.game.rock.x < this.botLeft[1] && this.game.rock.y > this.topLeft[3])
                     ){
                         this.box2.rock = this.game.rock.x;
                     }
 
                     if (
-                        (this.game.jellyfish.x > this.botLeft[0] && this.game.jellyfish.x < this.botLeft[1])
+                        (this.game.jellyfish.x > this.botLeft[0] && this.game.jellyfish.x < this.botLeft[1] && this.game.jellyfish.y > this.topLeft[3])
                     ){
                         this.box2.jellyfish = this.game.jellyfish.x;
                     }
@@ -670,19 +692,19 @@ export default class Swap{
                 if (this.selectFrame === 1){
                     this.box1Frame = "botMid";
                     if (
-                        (this.game.gary.x > this.botMid[0] && this.game.gary.x < this.botMid[1])
+                        (this.game.gary.x > this.botMid[0] && this.game.gary.x < this.botMid[1] && this.game.gary.y > this.topLeft[3])
                     ){
                         this.box1.gary = this.game.gary.x;
                     }
 
                     if (
-                        (this.game.rock.x > this.botMid[0] && this.game.rock.x < this.botMid[1])
+                        (this.game.rock.x > this.botMid[0] && this.game.rock.x < this.botMid[1] && this.game.rock.y > this.topLeft[3])
                     ){
-                        this.box1[rock] = this.game.rock.x;
+                        this.box1.rock = this.game.rock.x;
                     }
 
                     if (
-                        (this.game.jellyfish.x > this.botMid[0] && this.game.jellyfish.x < this.botMid[1])
+                        (this.game.jellyfish.x > this.botMid[0] && this.game.jellyfish.x < this.botMid[1] && this.game.jellyfish.y > this.topLeft[3])
                     ){
                         this.box1.jellyfish = this.game.jellyfish.x;
                     }
@@ -691,19 +713,19 @@ export default class Swap{
                 if (this.selectFrame === 2){
                     this.box2Frame = "botMid";
                     if (
-                        (this.game.gary.x > this.botMid[0] && this.game.gary.x < this.botMid[1])
+                        (this.game.gary.x > this.botMid[0] && this.game.gary.x < this.botMid[1] && this.game.gary.y > this.topLeft[3])
                     ){
                         this.box2.gary = this.game.gary.x;
                     }
 
                     if (
-                        (this.game.rock.x > this.botMid[0] && this.game.rock.x < this.botMid[1])
+                        (this.game.rock.x > this.botMid[0] && this.game.rock.x < this.botMid[1] && this.game.rock.y > this.topLeft[3])
                     ){
-                        this.box2[rock] = this.game.rock.x;
+                        this.box2.rock = this.game.rock.x;
                     }
 
                     if (
-                        (this.game.jellyfish.x > this.botMid[0] && this.game.jellyfish.x < this.botMid[1])
+                        (this.game.jellyfish.x > this.botMid[0] && this.game.jellyfish.x < this.botMid[1] && this.game.jellyfish.y > this.topLeft[3])
                     ){
                         this.box2.jellyfish = this.game.jellyfish.x;
                     }
@@ -726,19 +748,19 @@ export default class Swap{
                 if (this.selectFrame === 1){
                     this.box1Frame = "botRight";
                     if (
-                        (this.game.gary.x > this.botRight[0] && this.game.gary.x < this.botRight[1])
+                        (this.game.gary.x > this.botRight[0] && this.game.gary.x < this.botRight[1] && this.game.gary.y > this.topLeft[3])
                     ){
                         this.box1.gary = this.game.gary.x;
                     }
 
                     if (
-                        (this.game.rock.x > this.botRight[0] && this.game.rock.x < this.botRight[1])
+                        (this.game.rock.x > this.botRight[0] && this.game.rock.x < this.botRight[1] && this.game.rock.y > this.topLeft[3])
                     ){
-                        this.box1[rock] = this.game.rock.x;
+                        this.box1.rock = this.game.rock.x;
                     }
 
                     if (
-                        (this.game.jellyfish.x > this.botRight[0] && this.game.jellyfish.x < this.botRight[1])
+                        (this.game.jellyfish.x > this.botRight[0] && this.game.jellyfish.x < this.botRight[1] && this.game.jellyfish.y > this.topLeft[3])
                     ){
                         this.box1.jellyfish = this.game.jellyfish.x;
                     }
@@ -747,19 +769,19 @@ export default class Swap{
                 if (this.selectFrame === 2){
                     this.box2Frame = "botRight";
                     if (
-                        (this.game.gary.x > this.botRight[0] && this.game.gary.x < this.botRight[1])
+                        (this.game.gary.x > this.botRight[0] && this.game.gary.x < this.botRight[1] && this.game.gary.y > this.topLeft[3])
                     ){
                         this.box2.gary = this.game.gary.x;
                     }
 
                     if (
-                        (this.game.rock.x > this.botRight[0] && this.game.rock.x < this.botRight[1])
+                        (this.game.rock.x > this.botRight[0] && this.game.rock.x < this.botRight[1] && this.game.rock.y > this.topLeft[3])
                     ){
-                        this.box2[rock] = this.game.rock.x;
+                        this.box2.rock = this.game.rock.x;
                     }
 
                     if (
-                        (this.game.jellyfish.x > this.botRight[0] && this.game.jellyfish.x < this.botRight[1])
+                        (this.game.jellyfish.x > this.botRight[0] && this.game.jellyfish.x < this.botRight[1] && this.game.jellyfish.y > this.topLeft[3])
                     ){
                         this.box2.jellyfish = this.game.jellyfish.x;
                     }
