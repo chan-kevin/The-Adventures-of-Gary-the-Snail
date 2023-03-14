@@ -29,6 +29,7 @@ export default class Gary {
         this.leftGary = [document.getElementById("gary4"), document.getElementById("gary5"), document.getElementById("gary6")];
         this.shockedLeftGary = document.getElementById("shockedleftgary");
         this.shockedRightGary = document.getElementById("shockedrightgary");
+        this.floatinggary = document.getElementById("floatinggary");
         // this.draw();
         this.directionRight = true;
         // this.directionRight = false;
@@ -39,6 +40,8 @@ export default class Gary {
         this.shockedHeight = 510;
         this.shockedFrame = 0;
         this.shockedMaxFrame = 6;
+
+        this.goal = false;
     }
 
     update(deltaTime){
@@ -48,7 +51,6 @@ export default class Gary {
 
         if (this.frameTimer > this.frameInterval){
             this.frameTimer = 0;
-            // console.log("hi")
             // this.draw();
             // console.log(this.frameTimer)
 
@@ -57,7 +59,7 @@ export default class Gary {
             if (this.image_num < 2) this.image_num++;
             else this.image_num = 0;
 
-            if (!this.shocked){
+            if (!this.shocked && !this.goal){
                 if (this.directionRight) this.x+=6;
                 else if (!this.directionRight) this.x-=6;
             }
@@ -89,7 +91,7 @@ export default class Gary {
         // new Goal(this.game);
 
        
-        if (!this.shocked){
+        if (!this.shocked && !this.goal){
             if (this.directionRight) {
                 this.game.ctx.strokeRect(this.x, this.y, this.objectWidth, this.objectHeight);
                 this.game.ctx.drawImage(this.rightGary[this.image_num], this.sourceX, this.sourceY, this.sourceWidth, this.sourceHeight, this.x, this.y, this.objectWidth, this.objectHeight);
@@ -110,6 +112,12 @@ export default class Gary {
             this.game.ctx.strokeRect(this.x, this.y, this.objectWidth, this.objectHeight);
             this.game.ctx.drawImage(this.shockedRightGary, this.shockedFrame * (this.sourceX-80 + this.shockedRightWidth), this.sourceY-50, this.shockedRightWidth, this.shockedHeight, this.x, this.y, this.objectWidth, this.objectHeight);
         }
+
+        // if (this.goal) {
+        //     this.game.ctx.strokeRect(this.x, this.y, this.objectWidth, this.objectHeight);
+        //     this.game.ctx.drawImage(this.floatinggary, this.sourceX, this.sourceY-50, this.shockedRightWidth, this.shockedHeight, this.x, this.y, this.objectWidth, this.objectHeight);
+        // }
+
         // if (this.frameX < 3) this.frameX ++;
         // else this.frameX = 1;
         // if (this.gameFrame % this.staggerFrames == 0){
@@ -171,6 +179,18 @@ export default class Gary {
             // this.game.gary = [];
             // this.directionRight = !this.directionRight;
             this.shocked = true;
+            // this.game.gameover = true;
+        }
+
+        if (
+            (this.game.goal.x < (this.x + this.objectWidth)) &&
+            ((this.game.goal.x + this.game.goal.objectWidth) > this.x) &&
+            (this.game.goal.y < (this.y + this.objectHeight)) &&
+            ((this.game.goal.y + this.game.goal.objectHeight) > this.y)
+            ){
+            // this.game.gary = [];
+            // this.directionRight = !this.directionRight;
+            this.goal = true;
             // this.game.gameover = true;
         }
 

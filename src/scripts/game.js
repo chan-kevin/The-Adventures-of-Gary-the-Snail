@@ -24,15 +24,16 @@ export default class Game {
         // this.frame = new Frame(this);
         this.ground = new Ground(this);
         this.rock = new Rock(this);
-        this.goal = new Goal(this);
         this.jellyfish = new Jellyfish(this);
         this.swap = new Swap(this);
         this.gary = new Gary(this);
+        this.goal = new Goal(this);
         this.over = new Gameover(this);
         // this.event = new Event(this);
         this.lastTime = 0;
         this.pause = false;
         this.gameover = false;
+        this.level = 1;
         // this.swap.click();
         // requestAnimationFrame(this.animate.bind(this, 0))
         setInterval(this.resume.bind(this), 0)  //slowed down the animate
@@ -65,6 +66,7 @@ export default class Game {
         this.rock.update(deltaTime);
         this.jellyfish.update(deltaTime);
         this.gary.update(deltaTime);
+        this.goal.update(deltaTime);
     }
 
     // update(){
@@ -80,8 +82,8 @@ export default class Game {
         // else this.rock.draw();
         this.rock.draw();
         this.jellyfish.draw();
-        this.goal.draw();
         this.gary.draw();
+        this.goal.draw();
     }
 
     animate(timeStamp){
@@ -103,9 +105,14 @@ export default class Game {
         // setTimeout(() => {
         // setInterval(() => {
         // requestAnimationFrame(() => {
-        if (!this.pause && !this.gameover){
+        if (!this.pause){
             // setInterval(() => requestAnimationFrame(this.animate.bind(this), 0), 5000)
-            requestAnimationFrame(this.animate.bind(this))
+            requestAnimationFrame(this.animate.bind(this));
+        }
+
+        if (this.goal.y <= 2){
+            this.level += 1;
+            this.gary.goal = false;
         }
 
         // if (this.gameover) {
