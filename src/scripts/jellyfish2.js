@@ -1,4 +1,4 @@
-export default class Jellyfish {
+export default class Jellyfish2 {
     constructor(game){
         this.game = game;
 
@@ -16,7 +16,7 @@ export default class Jellyfish {
         this.sourceHeight = 30;
         // this.x = 10;
         // this.x = 350;
-        this.x = 450;
+        this.x = 990;
         this.y = 450;
         this.objectWidth = 60;
         this.objectHeight = 60;

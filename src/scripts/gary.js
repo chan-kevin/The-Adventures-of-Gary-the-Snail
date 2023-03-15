@@ -160,24 +160,19 @@ export default class Gary {
         this.rockCollision(this.game.rock);
 
         if (this.game.level >= 2){
-            this.rockCollision(this.game.rock2)
-            this.rockCollision(this.game.rock3)
+            this.rockCollision(this.game.rock2);
+            this.rockCollision(this.game.rock3);
         }   
         // })
 
         //check if gary hits jellyfish
         if (this.game.level >= 3){
-            if (
-                (this.game.jellyfish.x < (this.x + this.objectWidth)) &&
-                ((this.game.jellyfish.x + this.game.jellyfish.objectWidth) > this.x) &&
-                (this.game.jellyfish.y < (this.y + this.objectHeight)) &&
-                ((this.game.jellyfish.y + this.game.jellyfish.objectHeight) > this.y)
-                ){
-                // this.game.gary = [];
-                // this.directionRight = !this.directionRight;
-                this.shocked = true;
-                // this.game.gameover = true;
-            }
+            this.jellyfishCollision(this.game.jellyfish);
+        }
+        
+        if (this.game.level >= 4){
+            this.jellyfishCollision(this.game.jellyfish2);
+            this.jellyfishCollision(this.game.jellyfish3);
         }
 
         if (
@@ -194,15 +189,6 @@ export default class Gary {
 
         if (this.x > this.game.width - this.sourceX) this.directionRight = !this.directionRight;
         if (this.x <= 0) this.directionRight = !this.directionRight;
-            // if (this.directionRight === "right"){
-            //     this.x += 5;
-            //     // console.log(this.x);
-            //     if (this.x > this.game.width - this.sourceX) this.directionRight = "left";
-            // }
-            // if (this.directionRight === "left") {
-            //     this.x -= 5;
-            //     if (this.x <= 0) this.directionRight = "right";
-            // }
     } 
 
     rockCollision(rock){
@@ -213,6 +199,17 @@ export default class Gary {
             ((rock.y + rock.objectHeight) > this.y)
             ){
                 this.directionRight = !this.directionRight;
+        }
+    }
+
+    jellyfishCollision(jellyfish){
+        if (
+            (jellyfish.x < (this.x + this.objectWidth)) &&
+            ((jellyfish.x + jellyfish.objectWidth) > this.x) &&
+            (jellyfish.y < (this.y + this.objectHeight)) &&
+            ((jellyfish.y + jellyfish.objectHeight) > this.y)
+        ){
+            this.shocked = true;
         }
     }
 }

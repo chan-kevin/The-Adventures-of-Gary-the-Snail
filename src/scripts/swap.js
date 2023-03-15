@@ -184,6 +184,14 @@ export default class Swap{
                 if (key === "rock3"){
                     this.fromTopLeft(this.game.rock3, box2Frame);
                 }
+
+                if (key === "jellyfish2"){
+                    this.fromTopLeft(this.game.jellyfish2, box2Frame);
+                }
+
+                if (key === "jellyfish3"){
+                    this.fromTopLeft(this.game.jellyfish3, box2Frame);
+                }
             }
 
             if (box1Frame === "topMid"){
@@ -209,6 +217,14 @@ export default class Swap{
 
                 if (key === "rock3"){
                     this.fromTopMid(this.game.rock3, box2Frame);
+                }
+
+                if (key === "jellyfish2"){
+                    this.fromTopMid(this.game.jellyfish2, box2Frame);
+                }
+
+                if (key === "jellyfish3"){
+                    this.fromTopMid(this.game.jellyfish3, box2Frame);
                 }
             }
 
@@ -236,6 +252,14 @@ export default class Swap{
                 if (key === "rock3"){
                     this.fromTopRight(this.game.rock3, box2Frame);
                 }
+
+                if (key === "jellyfish2"){
+                    this.fromTopRight(this.game.jellyfish2, box2Frame);
+                }
+
+                if (key === "jellyfish3"){
+                    this.fromTopRight(this.game.jellyfish3, box2Frame);
+                }
             }
 
             if (box1Frame === "botLeft"){
@@ -261,6 +285,14 @@ export default class Swap{
 
                 if (key === "rock3"){
                     this.fromBotLeft(this.game.rock3, box2Frame);
+                }
+
+                if (key === "jellyfish2"){
+                    this.fromBotLeft(this.game.jellyfish2, box2Frame);
+                }
+
+                if (key === "jellyfish3"){
+                    this.fromBotLeft(this.game.jellyfish3, box2Frame);
                 }
             }
 
@@ -288,6 +320,14 @@ export default class Swap{
                 if (key === "rock3"){
                     this.fromBotMid(this.game.rock3, box2Frame);
                 }
+
+                if (key === "jellyfish2"){
+                    this.fromBotMid(this.game.jellyfish2, box2Frame);
+                }
+
+                if (key === "jellyfish3"){
+                    this.fromBotMid(this.game.jellyfish3, box2Frame);
+                }
             }
 
             if (box1Frame === "botRight"){
@@ -313,6 +353,14 @@ export default class Swap{
 
                 if (key === "rock3"){
                     this.fromBotRight(this.game.rock3, box2Frame);
+                }
+
+                if (key === "jellyfish2"){
+                    this.fromBotRight(this.game.jellyfish2, box2Frame);
+                }
+
+                if (key === "jellyfish3"){
+                    this.fromBotRight(this.game.jellyfish3, box2Frame);
                 }
             }
         }
@@ -396,6 +444,20 @@ export default class Swap{
                             this.box1.rock3 = this.game.rock3.x;
                         }
                     }
+
+                    if (this.game.level >= 4){
+                        if (
+                            (this.game.jellyfish2.x > this.topLeft[0] && this.game.jellyfish2.x < this.topLeft[1] && this.game.jellyfish2.y < this.topLeft[3])
+                        ){
+                            this.box1.jellyfish2 = this.game.jellyfish2.x;
+                        }
+
+                        if (
+                            (this.game.jellyfish3.x > this.topLeft[0] && this.game.jellyfish3.x < this.topLeft[1] && this.game.jellyfish3.y < this.topLeft[3])
+                        ){
+                            this.box1.jellyfish3 = this.game.jellyfish3.x;
+                        }
+                    }
                 }
 
                 if (this.selectFrame === 2){
@@ -437,6 +499,20 @@ export default class Swap{
                             (this.game.rock3.x > this.topLeft[0] && this.game.rock3.x < this.topLeft[1] && this.game.rock3.y < this.topLeft[3])
                         ){
                             this.box2.rock3 = this.game.rock3.x;
+                        }
+                    }
+
+                    if (this.game.level >= 4){
+                        if (
+                            (this.game.jellyfish2.x > this.topLeft[0] && this.game.jellyfish2.x < this.topLeft[1] && this.game.jellyfish2.y < this.topLeft[3])
+                        ){
+                            this.box2.jellyfish2 = this.game.jellyfish2.x;
+                        }
+
+                        if (
+                            (this.game.jellyfish3.x > this.topLeft[0] && this.game.jellyfish3.x < this.topLeft[1] && this.game.jellyfish3.y < this.topLeft[3])
+                        ){
+                            this.box2.jellyfish3 = this.game.jellyfish3.x;
                         }
                     }
                 }
@@ -490,6 +566,20 @@ export default class Swap{
                             this.box1.rock3 = this.game.rock3.x;
                         }
                     }
+
+                    if (this.game.level >= 4){
+                        if (
+                            (this.game.jellyfish2.x > this.topMid[0] && this.game.jellyfish2.x < this.topMid[1] && this.game.jellyfish2.y < this.topLeft[3])
+                        ){
+                            this.box1.jellyfish2 = this.game.jellyfish2.x;
+                        }
+
+                        if (
+                            (this.game.jellyfish3.x > this.topMid[0] && this.game.jellyfish3.x < this.topMid[1] && this.game.jellyfish3.y < this.topLeft[3])
+                        ){
+                            this.box1.jellyfish3 = this.game.jellyfish3.x;
+                        }
+                    }
                 }
 
                 if (this.selectFrame === 2){
@@ -531,6 +621,20 @@ export default class Swap{
                             (this.game.rock3.x > this.topMid[0] && this.game.rock3.x < this.topMid[1] && this.game.rock3.y < this.topLeft[3])
                         ){
                             this.box2.rock3 = this.game.rock3.x;
+                        }
+                    }
+
+                    if (this.game.level >= 2){
+                        if (
+                            (this.game.jellyfish2.x > this.topMid[0] && this.game.jellyfish2.x < this.topMid[1] && this.game.jellyfish2.y < this.topLeft[3])
+                        ){
+                            this.box2.jellyfish2 = this.game.jellyfish2.x;
+                        }
+
+                        if (
+                            (this.game.jellyfish3.x > this.topMid[0] && this.game.jellyfish3.x < this.topMid[1] && this.game.jellyfish3.y < this.topLeft[3])
+                        ){
+                            this.box2.jellyfish3 = this.game.jellyfish3.x;
                         }
                     }
                 }
@@ -584,6 +688,20 @@ export default class Swap{
                             this.box1.rock3 = this.game.rock3.x;
                         }
                     }
+
+                    if (this.game.level >= 4){
+                        if (
+                            (this.game.jellyfish2.x > this.topRight[0] && this.game.jellyfish2.x < this.topRight[1] && this.game.jellyfish2.y < this.topLeft[3])
+                        ){
+                            this.box1.jellyfish2 = this.game.jellyfish2.x;
+                        }
+
+                        if (
+                            (this.game.jellyfish3.x > this.topRight[0] && this.game.jellyfish3.x < this.topRight[1] && this.game.jellyfish3.y < this.topLeft[3])
+                        ){
+                            this.box1.jellyfish3 = this.game.jellyfish3.x;
+                        }
+                    }
                 }
 
                 if (this.selectFrame === 2){
@@ -625,6 +743,20 @@ export default class Swap{
                             (this.game.rock3.x > this.topRight[0] && this.game.rock3.x < this.topRight[1] && this.game.rock3.y < this.topLeft[3])
                         ){
                             this.box2.rock3 = this.game.rock3.x;
+                        }
+                    }
+
+                    if (this.game.level >= 4){
+                        if (
+                            (this.game.jellyfish2.x > this.topRight[0] && this.game.jellyfish2.x < this.topRight[1] && this.game.jellyfish2.y < this.topLeft[3])
+                        ){
+                            this.box2.jellyfish2 = this.game.jellyfish2.x;
+                        }
+
+                        if (
+                            (this.game.jellyfish3.x > this.topRight[0] && this.game.jellyfish3.x < this.topRight[1] && this.game.jellyfish3.y < this.topLeft[3])
+                        ){
+                            this.box2.jellyfish3 = this.game.jellyfish3.x;
                         }
                     }
                 }
@@ -680,6 +812,20 @@ export default class Swap{
                             this.box1.rock3 = this.game.rock3.x;
                         }
                     }
+
+                    if (this.game.level >= 4){
+                        if (
+                            (this.game.jellyfish2.x > this.botLeft[0] && this.game.jellyfish2.x < this.botLeft[1] && this.game.jellyfish2.y > this.topLeft[3])
+                        ){
+                            this.box1.jellyfish2 = this.game.jellyfish2.x;
+                        }
+
+                        if (
+                            (this.game.jellyfish3.x > this.botLeft[0] && this.game.jellyfish3.x < this.botLeft[1] && this.game.jellyfish3.y > this.topLeft[3])
+                        ){
+                            this.box1.jellyfish3 = this.game.jellyfish3.x;
+                        }
+                    }
                 }
 
                 if (this.selectFrame === 2){
@@ -721,6 +867,20 @@ export default class Swap{
                             (this.game.rock3.x > this.botLeft[0] && this.game.rock3.x < this.botLeft[1] && this.game.rock3.y > this.topLeft[3])
                         ){
                             this.box2.rock3 = this.game.rock3.x;
+                        }
+                    }
+
+                    if (this.game.level >= 4){
+                        if (
+                            (this.game.jellyfish2.x > this.botLeft[0] && this.game.jellyfish2.x < this.botLeft[1] && this.game.jellyfish2.y > this.topLeft[3])
+                        ){
+                            this.box2.jellyfish2 = this.game.jellyfish2.x;
+                        }
+
+                        if (
+                            (this.game.jellyfish3.x > this.botLeft[0] && this.game.jellyfish3.x < this.botLeft[1] && this.game.jellyfish3.y > this.topLeft[3])
+                        ){
+                            this.box2.jellyfish3 = this.game.jellyfish3.x;
                         }
                     }
                 }
@@ -774,6 +934,20 @@ export default class Swap{
                             this.box1.rock3 = this.game.rock3.x;
                         }
                     }
+
+                    if (this.game.level >= 4){
+                        if (
+                            (this.game.jellyfish2.x > this.botMid[0] && this.game.jellyfish2.x < this.botMid[1] && this.game.jellyfish2.y > this.topLeft[3])
+                        ){
+                            this.box1.jellyfish2 = this.game.jellyfish2.x;
+                        }
+
+                        if (
+                            (this.game.jellyfish3.x > this.botMid[0] && this.game.jellyfish3.x < this.botMid[1] && this.game.jellyfish3.y > this.topLeft[3])
+                        ){
+                            this.box1.jellyfish3 = this.game.jellyfish3.x;
+                        }
+                    }
                 }
 
                 if (this.selectFrame === 2){
@@ -815,6 +989,20 @@ export default class Swap{
                             (this.game.rock3.x > this.botMid[0] && this.game.rock3.x < this.botMid[1] && this.game.rock3.y > this.topLeft[3])
                         ){
                             this.box2.rock3 = this.game.rock3.x;
+                        }
+                    }
+
+                    if (this.game.level >= 4){
+                        if (
+                            (this.game.jellyfish2.x > this.botMid[0] && this.game.jellyfish2.x < this.botMid[1] && this.game.jellyfish2.y > this.topLeft[3])
+                        ){
+                            this.box2.jellyfish2 = this.game.jellyfish2.x;
+                        }
+
+                        if (
+                            (this.game.jellyfish3.x > this.botMid[0] && this.game.jellyfish3.x < this.botMid[1] && this.game.jellyfish3.y > this.topLeft[3])
+                        ){
+                            this.box2.jellyfish3 = this.game.jellyfish3.x;
                         }
                     }
                 }
@@ -868,6 +1056,20 @@ export default class Swap{
                             this.box1.rock3 = this.game.rock3.x;
                         }
                     }
+
+                    if (this.game.level >= 4){
+                        if (
+                            (this.game.jellyfish2.x > this.botRight[0] && this.game.jellyfish2.x < this.botRight[1] && this.game.jellyfish2.y > this.topLeft[3])
+                        ){
+                            this.box1.jellyfish2 = this.game.jellyfish2.x;
+                        }
+                        
+                        if (
+                            (this.game.jellyfish3.x > this.botRight[0] && this.game.jellyfish3.x < this.botRight[1] && this.game.jellyfish3.y > this.topLeft[3])
+                        ){
+                            this.box1.jellyfish3 = this.game.jellyfish3.x;
+                        }
+                    }
                 }
 
                 if (this.selectFrame === 2){
@@ -909,6 +1111,20 @@ export default class Swap{
                             (this.game.rock3.x > this.botRight[0] && this.game.rock3.x < this.botRight[1] && this.game.rock3.y > this.topLeft[3])
                         ){
                             this.box2.rock3 = this.game.rock3.x;
+                        }
+                    }
+
+                    if (this.game.level >= 4){
+                        if (
+                            (this.game.jellyfish2.x > this.botRight[0] && this.game.jellyfish2.x < this.botRight[1] && this.game.jellyfish2.y > this.topLeft[3])
+                        ){
+                            this.box2.jellyfish2 = this.game.jellyfish2.x;
+                        }
+                        
+                        if (
+                            (this.game.jellyfish3.x > this.botRight[0] && this.game.jellyfish3.x < this.botRight[1] && this.game.jellyfish3.y > this.topLeft[3])
+                        ){
+                            this.box2.jellyfish3 = this.game.jellyfish3.x;
                         }
                     }
                 }

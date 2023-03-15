@@ -10,6 +10,8 @@ import Frame from "./frame";
 import Level from "./level";
 import Gameover from "./gameover";
 import Rock3 from "./rock3";
+import Jellyfish2 from "./jellyfish2";
+import Jellyfish3 from "./jellyfish3";
 
 export default class Game {
     // constructor(ctx){
@@ -30,6 +32,8 @@ export default class Game {
         this.rock2 = new Rock2(this);
         this.rock3 = new Rock3(this);
         this.jellyfish = new Jellyfish(this);
+        this.jellyfish2 = new Jellyfish2(this);
+        this.jellyfish3 = new Jellyfish3(this);
         this.gary = new Gary(this);
         this.goal = new Goal(this);
         this.over = new Gameover(this);
@@ -108,6 +112,10 @@ export default class Game {
             this.rock3.update();
         }
         if (this.level >= 3) this.jellyfish.update();
+        if (this.level >= 4) {
+            this.jellyfish2.update();
+            this.jellyfish3.update();
+        }
         this.gary.update();
         this.goal.update();
     }
@@ -123,6 +131,10 @@ export default class Game {
             this.rock3.draw();
         }
         if (this.level >= 3) this.jellyfish.draw();
+        if (this.level >= 4) {
+            this.jellyfish2.draw();
+            this.jellyfish3.draw();
+        }
         this.gary.draw();
         this.goal.draw();
     }
@@ -185,6 +197,27 @@ export default class Game {
 
                 this.rock3.x = 820;
                 this.rock3.y = 80;
+            }
+
+            if (this.level === 3){
+                this.goal.x = 820;
+                this.goal.y = 120;
+                this.goal.bikiniY = 120;
+
+                this.rock.x = 230;
+                this.rock.y = 375;
+
+                this.gary.x = 0;
+                this.gary.y = 485;
+                
+                this.rock2.x = 230;
+                this.rock2.y = 80;
+
+                this.rock3.x = 650;
+                this.rock3.y = 80;
+
+                this.jellyfish.x = 20;
+                this.jellyfish.y = 140;
             }
 
             this.level += 1;

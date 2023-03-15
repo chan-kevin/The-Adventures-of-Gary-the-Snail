@@ -19,9 +19,10 @@ export default class Goal{
         this.objectWidth = 150;
         this.objectHeight = 145;
 
-        this.image = document.getElementById("goal");
+        this.bubble = document.getElementById("goal");
         this.floatinggary = document.getElementById("floatinggary");
         this.bikini = document.getElementById("bikini");
+        this.house = document.getElementById("home");
         this.draw();
     }
 
@@ -47,13 +48,20 @@ export default class Goal{
 
     draw(){
         this.game.ctx.strokeStyle = "lightgray";
-        if (!this.game.gary.goal){
-            // this.game.ctx.strokeRect(this.x, this.y, this.objectWidth, this.objectHeight);
-            this.game.ctx.drawImage(this.image, this.sourceX, this.sourceY, this.sourceWidth, this.sourceHeight, this.x, this.y, this.objectWidth, this.objectHeight);
-        } 
-        if (this.game.gary.goal) {
-            // this.game.ctx.strokeRect(this.x, this.y, this.objectWidth, this.objectHeight);
-            this.game.ctx.drawImage(this.floatinggary, this.sourceX - 150, this.sourceY - 160, this.sourceWidth + 770, this.sourceHeight + 680, this.x, this.y, this.objectWidth, this.objectHeight);
+        if (this.game.level < 4 ){
+            if (!this.game.gary.goal){
+                // this.game.ctx.strokeRect(this.x, this.y, this.objectWidth, this.objectHeight);
+                this.game.ctx.drawImage(this.bubble, this.sourceX, this.sourceY, this.sourceWidth, this.sourceHeight, this.x, this.y, this.objectWidth, this.objectHeight);
+            } 
+            if (this.game.gary.goal) {
+                // this.game.ctx.strokeRect(this.x, this.y, this.objectWidth, this.objectHeight);
+                this.game.ctx.drawImage(this.floatinggary, this.sourceX - 150, this.sourceY - 160, this.sourceWidth + 770, this.sourceHeight + 680, this.x, this.y, this.objectWidth, this.objectHeight);
+            }
+        }
+
+        if (this.game.level === 4){
+            // this.game.ctx.strokeRect(this.x, this.y-60, this.objectWidth-50, this.objectHeight+50);
+            this.game.ctx.drawImage(this.house, this.sourceX - 140, this.sourceY - 160, this.sourceWidth - 200, this.sourceHeight, this.x, this.y-60, this.objectWidth-10, this.objectHeight+90);
         }
         // this.game.ctx.strokeStyle = "black"
         // this.game.ctx.strokeRect(this.x + this.objectWidth, this.y, this.objectWidth-60, this.objectHeight);
