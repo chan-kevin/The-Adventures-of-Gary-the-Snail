@@ -158,8 +158,9 @@ export default class Game {
             this.gary.goal = false;
 
             if (this.level === 1){
-                this.goal.x = 1020;
+                this.goal.x = 990;
                 this.goal.y = 120;
+                this.goal.bikiniY = 120;
 
                 this.rock.x = 1020;
                 this.rock.y = 375;
@@ -169,8 +170,9 @@ export default class Game {
             }
 
             if (this.level === 2){
-                this.goal.x = 1020;
+                this.goal.x = 990;
                 this.goal.y = 120;
+                this.goal.bikiniY = 120;
 
                 this.rock.x = 1020;
                 this.rock.y = 375;

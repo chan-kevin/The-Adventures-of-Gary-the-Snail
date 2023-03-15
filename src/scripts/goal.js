@@ -13,13 +13,15 @@ export default class Goal{
         this.sourceY = 160;
         this.sourceWidth = 400;
         this.sourceHeight = 360;
-        this.x = 1040;
+        this.x = 970;
         this.y = 440;
+        this.bikiniY = 440;
         this.objectWidth = 150;
         this.objectHeight = 145;
 
         this.image = document.getElementById("goal");
         this.floatinggary = document.getElementById("floatinggary");
+        this.bikini = document.getElementById("bikini");
         this.draw();
     }
 
@@ -53,6 +55,9 @@ export default class Goal{
             // this.game.ctx.strokeRect(this.x, this.y, this.objectWidth, this.objectHeight);
             this.game.ctx.drawImage(this.floatinggary, this.sourceX - 150, this.sourceY - 160, this.sourceWidth + 770, this.sourceHeight + 680, this.x, this.y, this.objectWidth, this.objectHeight);
         }
+        // this.game.ctx.strokeStyle = "black"
+        // this.game.ctx.strokeRect(this.x + this.objectWidth, this.y, this.objectWidth-60, this.objectHeight);
+        this.game.ctx.drawImage(this.bikini, this.sourceX +40, this.sourceY-110, this.sourceWidth, this.sourceHeight + 60, this.x + this.objectWidth - 10, this.bikiniY, this.objectWidth-30, this.objectHeight);
         // this.ctx.drawImage(this.image, this.imageWidth, this.imageHeight, 180, 500, this.positionX[Math.floor(Math.random()*this.positionX.length)], 400, 300, 1000);
         // this.ctx.drawImage(this.image, 0, 0);
     }

@@ -20,123 +20,140 @@ export default class Swap{
         // this.checkStatus();
     }
 
-    fromTopLeft(obj, box2Frame){
-        if (box2Frame === "topMid"){
-            obj.x += this.frameWidth;
+    fromTopLeft(){
+        if (arguments[1] === "topMid"){
+            arguments[0].x += this.frameWidth;
         }
-        if (box2Frame === "topRight"){
-            obj.x += (2 * this.frameWidth);
+        if (arguments[1] === "topRight"){
+            arguments[0].x += (2 * this.frameWidth);
         }
-        if (box2Frame === "botLeft"){
-            obj.y += this.frameHeight;
+        if (arguments[1] === "botLeft"){
+            arguments[0].y += this.frameHeight;
+            if (arguments[2]) arguments[2].bikiniY += this.frameHeight;
         }
-        if (box2Frame === "botMid"){
-            obj.x += this.frameWidth;
-            obj.y += this.frameHeight;
+        if (arguments[1] === "botMid"){
+            arguments[0].x += this.frameWidth;
+            arguments[0].y += this.frameHeight;
+            if (arguments[2]) arguments[2].bikiniY += this.frameHeight;
         }
-        if (box2Frame === "botRight"){
-            obj.x += (2 * this.frameWidth);
-            obj.y += this.frameHeight;
-        }
-    }
-
-    fromTopMid(obj, box2Frame){
-        if (box2Frame === "topLeft"){
-            obj.x -= this.frameWidth;
-        }
-        if (box2Frame === "topRight"){
-            obj.x += this.frameWidth;
-        }
-        if (box2Frame === "botLeft"){
-            obj.x -= this.frameWidth;
-            obj.y += this.frameHeight;
-        }
-        if (box2Frame === "botMid"){
-            obj.y += this.frameHeight;
-        }
-        if (box2Frame === "botRight"){
-            obj.x += this.frameWidth;
-            obj.y += this.frameHeight;
+        if (arguments[1] === "botRight"){
+            arguments[0].x += (2 * this.frameWidth);
+            arguments[0].y += this.frameHeight;
+            if (arguments[2]) arguments[2].bikiniY += this.frameHeight;
         }
     }
 
-    fromTopRight(obj, box2Frame){
-        if (box2Frame === "topLeft"){
-            obj.x -= (2 * this.frameWidth);
+    fromTopMid(){
+        if (arguments[1] === "topLeft"){
+            arguments[0].x -= this.frameWidth;
         }
-        if (box2Frame === "topMid"){
-            obj.x -= this.frameWidth;
+        if (arguments[1] === "topRight"){
+            arguments[0].x += this.frameWidth;
         }
-        if (box2Frame === "botLeft"){
-            obj.x -= (2 * this.frameWidth);
-            obj.y += this.frameHeight;
+        if (arguments[1] === "botLeft"){
+            arguments[0].x -= this.frameWidth;
+            arguments[0].y += this.frameHeight;
+            if (arguments[2]) arguments[2].bikiniY += this.frameHeight;
         }
-        if (box2Frame === "botMid"){
-            obj.x -= this.frameWidth;
-            obj.y += this.frameHeight;
+        if (arguments[1] === "botMid"){
+            arguments[0].y += this.frameHeight;
+            if (arguments[2]) arguments[2].bikiniY += this.frameHeight;
         }
-        if (box2Frame === "botRight"){
-            obj.y += this.frameHeight;
-        }
-    }
-
-    fromBotLeft(obj, box2Frame){
-        if (box2Frame === "topLeft"){
-            obj.y -= this.frameHeight;
-        }
-        if (box2Frame === "topMid"){
-            obj.x += this.frameWidth;
-            obj.y -= this.frameHeight
-        }
-        if (box2Frame === "topRight"){
-            obj.x += (2 * this.frameWidth);
-            obj.y -= this.frameHeight;
-        }
-        if (box2Frame === "botMid"){
-            obj.x += this.frameWidth;
-        }
-        if (box2Frame === "botRight"){
-            obj.x += (2 * this.frameWidth);
+        if (arguments[1] === "botRight"){
+            arguments[0].x += this.frameWidth;
+            arguments[0].y += this.frameHeight;
+            if (arguments[2]) arguments[2].bikiniY += this.frameHeight;
         }
     }
 
-    fromBotMid(obj, box2Frame){
-        if (box2Frame === "topLeft"){
-            obj.x -= this.frameWidth
-            obj.y -= this.frameHeight;
+    fromTopRight(){
+        if (arguments[1] === "topLeft"){
+            arguments[0].x -= (2 * this.frameWidth);
         }
-        if (box2Frame === "topMid"){
-            obj.y -= this.frameHeight
+        if (arguments[1] === "topMid"){
+            arguments[0].x -= this.frameWidth;
         }
-        if (box2Frame === "topRight"){
-            obj.x += this.frameWidth;
-            obj.y -= this.frameHeight;
+        if (arguments[1] === "botLeft"){
+            arguments[0].x -= (2 * this.frameWidth);
+            arguments[0].y += this.frameHeight;
+            if (arguments[2]) arguments[2].bikiniY += this.frameHeight;
         }
-        if (box2Frame === "botLeft"){
-            obj.x -= this.frameWidth;
+        if (arguments[1] === "botMid"){
+            arguments[0].x -= this.frameWidth;
+            arguments[0].y += this.frameHeight;
+            if (arguments[2]) arguments[2].bikiniY += this.frameHeight;
         }
-        if (box2Frame === "botRight"){
-            obj.x += this.frameWidth;
+        if (arguments[1] === "botRight"){
+            arguments[0].y += this.frameHeight;
+            if (arguments[2]) arguments[2].bikiniY += this.frameHeight;
         }
     }
 
-    fromBotRight(obj, box2Frame){
-        if (box2Frame === "topLeft"){
-            obj.x -= (2 * this.frameWidth);
-            obj.y -= this.frameHeight;
+    fromBotLeft(){
+        if (arguments[1] === "topLeft"){
+            arguments[0].y -= this.frameHeight;
         }
-        if (box2Frame === "topMid"){
-            obj.x -= this.frameWidth;
-            obj.y -= this.frameHeight;
+        if (arguments[1] === "topMid"){
+            arguments[0].x += this.frameWidth;
+            arguments[0].y -= this.frameHeight
+            if (arguments[2]) arguments[2].bikiniY -= this.frameHeight;
         }
-        if (box2Frame === "topRight"){
-            obj.y -= this.frameHeight;
+        if (arguments[1] === "topRight"){
+            arguments[0].x += (2 * this.frameWidth);
+            arguments[0].y -= this.frameHeight;
+            if (arguments[2]) arguments[2].bikiniY -= this.frameHeight;
         }
-        if (box2Frame === "botLeft"){
-            obj.x -= (2 * this.frameWidth);
+        if (arguments[1] === "botMid"){
+            arguments[0].x += this.frameWidth;
         }
-        if (box2Frame === "botMid"){
-            obj.x -= this.frameWidth;
+        if (arguments[1] === "botRight"){
+            arguments[0].x += (2 * this.frameWidth);
+        }
+    }
+
+    fromBotMid(){
+        if (arguments[1] === "topLeft"){
+            arguments[0].x -= this.frameWidth
+            arguments[0].y -= this.frameHeight;
+            if (arguments[2]) arguments[2].bikiniY -= this.frameHeight;
+        }
+        if (arguments[1] === "topMid"){
+            arguments[0].y -= this.frameHeight
+            if (arguments[2]) arguments[2].bikiniY -= this.frameHeight;
+        }
+        if (arguments[1] === "topRight"){
+            arguments[0].x += this.frameWidth;
+            arguments[0].y -= this.frameHeight;
+            if (arguments[2]) arguments[2].bikiniY -= this.frameHeight;
+        }
+        if (arguments[1] === "botLeft"){
+            arguments[0].x -= this.frameWidth;
+        }
+        if (arguments[1] === "botRight"){
+            arguments[0].x += this.frameWidth;
+        }
+    }
+
+    fromBotRight(){
+        if (arguments[1] === "topLeft"){
+            arguments[0].x -= (2 * this.frameWidth);
+            arguments[0].y -= this.frameHeight;
+            if (arguments[2]) arguments[2].bikiniY -= this.frameHeight;
+        }
+        if (arguments[1] === "topMid"){
+            arguments[0].x -= this.frameWidth;
+            arguments[0].y -= this.frameHeight;
+            if (arguments[2]) arguments[2].bikiniY -= this.frameHeight;
+        }
+        if (arguments[1] === "topRight"){
+            arguments[0].y -= this.frameHeight;
+            if (arguments[2]) arguments[2].bikiniY -= this.frameHeight;
+        }
+        if (arguments[1] === "botLeft"){
+            arguments[0].x -= (2 * this.frameWidth);
+        }
+        if (arguments[1] === "botMid"){
+            arguments[0].x -= this.frameWidth;
         }
     }
 
@@ -157,7 +174,7 @@ export default class Swap{
                 }
 
                 if (key === "goal"){
-                    this.fromTopLeft(this.game.goal, box2Frame);
+                    this.fromTopLeft(this.game.goal, box2Frame, this.game.goal);
                 }
 
                 if (key === "rock2"){
@@ -183,7 +200,7 @@ export default class Swap{
                 }
 
                 if (key === "goal"){
-                    this.fromTopMid(this.game.goal, box2Frame);
+                    this.fromTopMid(this.game.goal, box2Frame, this.game.goal);
                 }
 
                 if (key === "rock2"){
@@ -209,7 +226,7 @@ export default class Swap{
                 }
 
                 if (key === "goal"){
-                    this.fromTopRight(this.game.goal, box2Frame);
+                    this.fromTopRight(this.game.goal, box2Frame, this.game.goal);
                 }
 
                 if (key === "rock2"){
@@ -235,7 +252,7 @@ export default class Swap{
                 }
 
                 if (key === "goal"){
-                    this.fromBotLeft(this.game.goal, box2Frame);
+                    this.fromBotLeft(this.game.goal, box2Frame, this.game.goal);
                 }
 
                 if (key === "rock2"){
@@ -261,7 +278,7 @@ export default class Swap{
                 }
 
                 if (key === "goal"){
-                    this.fromBotMid(this.game.goal, box2Frame);
+                    this.fromBotMid(this.game.goal, box2Frame, this.game.goal);
                 }
 
                 if (key === "rock2"){
@@ -287,7 +304,7 @@ export default class Swap{
                 }
 
                 if (key === "goal"){
-                    this.fromBotRight(this.game.goal, box2Frame);
+                    this.fromBotRight(this.game.goal, box2Frame, this.game.goal);
                 }
 
                 if (key === "rock2"){

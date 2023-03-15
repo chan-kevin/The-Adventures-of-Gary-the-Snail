@@ -17,7 +17,7 @@ export default class Rock3 {
         // this.sourceWidth = 590;
         this.sourceWidth = 642;
         this.sourceHeight = 500;
-        this.x = 820;
+        this.x = 810;
         this.y = 80;
         // this.x = x;
         // this.y = y;
@@ -57,12 +57,12 @@ export default class Rock3 {
     // }
 
     draw(){
-        this.game.ctx.drawImage(this.image, this.frame * (this.sourceX + this.sourceWidth), this.sourceY, this.sourceWidth, this.sourceHeight, this.x, this.y, this.objectWidth, this.objectHeight);
+        this.game.ctx.drawImage(this.image, this.frame * (this.sourceX + this.sourceWidth), this.sourceY, this.sourceWidth, this.sourceHeight, this.x - 40, this.y, this.objectWidth, this.objectHeight);
     }
 
     collision(){
         if (
-            ((this.game.gary.x + this.game.gary.objectWidth) > this.x + 35) &&
+            ((this.game.gary.x + this.game.gary.objectWidth) > this.x) &&
             ((this.x + 35 + this.objectWidth) > this.game.gary.x) &&
             (this.y < (this.game.gary.y + this.game.gary.objectHeight)) &&
             ((this.y + this.objectHeight) > this.game.gary.y)

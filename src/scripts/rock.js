@@ -61,7 +61,7 @@ export default class Rock {
 
         // if (this.frame < this.maxFrame) this.frame++;
         // else this.frame = 0;
-        this.game.ctx.drawImage(this.image, this.frame * (this.sourceX + this.sourceWidth), this.sourceY, this.sourceWidth, this.sourceHeight, this.x, this.y, this.objectWidth, this.objectHeight);
+        this.game.ctx.drawImage(this.image, this.frame * (this.sourceX + this.sourceWidth), this.sourceY, this.sourceWidth, this.sourceHeight, this.x - 40, this.y, this.objectWidth, this.objectHeight);
         // this.game.ctx.drawImage(this.image, this.sourceX, this.sourceY, this.sourceWidth, this.sourceHeight, this.x, this.y, this.objectWidth, this.objectHeight);
         // if (this.x < (this.game.gary.x + this.game.gary.objectWidth)) {
         //     //     console.log(this.frame)
@@ -78,8 +78,8 @@ export default class Rock {
 
     collision(){
         if (
-            ((this.game.gary.x + this.game.gary.objectWidth) > this.x + 35) &&
-            ((this.x + 35 + this.objectWidth) > this.game.gary.x) &&
+            ((this.game.gary.x + this.game.gary.objectWidth) > this.x) &&
+            ((this.x + this.objectWidth) > this.game.gary.x) &&
             (this.y < (this.game.gary.y + this.game.gary.objectHeight)) &&
             ((this.y + this.objectHeight) > this.game.gary.y)
             ){

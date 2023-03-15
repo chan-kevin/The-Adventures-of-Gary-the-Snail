@@ -207,8 +207,8 @@ export default class Gary {
 
     rockCollision(rock){
         if (
-            (rock.x + 35 < (this.x + this.objectWidth)) &&
-            ((rock.x + 35 + rock.objectWidth) > this.x) &&
+            (rock.x  < (this.x + this.objectWidth)) &&
+            ((rock.x  + rock.objectWidth) > this.x) &&
             (rock.y < (this.y + this.objectHeight)) &&
             ((rock.y + rock.objectHeight) > this.y)
             ){

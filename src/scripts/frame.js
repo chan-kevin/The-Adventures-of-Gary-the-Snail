@@ -121,6 +121,8 @@ export default class Frame {
                 this.ctx.strokeStyle = gradient;
                 this.ctx.strokeRect(this.topLeft[0], this.topLeft[2], this.x, this.y);
                 this.ctx.stroke();
+                this.ctx.beginPath();
+                this.ctx.moveTo(0, 0);
             } 
             // this.ctx.strokeStyle = "lightgray";
             // this.ctx.strokeRect(this.topLeft[0], this.topLeft[2], this.x, this.y);

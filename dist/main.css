@@ -21,10 +21,15 @@ h1 {
   text-align: center;
 }
 
+.border {
+  background-image: url("../assets/image/bg_title.png");
+  z-index: 3;
+}
+
 #game {
   border: 3px solid black;
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
@@ -32,7 +37,7 @@ h1 {
 
 #background {
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 0;
@@ -40,19 +45,19 @@ h1 {
 
 #frame {
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
 }
 
 #board, #gary, #gary2, #gary3, #gary4, #gary5, #gary6, #rock, #goal, #ground, #ground2, #ground3, #ground4, #ground5, #ground6,
-#jellyfish, #shockedleftgary, #shockedrightgary, #floatinggary {
+#jellyfish, #shockedleftgary, #shockedrightgary, #floatinggary, #bikini {
   display: none;
 }
 
 body {
-  background-image: url("../assets/image/bg.png");
+  background-image: url("../assets/image/bg_title.png");
   background-size: cover;
   top: 0%;
   left: 0%;

@@ -15,14 +15,16 @@ h1 {
     text-align: center;
 }
 
-// .border {
+.border {
+    background-image: url("../assets/image/bg_title.png");
+    z-index: 3;
 //     // border: 20px solid transparent;
 //     background-image: url("../assets/image/frame.png");
 //     background-size: 120% 120%;
 //     // background-size: cover;
 //     // padding: 20px;
 //     // background-clip: padding-box;
-// }
+}
 
 #game {
     // background-image: url("../assets/image/frame.png");
@@ -32,7 +34,7 @@ h1 {
     // box-shadow: 25px 25px rgb(194, 188, 188);
     // border-image: url("../assets/image/bg_frame.png");
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
@@ -44,7 +46,7 @@ h1 {
 
 #background {
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 0;
@@ -52,19 +54,19 @@ h1 {
 
 #frame {
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
 }
 
 #board, #gary, #gary2, #gary3, #gary4, #gary5, #gary6, #rock, #goal, #ground, #ground2, #ground3, #ground4, #ground5, #ground6, 
-#jellyfish, #shockedleftgary, #shockedrightgary, #floatinggary{
+#jellyfish, #shockedleftgary, #shockedrightgary, #floatinggary, #bikini{
     display: none;
 }
 
 body {
-    background-image: url("../assets/image/bg.png");
+    background-image: url("../assets/image/bg_title.png");
     background-size: cover;
     // background-position: center;
     top: 0%;
