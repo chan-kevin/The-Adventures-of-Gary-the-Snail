@@ -328,7 +328,7 @@ export default class Swap{
                         this.box1.rock = this.game.rock.x;
                     }
 
-                    if (this.game.level >= 2){
+                    if (this.game.level >= 3){
                         if (
                             (this.game.jellyfish.x > this.topLeft[0] && this.game.jellyfish.x < this.topLeft[1] && this.game.jellyfish.y < this.topLeft[3])
                         ){
@@ -342,7 +342,7 @@ export default class Swap{
                         this.box1.goal = this.game.goal.x;
                     }
 
-                    if (this.game.level >= 3){
+                    if (this.game.level >= 2){
                         if (
                             (this.game.rock2.x > this.topLeft[0] && this.game.rock2.x < this.topLeft[1] && this.game.rock2.y < this.topLeft[3])
                         ){
@@ -365,7 +365,7 @@ export default class Swap{
                         this.box2.rock = this.game.rock.x;
                     }
 
-                    if (this.game.level >= 2){
+                    if (this.game.level >= 3){
                         if (
                             (this.game.jellyfish.x > this.topLeft[0] && this.game.jellyfish.x < this.topLeft[1] && this.game.jellyfish.y < this.topLeft[3])
                         ){
@@ -379,7 +379,7 @@ export default class Swap{
                         this.box2.goal = this.game.goal.x;
                     }
 
-                    if (this.game.level >= 3){
+                    if (this.game.level >= 2){
                         if (
                             (this.game.rock2.x > this.topLeft[0] && this.game.rock2.x < this.topLeft[1] && this.game.rock2.y < this.topLeft[3])
                         ){
@@ -410,7 +410,7 @@ export default class Swap{
                         this.box1.rock = this.game.rock.x;
                     }
 
-                    if (this.game.level >= 2){
+                    if (this.game.level >= 3){
                         if (
                             (this.game.jellyfish.x > this.topMid[0] && this.game.jellyfish.x < this.topMid[1] && this.game.jellyfish.y < this.topLeft[3])
                         ){
@@ -424,7 +424,7 @@ export default class Swap{
                         this.box1.goal = this.game.goal.x;
                     }
 
-                    if (this.game.level >= 3){
+                    if (this.game.level >= 2){
                         if (
                             (this.game.rock2.x > this.topMid[0] && this.game.rock2.x < this.topMid[1] && this.game.rock2.y < this.topLeft[3])
                         ){
@@ -447,7 +447,7 @@ export default class Swap{
                         this.box2.rock = this.game.rock.x;
                     }
 
-                    if (this.game.level >= 2){
+                    if (this.game.level >= 3){
                         if (
                             (this.game.jellyfish.x > this.topMid[0] && this.game.jellyfish.x < this.topMid[1] && this.game.jellyfish.y < this.topLeft[3])
                         ){
@@ -461,7 +461,7 @@ export default class Swap{
                         this.box1.goal = this.game.goal.x;
                     }
 
-                    if (this.game.level >= 3){
+                    if (this.game.level >= 2){
                         if (
                             (this.game.rock2.x > this.topMid[0] && this.game.rock2.x < this.topMid[1] && this.game.rock2.y < this.topLeft[3])
                         ){
@@ -492,7 +492,7 @@ export default class Swap{
                         this.box1.rock = this.game.rock.x;
                     }
                     
-                    if (this.game.level >= 2){
+                    if (this.game.level >= 3){
                         if (
                             (this.game.jellyfish.x > this.topRight[0] && this.game.jellyfish.x < this.topRight[1] && this.game.jellyfish.y < this.topLeft[3])
                         ){
@@ -506,7 +506,7 @@ export default class Swap{
                         this.box1.goal = this.game.goal.x;
                     }
 
-                    if (this.game.level >= 3){
+                    if (this.game.level >= 2){
                         if (
                             (this.game.rock2.x > this.topRight[0] && this.game.rock2.x < this.topRight[1] && this.game.rock2.y < this.topLeft[3])
                         ){
@@ -529,7 +529,7 @@ export default class Swap{
                         this.box2.rock = this.game.rock.x;
                     }
 
-                    if (this.game.level >= 2){
+                    if (this.game.level >= 3){
                         if (
                             (this.game.jellyfish.x > this.topRight[0] && this.game.jellyfish.x < this.topRight[1] && this.game.jellyfish.y < this.topLeft[3])
                         ){
@@ -543,7 +543,7 @@ export default class Swap{
                         this.box2.goal = this.game.goal.x;
                     }
 
-                    if (this.game.level >= 3){
+                    if (this.game.level >= 2){
                         if (
                             (this.game.rock2.x > this.topRight[0] && this.game.rock2.x < this.topRight[1] && this.game.rock2.y < this.topLeft[3])
                         ){
@@ -576,7 +576,7 @@ export default class Swap{
                         this.box1.rock = this.game.rock.x;
                     }
 
-                    if (this.game.level >= 2){
+                    if (this.game.level >= 3){
                         if (
                             (this.game.jellyfish.x > this.botLeft[0] && this.game.jellyfish.x < this.botLeft[1] && this.game.jellyfish.y > this.topLeft[3])
                         ){
@@ -590,7 +590,7 @@ export default class Swap{
                         this.box1.goal = this.game.goal.x;
                     }
 
-                    if (this.game.level >= 3){
+                    if (this.game.level >= 2){
                         if (
                             (this.game.rock2.x > this.botLeft[0] && this.game.rock2.x < this.botLeft[1] && this.game.rock2.y > this.topLeft[3])
                         ){
@@ -613,7 +613,7 @@ export default class Swap{
                         this.box2.rock = this.game.rock.x;
                     }
 
-                    if (this.game.level >= 2){
+                    if (this.game.level >= 3){
                         if (
                             (this.game.jellyfish.x > this.botLeft[0] && this.game.jellyfish.x < this.botLeft[1] && this.game.jellyfish.y > this.topLeft[3])
                         ){
@@ -627,7 +627,7 @@ export default class Swap{
                         this.box2.goal = this.game.goal.x;
                     }
 
-                    if (this.game.level >= 3){
+                    if (this.game.level >= 2){
                         if (
                             (this.game.rock2.x > this.botLeft[0] && this.game.rock2.x < this.botLeft[1] && this.game.rock2.y > this.topLeft[3])
                         ){
@@ -658,7 +658,7 @@ export default class Swap{
                         this.box1.rock = this.game.rock.x;
                     }
 
-                    if (this.game.level >= 2){
+                    if (this.game.level >= 3){
                         if (
                             (this.game.jellyfish.x > this.botMid[0] && this.game.jellyfish.x < this.botMid[1] && this.game.jellyfish.y > this.topLeft[3])
                         ){
@@ -672,7 +672,7 @@ export default class Swap{
                         this.box1.goal = this.game.goal.x;
                     }
 
-                    if (this.game.level >= 3){
+                    if (this.game.level >= 2){
                         if (
                             (this.game.rock2.x > this.botMid[0] && this.game.rock2.x < this.botMid[1] && this.game.rock2.y > this.topLeft[3])
                         ){
@@ -695,7 +695,7 @@ export default class Swap{
                         this.box2.rock = this.game.rock.x;
                     }
 
-                    if (this.game.level >= 2){
+                    if (this.game.level >= 3){
                         if (
                             (this.game.jellyfish.x > this.botMid[0] && this.game.jellyfish.x < this.botMid[1] && this.game.jellyfish.y > this.topLeft[3])
                         ){
@@ -709,7 +709,7 @@ export default class Swap{
                         this.box2.goal = this.game.goal.x;
                     }
 
-                    if (this.game.level >= 3){
+                    if (this.game.level >= 2){
                         if (
                             (this.game.rock2.x > this.botMid[0] && this.game.rock2.x < this.botMid[1] && this.game.rock2.y > this.topLeft[3])
                         ){
@@ -740,7 +740,7 @@ export default class Swap{
                         this.box1.rock = this.game.rock.x;
                     }
 
-                    if (this.game.level >= 2){
+                    if (this.game.level >= 3){
                         if (
                             (this.game.jellyfish.x > this.botRight[0] && this.game.jellyfish.x < this.botRight[1] && this.game.jellyfish.y > this.topLeft[3])
                         ){
@@ -754,7 +754,7 @@ export default class Swap{
                         this.box1.goal = this.game.goal.x;
                     }
 
-                    if (this.game.level >= 3){
+                    if (this.game.level >= 2){
                         if (
                             (this.game.rock2.x > this.botRight[0] && this.game.rock2.x < this.botRight[1] && this.game.rock2.y > this.topLeft[3])
                         ){
@@ -777,7 +777,7 @@ export default class Swap{
                         this.box2.rock = this.game.rock.x;
                     }
 
-                    if (this.game.level >= 2){
+                    if (this.game.level >= 3){
                         if (
                             (this.game.jellyfish.x > this.botRight[0] && this.game.jellyfish.x < this.botRight[1] && this.game.jellyfish.y > this.topLeft[3])
                         ){
@@ -791,7 +791,7 @@ export default class Swap{
                         this.box2.goal = this.game.goal.x;
                     }
 
-                    if (this.game.level >= 3){
+                    if (this.game.level >= 2){
                         if (
                             (this.game.rock2.x > this.botRight[0] && this.game.rock2.x < this.botRight[1] && this.game.rock2.y > this.topLeft[3])
                         ){

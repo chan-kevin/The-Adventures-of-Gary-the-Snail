@@ -157,29 +157,16 @@ export default class Gary {
     checkCollision(){
         //check if gary hits rock
         // this.game.rocks.forEach( (rock) => {
-        if (
-            (this.game.rock.x + 35 < (this.x + this.objectWidth)) &&
-            ((this.game.rock.x + 35 + this.game.rock.objectWidth) > this.x) &&
-            (this.game.rock.y < (this.y + this.objectHeight)) &&
-            ((this.game.rock.y + this.game.rock.objectHeight) > this.y)
-            ){
-                this.directionRight = !this.directionRight;
-        }
+        this.rockCollision(this.game.rock);
 
-        if (this.game.level >= 3){
-            if (
-                (this.game.rock2.x + 35 < (this.x + this.objectWidth)) &&
-                ((this.game.rock2.x + 35 + this.game.rock2.objectWidth) > this.x) &&
-                (this.game.rock2.y < (this.y + this.objectHeight)) &&
-                ((this.game.rock2.y + this.game.rock2.objectHeight) > this.y)
-                ){
-                    this.directionRight = !this.directionRight;
-            }
-        }
+        if (this.game.level >= 2){
+            this.rockCollision(this.game.rock2)
+            this.rockCollision(this.game.rock3)
+        }   
         // })
 
         //check if gary hits jellyfish
-        if (this.game.level >= 2){
+        if (this.game.level >= 3){
             if (
                 (this.game.jellyfish.x < (this.x + this.objectWidth)) &&
                 ((this.game.jellyfish.x + this.game.jellyfish.objectWidth) > this.x) &&
@@ -217,4 +204,15 @@ export default class Gary {
             //     if (this.x <= 0) this.directionRight = "right";
             // }
     } 
+
+    rockCollision(rock){
+        if (
+            (rock.x + 35 < (this.x + this.objectWidth)) &&
+            ((rock.x + 35 + rock.objectWidth) > this.x) &&
+            (rock.y < (this.y + this.objectHeight)) &&
+            ((rock.y + rock.objectHeight) > this.y)
+            ){
+                this.directionRight = !this.directionRight;
+        }
+    }
 }

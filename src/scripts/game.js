@@ -9,6 +9,7 @@ import Swap from "./swap";
 import Frame from "./frame";
 import Level from "./level";
 import Gameover from "./gameover";
+import Rock3 from "./rock3";
 
 export default class Game {
     // constructor(ctx){
@@ -28,6 +29,7 @@ export default class Game {
         this.ground = new Ground(this);
         this.rock = new Rock(this);
         this.rock2 = new Rock2(this);
+        this.rock3 = new Rock3(this);
         // this.rocks = [];
         this.jellyfish = new Jellyfish(this);
         this.gary = new Gary(this);
@@ -102,8 +104,11 @@ export default class Game {
 
     update(){
         this.rock.update();
-        if (this.level >= 3) this.rock2.update();
-        if (this.level >= 2) this.jellyfish.update();
+        if (this.level >= 2) {
+            this.rock2.update();
+            this.rock3.update();
+        }
+        if (this.level >= 3) this.jellyfish.update();
         this.gary.update();
         this.goal.update();
     }
@@ -114,8 +119,11 @@ export default class Game {
         // if (this.rock.collision()) this.rock.collision();
         // else this.rock.draw();
         this.rock.draw();
-        if (this.level >= 3) this.rock2.draw();
-        if (this.level >= 2) this.jellyfish.draw();
+        if (this.level >= 2) {
+            this.rock2.draw();
+            this.rock3.draw();
+        }
+        if (this.level >= 3) this.jellyfish.draw();
         this.gary.draw();
         this.goal.draw();
     }
@@ -151,10 +159,10 @@ export default class Game {
             this.gary.goal = false;
 
             if (this.level === 1){
-                this.goal.x = 640;
-                this.goal.y = 440;
+                this.goal.x = 1040;
+                this.goal.y = 120;
 
-                this.rock.x = 420;
+                this.rock.x = 1020;
                 this.rock.y = 375;
                 
                 this.gary.x = 1;

@@ -1,4 +1,4 @@
-export default class Rock2 {
+export default class Rock3 {
     constructor(game){
         // this.ctx = ctx;
         // this.width = width;
@@ -17,7 +17,7 @@ export default class Rock2 {
         // this.sourceWidth = 590;
         this.sourceWidth = 642;
         this.sourceHeight = 500;
-        this.x = 30;
+        this.x = 800;
         this.y = 80;
         // this.x = x;
         // this.y = y;
