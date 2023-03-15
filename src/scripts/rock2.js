@@ -1,4 +1,4 @@
-export default class Rock {
+export default class Rock2 {
     constructor(game){
         // this.ctx = ctx;
         // this.width = width;
@@ -6,7 +6,7 @@ export default class Rock {
         // 28
         this.game = game;
         // this.fps = 100;
-        this.fps = 30;
+        this.fps = 30
         this.frameInterval = 1000/this.fps;
         this.frameTimer = 0;
         this.frame = 0;
@@ -17,7 +17,7 @@ export default class Rock {
         // this.sourceWidth = 590;
         this.sourceWidth = 642;
         this.sourceHeight = 500;
-        this.x = 620;
+        this.x = 400;
         this.y = 375;
         // this.x = x;
         // this.y = y;
@@ -87,9 +87,10 @@ export default class Rock {
             // this.animate(frame);
             // }
             this.maxFrame = 27;
+            }
             // console.log("hit");
             // this.game.ctx.strokeRect(this.x, this.y, this.objectWidth, this.objectHeight);
             // this.game.ctx.drawImage(this.image, this.frame * (this.sourceX + this.sourceWidth), this.sourceY, this.sourceWidth, this.sourceHeight, this.x, this.y, this.objectWidth, this.objectHeight);
-        }
+        
     }
 }

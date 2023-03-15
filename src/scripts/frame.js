@@ -49,6 +49,7 @@ export default class Frame {
             // this.game.animate(0);
         }
         requestAnimationFrame(this.checkStatus.bind(this));
+        // setInterval(this.checkStatus.bind(this))
     }
 
     draw(){

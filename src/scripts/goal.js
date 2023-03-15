@@ -20,18 +20,17 @@ export default class Goal{
 
         this.image = document.getElementById("goal");
         this.floatinggary = document.getElementById("floatinggary");
-        this.positionX = [170, 560, 810];
-        this.positionY = [100, 400];
         this.draw();
     }
 
-    update(deltaTime){
+    // update(deltaTime){
+    update(){
 
         // if (this.image_num < 2) this.image_num ++;
         // else this.image_num = 0;
 
-        if (this.frameTimer > this.frameInterval){
-            this.frameTimer = 0;
+        // if (this.frameTimer > this.frameInterval){
+        //     this.frameTimer = 0;
             // console.log("hi")
 
             if (this.game.gary.goal){
@@ -39,9 +38,9 @@ export default class Goal{
                 this.y -= 6;
             }
 
-        } else {
-            this.frameTimer += deltaTime;
-        }
+        // } else {
+        //     this.frameTimer += deltaTime;
+        // }
     }
 
     draw(){

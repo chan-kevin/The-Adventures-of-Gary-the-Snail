@@ -2,7 +2,8 @@ export default class Jellyfish {
     constructor(game){
         this.game = game;
 
-        this.fps = 20;
+        // this.fps = 20;
+        this.fps = 30;
         this.frameInterval = 1000/this.fps;
         this.frameTimer = 0;
         this.frame = 0;
@@ -20,13 +21,12 @@ export default class Jellyfish {
         this.objectHeight = 60;
 
         this.image = document.getElementById("jellyfish");
-        this.positionX = [170, 560, 810];
-        this.positionY = [100, 400];
     }
 
-    update(deltaTime){
-        if (this.frameTimer > this.frameInterval){
-            this.frameTimer = 0;
+    // update(deltaTime){
+    update(){
+        // if (this.frameTimer > this.frameInterval){
+        //     this.frameTimer = 0;
 
             this.collision();
             if (this.frame < this.maxFrame) this.frame++;
@@ -38,9 +38,9 @@ export default class Jellyfish {
             //     this.maxFrame = 1;
             //     this.frame = 0;
             // }
-        } else {
-            this.frameTimer += deltaTime;
-        }
+        // } else {
+        //     this.frameTimer += deltaTime;
+        // }
     }
 
     // update(){

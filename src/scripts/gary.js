@@ -44,44 +44,45 @@ export default class Gary {
         this.goal = false;
     }
 
-    update(deltaTime){
+    // update(deltaTime){
 
-        // if (this.image_num < 2) this.image_num ++;
-        // else this.image_num = 0;
+    //     if (this.frameTimer > this.frameInterval){
+    //         this.frameTimer = 0;
 
-        if (this.frameTimer > this.frameInterval){
-            this.frameTimer = 0;
-            // this.draw();
-            // console.log(this.frameTimer)
+    //         this.checkCollision();
 
-            this.checkCollision();
+    //         if (this.image_num < 2) this.image_num++;
+    //         else this.image_num = 0;
 
-            if (this.image_num < 2) this.image_num++;
-            else this.image_num = 0;
+    //         if (!this.shocked && !this.goal){
+    //             if (this.directionRight) this.x+=6;
+    //             else if (!this.directionRight) this.x-=6;
+    //         }
 
-            if (!this.shocked && !this.goal){
-                if (this.directionRight) this.x+=6;
-                else if (!this.directionRight) this.x-=6;
-            }
+    //         if (this.shocked){
+    //             if (this.shockedFrame < this.shockedMaxFrame) this.shockedFrame ++;
+    //             else this.shockedFrame = 0;
+    //         }
 
-            if (this.shocked){
-                if (this.shockedFrame < this.shockedMaxFrame) this.shockedFrame ++;
-                else this.shockedFrame = 0;
-            }
+    //     } else {
+    //         this.frameTimer += deltaTime;
+    //     }
+    // }
 
-        } else {
-            this.frameTimer += deltaTime;
+    update(){
+        this.checkCollision();
+
+        if (this.image_num < 2) this.image_num++;
+        else this.image_num = 0;
+        if (!this.shocked && !this.goal){
+            if (this.directionRight) this.x+=4;
+            else if (!this.directionRight) this.x-=4;
+        }
+        if (this.shocked){
+            if (this.shockedFrame < this.shockedMaxFrame) this.shockedFrame ++;
+            else this.shockedFrame = 0;
         }
     }
-
-    // update(){
-    //     this.checkCollision();
-
-    //     if (this.image_num < 2) this.image_num++;
-    //     else this.image_num = 0;
-    //     if (this.directionRight === "right") this.x+=3;
-    //     else if (this.directionRight === "left") this.x-=3;
-    // }
 
     draw(){  
         // this.game.ctx.clearRect(0,0,this.game.width,this.game.height); 
@@ -155,6 +156,7 @@ export default class Gary {
     }
     checkCollision(){
         //check if gary hits rock
+        // this.game.rocks.forEach( (rock) => {
         if (
             (this.game.rock.x + 35 < (this.x + this.objectWidth)) &&
             ((this.game.rock.x + 35 + this.game.rock.objectWidth) > this.x) &&
@@ -162,12 +164,19 @@ export default class Gary {
             ((this.game.rock.y + this.game.rock.objectHeight) > this.y)
             ){
                 this.directionRight = !this.directionRight;
-                // while (this.game.rock.frame < this.game.rock.maxFrame){
-                // this.game.ctx.drawImage(this.game.rock.image, this.game.rock.frame * this.game.rock.sourceX, this.game.rock.sourceY, this.game.rock.sourceWidth, this.game.rock.sourceHeight, this.game.rock.x, this.game.rock.y, this.game.rock.objectWidth, this.game.rock.objectHeight);
-                // this.game.rock.frame ++;
-                // console.log(this.game.rock.frame)
-                // }
         }
+
+        if (this.game.level === 2){
+            if (
+                (this.game.rock2.x + 35 < (this.x + this.objectWidth)) &&
+                ((this.game.rock2.x + 35 + this.game.rock2.objectWidth) > this.x) &&
+                (this.game.rock2.y < (this.y + this.objectHeight)) &&
+                ((this.game.rock2.y + this.game.rock2.objectHeight) > this.y)
+                ){
+                    this.directionRight = !this.directionRight;
+            }
+        }
+        // })
 
         //check if gary hits jellyfish
         if (
