@@ -9,9 +9,9 @@ export default class Gary {
         // this.ctx = ctx;
         // this.width = width;
         // this.height = height;
-        this.fps = 30;
-        this.frameInterval = 1000/this.fps;
-        this.frameTimer = 0;
+        // this.fps = 30;
+        // this.frameInterval = 1000/this.fps;
+        // this.frameTimer = 0;
         // this.frame = 0;
         // this.maxFrame = 2;
 
@@ -19,7 +19,7 @@ export default class Gary {
         this.sourceY = 115;
         this.sourceWidth = 380;
         this.sourceHeight = 210;
-        this.x = 120;
+        this.x = 1;
         this.y = 485;
         this.objectWidth = 80;
         this.objectHeight = 50;
@@ -94,23 +94,23 @@ export default class Gary {
        
         if (!this.shocked && !this.goal){
             if (this.directionRight) {
-                this.game.ctx.strokeRect(this.x, this.y, this.objectWidth, this.objectHeight);
+                // this.game.ctx.strokeRect(this.x, this.y, this.objectWidth, this.objectHeight);
                 this.game.ctx.drawImage(this.rightGary[this.image_num], this.sourceX, this.sourceY, this.sourceWidth, this.sourceHeight, this.x, this.y, this.objectWidth, this.objectHeight);
             }
 
             if (!this.directionRight) {
-                this.game.ctx.strokeRect(this.x, this.y, this.objectWidth, this.objectHeight);
+                // this.game.ctx.strokeRect(this.x, this.y, this.objectWidth, this.objectHeight);
                 this.game.ctx.drawImage(this.leftGary[this.image_num], this.sourceX-20, this.sourceY, this.sourceWidth, this.sourceHeight+10, this.x, this.y, this.objectWidth, this.objectHeight);
             }
         }
 
         if (this.shocked && !this.directionRight){
-            this.game.ctx.strokeRect(this.x, this.y, this.objectWidth, this.objectHeight);
+            // this.game.ctx.strokeRect(this.x, this.y, this.objectWidth, this.objectHeight);
             this.game.ctx.drawImage(this.shockedLeftGary, this.shockedFrame * (this.sourceX-80 + this.shockedLeftWidth), this.sourceY-50, this.shockedLeftWidth, this.shockedHeight, this.x, this.y, this.objectWidth, this.objectHeight);
         }
 
         if (this.shocked && this.directionRight){
-            this.game.ctx.strokeRect(this.x, this.y, this.objectWidth, this.objectHeight);
+            // this.game.ctx.strokeRect(this.x, this.y, this.objectWidth, this.objectHeight);
             this.game.ctx.drawImage(this.shockedRightGary, this.shockedFrame * (this.sourceX-80 + this.shockedRightWidth), this.sourceY-50, this.shockedRightWidth, this.shockedHeight, this.x, this.y, this.objectWidth, this.objectHeight);
         }
 
@@ -166,7 +166,7 @@ export default class Gary {
                 this.directionRight = !this.directionRight;
         }
 
-        if (this.game.level === 2){
+        if (this.game.level >= 3){
             if (
                 (this.game.rock2.x + 35 < (this.x + this.objectWidth)) &&
                 ((this.game.rock2.x + 35 + this.game.rock2.objectWidth) > this.x) &&
@@ -179,16 +179,18 @@ export default class Gary {
         // })
 
         //check if gary hits jellyfish
-        if (
-            (this.game.jellyfish.x < (this.x + this.objectWidth)) &&
-            ((this.game.jellyfish.x + this.game.jellyfish.objectWidth) > this.x) &&
-            (this.game.jellyfish.y < (this.y + this.objectHeight)) &&
-            ((this.game.jellyfish.y + this.game.jellyfish.objectHeight) > this.y)
-            ){
-            // this.game.gary = [];
-            // this.directionRight = !this.directionRight;
-            this.shocked = true;
-            // this.game.gameover = true;
+        if (this.game.level >= 2){
+            if (
+                (this.game.jellyfish.x < (this.x + this.objectWidth)) &&
+                ((this.game.jellyfish.x + this.game.jellyfish.objectWidth) > this.x) &&
+                (this.game.jellyfish.y < (this.y + this.objectHeight)) &&
+                ((this.game.jellyfish.y + this.game.jellyfish.objectHeight) > this.y)
+                ){
+                // this.game.gary = [];
+                // this.directionRight = !this.directionRight;
+                this.shocked = true;
+                // this.game.gameover = true;
+            }
         }
 
         if (

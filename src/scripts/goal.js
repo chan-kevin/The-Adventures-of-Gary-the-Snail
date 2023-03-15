@@ -46,11 +46,11 @@ export default class Goal{
     draw(){
         this.game.ctx.strokeStyle = "lightgray";
         if (!this.game.gary.goal){
-            this.game.ctx.strokeRect(this.x, this.y, this.objectWidth, this.objectHeight);
+            // this.game.ctx.strokeRect(this.x, this.y, this.objectWidth, this.objectHeight);
             this.game.ctx.drawImage(this.image, this.sourceX, this.sourceY, this.sourceWidth, this.sourceHeight, this.x, this.y, this.objectWidth, this.objectHeight);
         } 
         if (this.game.gary.goal) {
-            this.game.ctx.strokeRect(this.x, this.y, this.objectWidth, this.objectHeight);
+            // this.game.ctx.strokeRect(this.x, this.y, this.objectWidth, this.objectHeight);
             this.game.ctx.drawImage(this.floatinggary, this.sourceX - 150, this.sourceY - 160, this.sourceWidth + 770, this.sourceHeight + 680, this.x, this.y, this.objectWidth, this.objectHeight);
         }
         // this.ctx.drawImage(this.image, this.imageWidth, this.imageHeight, 180, 500, this.positionX[Math.floor(Math.random()*this.positionX.length)], 400, 300, 1000);

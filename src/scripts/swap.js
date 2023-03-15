@@ -12,1036 +12,278 @@ export default class Swap{
         this.box2 = {};
         this.box1Frame = "";
         this.box2Frame = "";
+        this.frameWidth = this.game.width/3;
+        this.frameHeight = this.game.height/2;
         this.x = this.game.canvas.width/3;
         this.y = this.game.canvas.height/2;
         this.click();
         // this.checkStatus();
     }
 
-    // checkStatus(){
-    //     if (this.selectFrame === 2) this.selectFrame = 0;
-    //     requestAnimationFrame(this.checkStatus.bind(this));
-    // }
+    fromTopLeft(obj, box2Frame){
+        if (box2Frame === "topMid"){
+            obj.x += this.frameWidth;
+        }
+        if (box2Frame === "topRight"){
+            obj.x += (2 * this.frameWidth);
+        }
+        if (box2Frame === "botLeft"){
+            obj.y += this.frameHeight;
+        }
+        if (box2Frame === "botMid"){
+            obj.x += this.frameWidth;
+            obj.y += this.frameHeight;
+        }
+        if (box2Frame === "botRight"){
+            obj.x += (2 * this.frameWidth);
+            obj.y += this.frameHeight;
+        }
+    }
+
+    fromTopMid(obj, box2Frame){
+        if (box2Frame === "topLeft"){
+            obj.x -= this.frameWidth;
+        }
+        if (box2Frame === "topRight"){
+            obj.x += this.frameWidth;
+        }
+        if (box2Frame === "botLeft"){
+            obj.x -= this.frameWidth;
+            obj.y += this.frameHeight;
+        }
+        if (box2Frame === "botMid"){
+            obj.y += this.frameHeight;
+        }
+        if (box2Frame === "botRight"){
+            obj.x += this.frameWidth;
+            obj.y += this.frameHeight;
+        }
+    }
+
+    fromTopRight(obj, box2Frame){
+        if (box2Frame === "topLeft"){
+            obj.x -= (2 * this.frameWidth);
+        }
+        if (box2Frame === "topMid"){
+            obj.x -= this.frameWidth;
+        }
+        if (box2Frame === "botLeft"){
+            obj.x -= (2 * this.frameWidth);
+            obj.y += this.frameHeight;
+        }
+        if (box2Frame === "botMid"){
+            obj.x -= this.frameWidth;
+            obj.y += this.frameHeight;
+        }
+        if (box2Frame === "botRight"){
+            obj.y += this.frameHeight;
+        }
+    }
+
+    fromBotLeft(obj, box2Frame){
+        if (box2Frame === "topLeft"){
+            obj.y -= this.frameHeight;
+        }
+        if (box2Frame === "topMid"){
+            obj.x += this.frameWidth;
+            obj.y -= this.frameHeight
+        }
+        if (box2Frame === "topRight"){
+            obj.x += (2 * this.frameWidth);
+            obj.y -= this.frameHeight;
+        }
+        if (box2Frame === "botMid"){
+            obj.x += this.frameWidth;
+        }
+        if (box2Frame === "botRight"){
+            obj.x += (2 * this.frameWidth);
+        }
+    }
+
+    fromBotMid(obj, box2Frame){
+        if (box2Frame === "topLeft"){
+            obj.x -= this.frameWidth
+            obj.y -= this.frameHeight;
+        }
+        if (box2Frame === "topMid"){
+            obj.y -= this.frameHeight
+        }
+        if (box2Frame === "topRight"){
+            obj.x += this.frameWidth;
+            obj.y -= this.frameHeight;
+        }
+        if (box2Frame === "botLeft"){
+            obj.x -= this.frameWidth;
+        }
+        if (box2Frame === "botRight"){
+            obj.x += this.frameWidth;
+        }
+    }
+
+    fromBotRight(obj, box2Frame){
+        if (box2Frame === "topLeft"){
+            obj.x -= (2 * this.frameWidth);
+            obj.y -= this.frameHeight;
+        }
+        if (box2Frame === "topMid"){
+            obj.x -= this.frameWidth;
+            obj.y -= this.frameHeight;
+        }
+        if (box2Frame === "topRight"){
+            obj.y -= this.frameHeight;
+        }
+        if (box2Frame === "botLeft"){
+            obj.x -= (2 * this.frameWidth);
+        }
+        if (box2Frame === "botMid"){
+            obj.x -= this.frameWidth;
+        }
+    }
+
+    _checkStatus(box, box1Frame, box2Frame){
+        
+        for (const key in box){
+            if (box1Frame === "topLeft"){
+                if (key === "gary"){
+                    this.fromTopLeft(this.game.gary, box2Frame);
+                }
+
+                if (key === "rock"){
+                    this.fromTopLeft(this.game.rock, box2Frame);
+                }
+
+                if (key === "jellyfish"){
+                    this.fromTopLeft(this.game.jellyfish, box2Frame);
+                }
+
+                if (key === "goal"){
+                    this.fromTopLeft(this.game.goal, box2Frame);
+                }
+
+                if (key === "rock2"){
+                    this.fromTopLeft(this.game.rock2, box2Frame);
+                }
+            }
+
+            if (box1Frame === "topMid"){
+                if (key === "gary"){
+                    this.fromTopMid(this.game.gary, box2Frame);
+                }
+
+                if (key === "rock"){
+                    this.fromTopMid(this.game.rock, box2Frame);
+                }
+
+                if (key === "jellyfish"){
+                    this.fromTopMid(this.game.jellyfish, box2Frame);
+                }
+
+                if (key === "goal"){
+                    this.fromTopMid(this.game.goal, box2Frame);
+                }
+
+                if (key === "rock2"){
+                    this.fromTopMid(this.game.rock2, box2Frame);
+                }
+            }
+
+            if (box1Frame === "topRight"){
+                if (key === "gary"){
+                    this.fromTopRight(this.game.gary, box2Frame);
+                }
+
+                if (key === "rock"){
+                    this.fromTopRight(this.game.rock, box2Frame);
+                }
+
+                if (key === "jellyfish"){
+                    this.fromTopRight(this.game.jellyfish, box2Frame);
+                }
+
+                if (key === "goal"){
+                    this.fromTopRight(this.game.goal, box2Frame);
+                }
+
+                if (key === "rock2"){
+                    this.fromTopRight(this.game.rock2, box2Frame);
+                }
+            }
+
+            if (box1Frame === "botLeft"){
+                if (key === "gary"){
+                    this.fromBotLeft(this.game.gary, box2Frame);
+                }
+
+                if (key === "rock"){
+                    this.fromBotLeft(this.game.rock, box2Frame);
+                }
+
+                if (key === "jellyfish"){
+                    this.fromBotLeft(this.game.jellyfish, box2Frame);
+                }
+
+                if (key === "goal"){
+                    this.fromBotLeft(this.game.goal, box2Frame);
+                }
+
+                if (key === "rock2"){
+                    this.fromBotLeft(this.game.rock2, box2Frame);
+                }
+            }
+
+            if (box1Frame === "botMid"){
+                if (key === "gary"){
+                    this.fromBotMid(this.game.gary, box2Frame);
+                }
+
+                if (key === "rock"){
+                    this.fromBotMid(this.game.rock, box2Frame);
+                }
+
+                if (key === "jellyfish"){
+                    this.fromBotMid(this.game.jellyfish, box2Frame);
+                }
+
+                if (key === "goal"){
+                    this.fromBotMid(this.game.goal, box2Frame);
+                }
+
+                if (key === "rock2"){
+                    this.fromBotMid(this.game.rock2, box2Frame);
+                }
+            }
+
+            if (box1Frame === "botRight"){
+                if (key === "gary"){
+                    this.fromBotRight(this.game.gary, box2Frame);
+                }
+
+                if (key === "rock"){
+                    this.fromBotRight(this.game.rock, box2Frame);
+                }
+
+                if (key === "jellyfish"){
+                    this.fromBotRight(this.game.jellyfish, box2Frame);
+                }
+
+                if (key === "goal"){
+                    this.fromBotRight(this.game.goal, box2Frame);
+                }
+
+                if (key === "rock2"){
+                    this.fromBotRight(this.game.rock2, box2Frame);
+                }
+            }
+        }
+    }
+
     checkStatus(){
-        // console.log(this.game.pause)
-        const frameWidth = this.game.width/3;
-        const frameHeight = this.game.height/2;
-
         if (this.selectFrame === 2) {
-        //     this.selectFrame = 0;
-        // }
-            for (const key in this.box1){
-                if (this.box1Frame === "topLeft"){
-                    // this.game.gary.x += 100;
-                    // console.log(this.game.gary.x)
-                    // console.log(this.game.gary.x)
-                    // console.log(key)
-                    // console.log(this.box1)
-                    // console.log("hi")
-                    if (key === "gary"){
-                        if (this.box2Frame === "topMid"){
-                            this.game.gary.x += frameWidth;
-                        }
-                        if (this.box2Frame === "topRight"){
-                            this.game.gary.x += (2 * frameWidth);
-                        }
-                        if (this.box2Frame === "botLeft"){
-                            this.game.gary.y += frameHeight;
-                        }
-                        if (this.box2Frame === "botMid"){
-                            this.game.gary.x += frameWidth;
-                            this.game.gary.y += frameHeight;
-                        }
-                        if (this.box2Frame === "botRight"){
-                            this.game.gary.x += (2 * frameWidth);
-                            this.game.gary.y += frameHeight;
-                        }
-                    }
-
-                    if (key === "rock"){
-                        if (this.box2Frame === "topMid"){
-                            this.game.rock.x += frameWidth;
-                        }
-                        if (this.box2Frame === "topRight"){
-                            this.game.rock.x += (2 * frameWidth);
-                        }
-                        if (this.box2Frame === "botLeft"){
-                            this.game.rock.y += frameHeight;
-                        }
-                        if (this.box2Frame === "botMid"){
-                            this.game.rock.x += frameWidth;
-                            this.game.rock.y += frameHeight;
-                        }
-                        if (this.box2Frame === "botRight"){
-                            this.game.rock.x += (2 * frameWidth);
-                            this.game.rock.y += frameHeight;
-                        }
-                    }
-
-                    if (key === "jellyfish"){
-                        if (this.box2Frame === "topMid"){
-                            this.game.jellyfish.x += frameWidth;
-                        }
-                        if (this.box2Frame === "topRight"){
-                            this.game.jellyfish.x += (2 * frameWidth);
-                        }
-                        if (this.box2Frame === "botLeft"){
-                            this.game.jellyfish.y += frameHeight;
-                        }
-                        if (this.box2Frame === "botMid"){
-                            this.game.jellyfish.x += frameWidth;
-                            this.game.jellyfish.y += frameHeight;
-                        }
-                        if (this.box2Frame === "botRight"){
-                            this.game.jellyfish.x += (2 * frameWidth);
-                            this.game.jellyfish.y += frameHeight;
-                        }
-                    }
-
-                    if (key === "goal"){
-                        if (this.box2Frame === "topMid"){
-                            this.game.goal.x += frameWidth;
-                        }
-                        if (this.box2Frame === "topRight"){
-                            this.game.goal.x += (2 * frameWidth);
-                        }
-                        if (this.box2Frame === "botLeft"){
-                            this.game.goal.y += frameHeight;
-                        }
-                        if (this.box2Frame === "botMid"){
-                            this.game.goal.x += frameWidth;
-                            this.game.goal.y += frameHeight;
-                        }
-                        if (this.box2Frame === "botRight"){
-                            this.game.goal.x += (2 * frameWidth);
-                            this.game.goal.y += frameHeight;
-                        }
-                    }
-                }
-
-                if (this.box1Frame === "topMid"){
-                    if (key === "gary"){
-                        if (this.box2Frame === "topLeft"){
-                            this.game.gary.x -= frameWidth;
-                        }
-                        if (this.box2Frame === "topRight"){
-                            this.game.gary.x += frameWidth;
-                        }
-                        if (this.box2Frame === "botLeft"){
-                            this.game.gary.x -= frameWidth;
-                            this.game.gary.y += frameHeight;
-                        }
-                        if (this.box2Frame === "botMid"){
-                            this.game.gary.y += frameHeight;
-                        }
-                        if (this.box2Frame === "botRight"){
-                            this.game.gary.x += frameWidth;
-                            this.game.gary.y += frameHeight;
-                        }
-                    }
-
-                    if (key === "rock"){
-                        if (this.box2Frame === "topLeft"){
-                            this.game.rock.x -= frameWidth;
-                        }
-                        if (this.box2Frame === "topRight"){
-                            this.game.rock.x += frameWidth;
-                        }
-                        if (this.box2Frame === "botLeft"){
-                            this.game.rock.x -= frameWidth;
-                            this.game.rock.y += frameHeight;
-                        }
-                        if (this.box2Frame === "botMid"){
-                            this.game.rock.y += frameHeight;
-                        }
-                        if (this.box2Frame === "botRight"){
-                            this.game.rock.x += frameWidth;
-                            this.game.rock.y += frameHeight;
-                        }
-                    }
-
-                    if (key === "jellyfish"){
-                        if (this.box2Frame === "topLeft"){
-                            this.game.jellyfish.x -= frameWidth;
-                        }
-                        if (this.box2Frame === "topRight"){
-                            this.game.jellyfish.x += frameWidth;
-                        }
-                        if (this.box2Frame === "botLeft"){
-                            this.game.jellyfish.x -= frameWidth;
-                            this.game.jellyfish.y += frameHeight;
-                        }
-                        if (this.box2Frame === "botMid"){
-                            this.game.jellyfish.y += frameHeight;
-                        }
-                        if (this.box2Frame === "botRight"){
-                            this.game.jellyfish.x += frameWidth;
-                            this.game.jellyfish.y += frameHeight;
-                        }
-                    }
-
-                    if (key === "goal"){
-                        if (this.box2Frame === "topLeft"){
-                            this.game.goal.x -= frameWidth;
-                        }
-                        if (this.box2Frame === "topRight"){
-                            this.game.goal.x += frameWidth;
-                        }
-                        if (this.box2Frame === "botLeft"){
-                            this.game.goal.x -= frameWidth;
-                            this.game.goal.y += frameHeight;
-                        }
-                        if (this.box2Frame === "botMid"){
-                            this.game.goal.y += frameHeight;
-                        }
-                        if (this.box2Frame === "botRight"){
-                            this.game.goal.x += frameWidth;
-                            this.game.goal.y += frameHeight;
-                        }
-                    }
-                }
-
-                if (this.box1Frame === "topRight"){
-                    if (key === "gary"){
-                        if (this.box2Frame === "topLeft"){
-                            this.game.gary.x -= (2 * frameWidth);
-                        }
-                        if (this.box2Frame === "topMid"){
-                            this.game.gary.x -= frameWidth;
-                        }
-                        if (this.box2Frame === "botLeft"){
-                            this.game.gary.x -= (2 * frameWidth);
-                            this.game.gary.y += frameHeight;
-                        }
-                        if (this.box2Frame === "botMid"){
-                            this.game.gary.x -= frameWidth;
-                            this.game.gary.y += frameHeight;
-                        }
-                        if (this.box2Frame === "botRight"){
-                            this.game.gary.y += frameHeight;
-                        }
-                    }
-
-                    if (key === "rock"){
-                        if (this.box2Frame === "topLeft"){
-                            this.game.rock.x -= (2 * frameWidth);
-                        }
-                        if (this.box2Frame === "topMid"){
-                            this.game.rock.x -= frameWidth;
-                        }
-                        if (this.box2Frame === "botLeft"){
-                            this.game.rock.x -= (2 * frameWidth);
-                            this.game.rock.y += frameHeight;
-                        }
-                        if (this.box2Frame === "botMid"){
-                            this.game.rock.x -= frameWidth;
-                            this.game.rock.y += frameHeight;
-                        }
-                        if (this.box2Frame === "botRight"){
-                            this.game.rock.y += frameHeight;
-                        }
-                    }
-
-                    if (key === "jellyfish"){
-                        if (this.box2Frame === "topLeft"){
-                            this.game.jellyfish.x -= (2 * frameWidth);
-                        }
-                        if (this.box2Frame === "topMid"){
-                            this.game.jellyfish.x -= frameWidth;
-                        }
-                        if (this.box2Frame === "botLeft"){
-                            this.game.jellyfish.x -= (2 * frameWidth);
-                            this.game.jellyfish.y += frameHeight;
-                        }
-                        if (this.box2Frame === "botMid"){
-                            this.game.jellyfish.x -= frameWidth;
-                            this.game.jellyfish.y += frameHeight;
-                        }
-                        if (this.box2Frame === "botRight"){
-                            this.game.jellyfish.y += frameHeight;
-                        }
-                    }
-
-                    if (key === "goal"){
-                        if (this.box2Frame === "topLeft"){
-                            this.game.goal.x -= (2 * frameWidth);
-                        }
-                        if (this.box2Frame === "topMid"){
-                            this.game.goal.x -= frameWidth;
-                        }
-                        if (this.box2Frame === "botLeft"){
-                            this.game.goal.x -= (2 * frameWidth);
-                            this.game.goal.y += frameHeight;
-                        }
-                        if (this.box2Frame === "botMid"){
-                            this.game.goal.x -= frameWidth;
-                            this.game.goal.y += frameHeight;
-                        }
-                        if (this.box2Frame === "botRight"){
-                            this.game.goal.y += frameHeight;
-                        }
-                    }
-                }
-
-                if (this.box1Frame === "botLeft"){
-                    if (key === "gary"){
-                        if (this.box2Frame === "topLeft"){
-                            this.game.gary.y -= frameHeight;
-                        }
-                        if (this.box2Frame === "topMid"){
-                            this.game.gary.x += frameWidth;
-                            this.game.gary.y -= frameHeight
-                        }
-                        if (this.box2Frame === "topRight"){
-                            this.game.gary.x += (2 * frameWidth);
-                            this.game.gary.y -= frameHeight;
-                        }
-                        if (this.box2Frame === "botMid"){
-                            this.game.gary.x += frameWidth;
-                        }
-                        if (this.box2Frame === "botRight"){
-                            this.game.gary.x += (2 * frameWidth);
-                        }
-                        // console.log(this.game.gary.x)
-                        // console.log(this.game.gary.y)
-                        // console.log(frameWidth)
-                        // console.log(frameHeight)
-                    }
-
-                    if (key === "rock"){
-                        if (this.box2Frame === "topLeft"){
-                            this.game.rock.y -= frameHeight;
-                        }
-                        if (this.box2Frame === "topMid"){
-                            this.game.rock.x += frameWidth;
-                            this.game.rock.y -= frameHeight
-                        }
-                        if (this.box2Frame === "topRight"){
-                            this.game.rock.x += (2 * frameWidth);
-                            this.game.rock.y -= frameHeight;
-                        }
-                        if (this.box2Frame === "botMid"){
-                            this.game.rock.x += frameWidth;
-                        }
-                        if (this.box2Frame === "botRight"){
-                            this.game.rock.x += (2 * frameWidth);
-                        }
-                    }
-
-                    if (key === "jellyfish"){
-                        if (this.box2Frame === "topLeft"){
-                            this.game.jellyfish.y -= frameHeight;
-                        }
-                        if (this.box2Frame === "topMid"){
-                            this.game.jellyfish.x += frameWidth;
-                            this.game.jellyfish.y -= frameHeight
-                        }
-                        if (this.box2Frame === "topRight"){
-                            this.game.jellyfish.x += (2 * frameWidth);
-                            this.game.jellyfish.y -= frameHeight;
-                        }
-                        if (this.box2Frame === "botMid"){
-                            this.game.jellyfish.x += frameWidth;
-                        }
-                        if (this.box2Frame === "botRight"){
-                            this.game.jellyfish.x += (2 * frameWidth);
-                        }
-                    }
-
-                    if (key === "goal"){
-                        if (this.box2Frame === "topLeft"){
-                            this.game.goal.y -= frameHeight;
-                        }
-                        if (this.box2Frame === "topMid"){
-                            this.game.goal.x += frameWidth;
-                            this.game.goal.y -= frameHeight
-                        }
-                        if (this.box2Frame === "topRight"){
-                            this.game.goal.x += (2 * frameWidth);
-                            this.game.goal.y -= frameHeight;
-                        }
-                        if (this.box2Frame === "botMid"){
-                            this.game.goal.x += frameWidth;
-                        }
-                        if (this.box2Frame === "botRight"){
-                            this.game.goal.x += (2 * frameWidth);
-                        }
-                    }
-                }
-
-                if (this.box1Frame === "botMid"){
-                    if (key === "gary"){
-                        if (this.box2Frame === "topLeft"){
-                            this.game.gary.x -= frameWidth
-                            this.game.gary.y -= frameHeight;
-                        }
-                        if (this.box2Frame === "topMid"){
-                            this.game.gary.y -= frameHeight
-                        }
-                        if (this.box2Frame === "topRight"){
-                            this.game.gary.x += frameWidth;
-                            this.game.gary.y -= frameHeight;
-                        }
-                        if (this.box2Frame === "botLeft"){
-                            this.game.gary.x -= frameWidth;
-                        }
-                        if (this.box2Frame === "botRight"){
-                            this.game.gary.x += frameWidth;
-                        }
-                    }
-
-                    if (key === "rock"){
-                        if (this.box2Frame === "topLeft"){
-                            this.game.rock.x -= frameWidth
-                            this.game.rock.y -= frameHeight;
-                        }
-                        if (this.box2Frame === "topMid"){
-                            this.game.rock.y -= frameHeight
-                        }
-                        if (this.box2Frame === "topRight"){
-                            this.game.rock.x += frameWidth;
-                            this.game.rock.y -= frameHeight;
-                        }
-                        if (this.box2Frame === "botLeft"){
-                            this.game.rock.x -= frameWidth;
-                        }
-                        if (this.box2Frame === "botRight"){
-                            this.game.rock.x += frameWidth;
-                        }
-                    }
-
-                    if (key === "jellyfish"){
-                        if (this.box2Frame === "topLeft"){
-                            this.game.jellyfish.x -= frameWidth
-                            this.game.jellyfish.y -= frameHeight;
-                        }
-                        if (this.box2Frame === "topMid"){
-                            this.game.jellyfish.y -= frameHeight
-                        }
-                        if (this.box2Frame === "topRight"){
-                            this.game.jellyfish.x += frameWidth;
-                            this.game.jellyfish.y -= frameHeight;
-                        }
-                        if (this.box2Frame === "botLeft"){
-                            this.game.jellyfish.x -= frameWidth;
-                        }
-                        if (this.box2Frame === "botRight"){
-                            this.game.jellyfish.x += frameWidth;
-                        }
-                    }
-
-                    if (key === "goal"){
-                        if (this.box2Frame === "topLeft"){
-                            this.game.goal.x -= frameWidth
-                            this.game.goal.y -= frameHeight;
-                        }
-                        if (this.box2Frame === "topMid"){
-                            this.game.goal.y -= frameHeight
-                        }
-                        if (this.box2Frame === "topRight"){
-                            this.game.goal.x += frameWidth;
-                            this.game.goal.y -= frameHeight;
-                        }
-                        if (this.box2Frame === "botLeft"){
-                            this.game.goal.x -= frameWidth;
-                        }
-                        if (this.box2Frame === "botRight"){
-                            this.game.goal.x += frameWidth;
-                        }
-                    }
-                }
-
-                if (this.box1Frame === "botRight"){
-                    if (key === "gary"){
-                        if (this.box2Frame === "topLeft"){
-                            this.game.gary.x -= (2 * frameWidth);
-                            this.game.gary.y -= frameHeight;
-                        }
-                        if (this.box2Frame === "topMid"){
-                            this.game.gary.x -= frameWidth;
-                            this.game.gary.y -= frameHeight;
-                        }
-                        if (this.box2Frame === "topRight"){
-                            this.game.gary.y -= frameHeight;
-                        }
-                        if (this.box2Frame === "botLeft"){
-                            this.game.gary.x -= (2 * frameWidth);
-                        }
-                        if (this.box2Frame === "botMid"){
-                            this.game.gary.x -= frameWidth;
-                        }
-                    }
-
-                    if (key === "rock"){
-                        if (this.box2Frame === "topLeft"){
-                            this.game.rock.x -= (2 * frameWidth);
-                            this.game.rock.y -= frameHeight;
-                        }
-                        if (this.box2Frame === "topMid"){
-                            this.game.rock.x -= frameWidth;
-                            this.game.rock.y -= frameHeight;
-                        }
-                        if (this.box2Frame === "topRight"){
-                            this.game.rock.y -= frameHeight;
-                        }
-                        if (this.box2Frame === "botLeft"){
-                            this.game.rock.x -= (2 * frameWidth);
-                        }
-                        if (this.box2Frame === "botMid"){
-                            this.game.rock.x -= frameWidth;
-                        }
-                    }
-
-                    if (key === "jellyfish"){
-                        if (this.box2Frame === "topLeft"){
-                            this.game.jellyfish.x -= (2 * frameWidth);
-                            this.game.jellyfish.y -= frameHeight;
-                        }
-                        if (this.box2Frame === "topMid"){
-                            this.game.jellyfish.x -= frameWidth;
-                            this.game.jellyfish.y -= frameHeight;
-                        }
-                        if (this.box2Frame === "topRight"){
-                            this.game.jellyfish.y -= frameHeight;
-                        }
-                        if (this.box2Frame === "botLeft"){
-                            this.game.jellyfish.x -= (2 * frameWidth);
-                        }
-                        if (this.box2Frame === "botMid"){
-                            this.game.jellyfish.x -= frameWidth;
-                        }
-                    }
-
-                    if (key === "goal"){
-                        if (this.box2Frame === "topLeft"){
-                            this.game.goal.x -= (2 * frameWidth);
-                            this.game.goal.y -= frameHeight;
-                        }
-                        if (this.box2Frame === "topMid"){
-                            this.game.goal.x -= frameWidth;
-                            this.game.goal.y -= frameHeight;
-                        }
-                        if (this.box2Frame === "topRight"){
-                            this.game.goal.y -= frameHeight;
-                        }
-                        if (this.box2Frame === "botLeft"){
-                            this.game.goal.x -= (2 * frameWidth);
-                        }
-                        if (this.box2Frame === "botMid"){
-                            this.game.goal.x -= frameWidth;
-                        }
-                    }
-                }
-            }
-
-
-            for (const key in this.box2){
-                if (this.box2Frame === "topLeft"){
-                    // this.game.gary.x += 100;
-                    // console.log(this.game.gary.x)
-                    // console.log(this.game.gary.x)
-                    // console.log(key)
-                    // console.log(this.box1)
-                    // console.log("hi")
-                    if (key === "gary"){
-                        if (this.box1Frame === "topMid"){
-                            this.game.gary.x += frameWidth;
-                        }
-                        if (this.box1Frame === "topRight"){
-                            this.game.gary.x += (2 * frameWidth);
-                        }
-                        if (this.box1Frame === "botLeft"){
-                            this.game.gary.y += frameHeight;
-                        }
-                        if (this.box1Frame === "botMid"){
-                            this.game.gary.x += frameWidth;
-                            this.game.gary.y += frameHeight;
-                        }
-                        if (this.box1Frame === "botRight"){
-                            this.game.gary.x += (2 * frameWidth);
-                            this.game.gary.y += frameHeight;
-                        }
-                    }
-
-                    if (key === "rock"){
-                        if (this.box1Frame === "topMid"){
-                            this.game.rock.x += frameWidth;
-                        }
-                        if (this.box1Frame === "topRight"){
-                            this.game.rock.x += (2 * frameWidth);
-                        }
-                        if (this.box1Frame === "botLeft"){
-                            this.game.rock.y += frameHeight;
-                        }
-                        if (this.box1Frame === "botMid"){
-                            this.game.rock.x += frameWidth;
-                            this.game.rock.y += frameHeight;
-                        }
-                        if (this.box1Frame === "botRight"){
-                            this.game.rock.x += (2 * frameWidth);
-                            this.game.rock.y += frameHeight;
-                        }
-                    }
-
-                    if (key === "jellyfish"){
-                        if (this.box1Frame === "topMid"){
-                            this.game.jellyfish.x += frameWidth;
-                        }
-                        if (this.box1Frame === "topRight"){
-                            this.game.jellyfish.x += (2 * frameWidth);
-                        }
-                        if (this.box1Frame === "botLeft"){
-                            this.game.jellyfish.y += frameHeight;
-                        }
-                        if (this.box1Frame === "botMid"){
-                            this.game.jellyfish.x += frameWidth;
-                            this.game.jellyfish.y += frameHeight;
-                        }
-                        if (this.box1Frame === "botRight"){
-                            this.game.jellyfish.x += (2 * frameWidth);
-                            this.game.jellyfish.y += frameHeight;
-                        }
-                    }
-
-                    if (key === "goal"){
-                        if (this.box1Frame === "topMid"){
-                            this.game.goal.x += frameWidth;
-                        }
-                        if (this.box1Frame === "topRight"){
-                            this.game.goal.x += (2 * frameWidth);
-                        }
-                        if (this.box1Frame === "botLeft"){
-                            this.game.goal.y += frameHeight;
-                        }
-                        if (this.box1Frame === "botMid"){
-                            this.game.goal.x += frameWidth;
-                            this.game.goal.y += frameHeight;
-                        }
-                        if (this.box1Frame === "botRight"){
-                            this.game.goal.x += (2 * frameWidth);
-                            this.game.goal.y += frameHeight;
-                        }
-                    }
-                }
-
-                if (this.box2Frame === "topMid"){
-                    if (key === "gary"){
-                        if (this.box1Frame === "topLeft"){
-                            this.game.gary.x -= frameWidth;
-                        }
-                        if (this.box1Frame === "topRight"){
-                            this.game.gary.x += frameWidth;
-                        }
-                        if (this.box1Frame === "botLeft"){
-                            this.game.gary.x -= frameWidth;
-                            this.game.gary.y += frameHeight;
-                        }
-                        if (this.box1Frame === "botMid"){
-                            this.game.gary.y += frameHeight;
-                        }
-                        if (this.box1Frame === "botRight"){
-                            this.game.gary.x += frameWidth;
-                            this.game.gary.y += frameHeight;
-                        }
-                    }
-
-                    if (key === "rock"){
-                        if (this.box1Frame === "topLeft"){
-                            this.game.rock.x -= frameWidth;
-                        }
-                        if (this.box1Frame === "topRight"){
-                            this.game.rock.x += frameWidth;
-                        }
-                        if (this.box1Frame === "botLeft"){
-                            this.game.rock.x -= frameWidth;
-                            this.game.rock.y += frameHeight;
-                        }
-                        if (this.box1Frame === "botMid"){
-                            this.game.rock.y += frameHeight;
-                        }
-                        if (this.box1Frame === "botRight"){
-                            this.game.rock.x += frameWidth;
-                            this.game.rock.y += frameHeight;
-                        }
-                    }
-
-                    if (key === "jellyfish"){
-                        if (this.box1Frame === "topLeft"){
-                            this.game.jellyfish.x -= frameWidth;
-                        }
-                        if (this.box1Frame === "topRight"){
-                            this.game.jellyfish.x += frameWidth;
-                        }
-                        if (this.box1Frame === "botLeft"){
-                            this.game.jellyfish.x -= frameWidth;
-                            this.game.jellyfish.y += frameHeight;
-                        }
-                        if (this.box1Frame === "botMid"){
-                            this.game.jellyfish.y += frameHeight;
-                        }
-                        if (this.box1Frame === "botRight"){
-                            this.game.jellyfish.x += frameWidth;
-                            this.game.jellyfish.y += frameHeight;
-                        }
-                    }
-
-                    if (key === "goal"){
-                        if (this.box1Frame === "topLeft"){
-                            this.game.goal.x -= frameWidth;
-                        }
-                        if (this.box1Frame === "topRight"){
-                            this.game.goal.x += frameWidth;
-                        }
-                        if (this.box1Frame === "botLeft"){
-                            this.game.goal.x -= frameWidth;
-                            this.game.goal.y += frameHeight;
-                        }
-                        if (this.box1Frame === "botMid"){
-                            this.game.goal.y += frameHeight;
-                        }
-                        if (this.box1Frame === "botRight"){
-                            this.game.goal.x += frameWidth;
-                            this.game.goal.y += frameHeight;
-                        }
-                    }
-                }
-
-                if (this.box2Frame === "topRight"){
-                    if (key === "gary"){
-                        if (this.box1Frame === "topLeft"){
-                            this.game.gary.x -= (2 * frameWidth);
-                        }
-                        if (this.box1Frame === "topMid"){
-                            this.game.gary.x -= frameWidth;
-                        }
-                        if (this.box1Frame === "botLeft"){
-                            this.game.gary.x -= (2 * frameWidth);
-                            this.game.gary.y += frameHeight;
-                        }
-                        if (this.box1Frame === "botMid"){
-                            this.game.gary.x -= frameWidth;
-                            this.game.gary.y += frameHeight;
-                        }
-                        if (this.box1Frame === "botRight"){
-                            this.game.gary.y += frameHeight;
-                        }
-                    }
-
-                    if (key === "rock"){
-                        if (this.box1Frame === "topLeft"){
-                            this.game.rock.x -= (2 * frameWidth);
-                        }
-                        if (this.box1Frame === "topMid"){
-                            this.game.rock.x -= frameWidth;
-                        }
-                        if (this.box1Frame === "botLeft"){
-                            this.game.rock.x -= (2 * frameWidth);
-                            this.game.rock.y += frameHeight;
-                        }
-                        if (this.box1Frame === "botMid"){
-                            this.game.rock.x -= frameWidth;
-                            this.game.rock.y += frameHeight;
-                        }
-                        if (this.box1Frame === "botRight"){
-                            this.game.rock.y += frameHeight;
-                        }
-                    }
-
-                    if (key === "jellyfish"){
-                        if (this.box1Frame === "topLeft"){
-                            this.game.jellyfish.x -= (2 * frameWidth);
-                        }
-                        if (this.box1Frame === "topMid"){
-                            this.game.jellyfish.x -= frameWidth;
-                        }
-                        if (this.box1Frame === "botLeft"){
-                            this.game.jellyfish.x -= (2 * frameWidth);
-                            this.game.jellyfish.y += frameHeight;
-                        }
-                        if (this.box1Frame === "botMid"){
-                            this.game.jellyfish.x -= frameWidth;
-                            this.game.jellyfish.y += frameHeight;
-                        }
-                        if (this.box1Frame === "botRight"){
-                            this.game.jellyfish.y += frameHeight;
-                        }
-                    }
-
-                    if (key === "goal"){
-                        if (this.box1Frame === "topLeft"){
-                            this.game.goal.x -= (2 * frameWidth);
-                        }
-                        if (this.box1Frame === "topMid"){
-                            this.game.goal.x -= frameWidth;
-                        }
-                        if (this.box1Frame === "botLeft"){
-                            this.game.goal.x -= (2 * frameWidth);
-                            this.game.goal.y += frameHeight;
-                        }
-                        if (this.box1Frame === "botMid"){
-                            this.game.goal.x -= frameWidth;
-                            this.game.goal.y += frameHeight;
-                        }
-                        if (this.box1Frame === "botRight"){
-                            this.game.goal.y += frameHeight;
-                        }
-                    }
-                }
-
-                if (this.box2Frame === "botLeft"){
-                    if (key === "gary"){
-                        if (this.box1Frame === "topLeft"){
-                            this.game.gary.y -= frameHeight;
-                        }
-                        if (this.box1Frame === "topMid"){
-                            this.game.gary.x += frameWidth;
-                            this.game.gary.y -= frameHeight
-                        }
-                        if (this.box1Frame === "topRight"){
-                            this.game.gary.x += (2 * frameWidth);
-                            this.game.gary.y -= frameHeight;
-                        }
-                        if (this.box1Frame === "botMid"){
-                            this.game.gary.x += frameWidth;
-                        }
-                        if (this.box1Frame === "botRight"){
-                            this.game.gary.x += (2 * frameWidth);
-                        }
-                        // console.log(this.game.gary.x)
-                        // console.log(this.game.gary.y)
-                        // console.log(frameWidth)
-                        // console.log(frameHeight)
-                    }
-
-                    if (key === "rock"){
-                        if (this.box1Frame === "topLeft"){
-                            this.game.rock.y -= frameHeight;
-                        }
-                        if (this.box1Frame === "topMid"){
-                            this.game.rock.x += frameWidth;
-                            this.game.rock.y -= frameHeight
-                        }
-                        if (this.box1Frame === "topRight"){
-                            this.game.rock.x += (2 * frameWidth);
-                            this.game.rock.y -= frameHeight;
-                        }
-                        if (this.box1Frame === "botMid"){
-                            this.game.rock.x += frameWidth;
-                        }
-                        if (this.box1Frame === "botRight"){
-                            this.game.rock.x += (2 * frameWidth);
-                        }
-                    }
-
-                    if (key === "jellyfish"){
-                        if (this.box1Frame === "topLeft"){
-                            this.game.jellyfish.y -= frameHeight;
-                        }
-                        if (this.box1Frame === "topMid"){
-                            this.game.jellyfish.x += frameWidth;
-                            this.game.jellyfish.y -= frameHeight
-                        }
-                        if (this.box1Frame === "topRight"){
-                            this.game.jellyfish.x += (2 * frameWidth);
-                            this.game.jellyfish.y -= frameHeight;
-                        }
-                        if (this.box1Frame === "botMid"){
-                            this.game.jellyfish.x += frameWidth;
-                        }
-                        if (this.box1Frame === "botRight"){
-                            this.game.jellyfish.x += (2 * frameWidth);
-                        }
-                    }
-
-                    if (key === "goal"){
-                        if (this.box1Frame === "topLeft"){
-                            this.game.goal.y -= frameHeight;
-                        }
-                        if (this.box1Frame === "topMid"){
-                            this.game.goal.x += frameWidth;
-                            this.game.goal.y -= frameHeight
-                        }
-                        if (this.box1Frame === "topRight"){
-                            this.game.goal.x += (2 * frameWidth);
-                            this.game.goal.y -= frameHeight;
-                        }
-                        if (this.box1Frame === "botMid"){
-                            this.game.goal.x += frameWidth;
-                        }
-                        if (this.box1Frame === "botRight"){
-                            this.game.goal.x += (2 * frameWidth);
-                        }
-                    }
-                }
-
-                if (this.box2Frame === "botMid"){
-                    if (key === "gary"){
-                        if (this.box1Frame === "topLeft"){
-                            this.game.gary.x -= frameWidth
-                            this.game.gary.y -= frameHeight;
-                        }
-                        if (this.box1Frame === "topMid"){
-                            this.game.gary.y -= frameHeight
-                        }
-                        if (this.box1Frame === "topRight"){
-                            this.game.gary.x += frameWidth;
-                            this.game.gary.y -= frameHeight;
-                        }
-                        if (this.box1Frame === "botLeft"){
-                            this.game.gary.x -= frameWidth;
-                        }
-                        if (this.box1Frame === "botRight"){
-                            this.game.gary.x += frameWidth;
-                        }
-                    }
-
-                    if (key === "rock"){
-                        if (this.box1Frame === "topLeft"){
-                            this.game.rock.x -= frameWidth
-                            this.game.rock.y -= frameHeight;
-                        }
-                        if (this.box1Frame === "topMid"){
-                            this.game.rock.y -= frameHeight
-                        }
-                        if (this.box1Frame === "topRight"){
-                            this.game.rock.x += frameWidth;
-                            this.game.rock.y -= frameHeight;
-                        }
-                        if (this.box1Frame === "botLeft"){
-                            this.game.rock.x -= frameWidth;
-                        }
-                        if (this.box1Frame === "botRight"){
-                            this.game.rock.x += frameWidth;
-                        }
-                    }
-
-                    if (key === "jellyfish"){
-                        if (this.box1Frame === "topLeft"){
-                            this.game.jellyfish.x -= frameWidth
-                            this.game.jellyfish.y -= frameHeight;
-                        }
-                        if (this.box1Frame === "topMid"){
-                            this.game.jellyfish.y -= frameHeight
-                        }
-                        if (this.box1Frame === "topRight"){
-                            this.game.jellyfish.x += frameWidth;
-                            this.game.jellyfish.y -= frameHeight;
-                        }
-                        if (this.box1Frame === "botLeft"){
-                            this.game.jellyfish.x -= frameWidth;
-                        }
-                        if (this.box1Frame === "botRight"){
-                            this.game.jellyfish.x += frameWidth;
-                        }
-                    }
-
-                    if (key === "goal"){
-                        if (this.box1Frame === "topLeft"){
-                            this.game.goal.x -= frameWidth
-                            this.game.goal.y -= frameHeight;
-                        }
-                        if (this.box1Frame === "topMid"){
-                            this.game.goal.y -= frameHeight
-                        }
-                        if (this.box1Frame === "topRight"){
-                            this.game.goal.x += frameWidth;
-                            this.game.goal.y -= frameHeight;
-                        }
-                        if (this.box1Frame === "botLeft"){
-                            this.game.goal.x -= frameWidth;
-                        }
-                        if (this.box1Frame === "botRight"){
-                            this.game.goal.x += frameWidth;
-                        }
-                    }
-                }
-
-                if (this.box2Frame === "botRight"){
-                    if (key === "gary"){
-                        if (this.box1Frame === "topLeft"){
-                            this.game.gary.x -= (2 * frameWidth);
-                            this.game.gary.y -= frameHeight;
-                        }
-                        if (this.box1Frame === "topMid"){
-                            this.game.gary.x -= frameWidth
-                            this.game.gary.y -= frameHeight
-                        }
-                        if (this.box1Frame === "topRight"){
-                            this.game.gary.y -= frameHeight;
-                        }
-                        if (this.box1Frame === "botLeft"){
-                            this.game.gary.x -= (2 * frameWidth);
-                        }
-                        if (this.box1Frame === "botMid"){
-                            this.game.gary.x -= frameWidth;
-                        }
-                    }
-
-                    if (key === "rock"){
-                        if (this.box1Frame === "topLeft"){
-                            this.game.rock.x -= (2 * frameWidth);
-                            this.game.rock.y -= frameHeight;
-                        }
-                        if (this.box1Frame === "topMid"){
-                            this.game.rock.x -= frameWidth
-                            this.game.rock.y -= frameHeight
-                        }
-                        if (this.box1Frame === "topRight"){
-                            this.game.rock.y -= frameHeight;
-                        }
-                        if (this.box1Frame === "botLeft"){
-                            this.game.rock.x -= (2 * frameWidth);
-                        }
-                        if (this.box1Frame === "botMid"){
-                            this.game.rock.x -= frameWidth;
-                        }
-                    }
-
-                    if (key === "jellyfish"){
-                        if (this.box1Frame === "topLeft"){
-                            this.game.jellyfish.x -= (2 * frameWidth);
-                            this.game.jellyfish.y -= frameHeight;
-                        }
-                        if (this.box1Frame === "topMid"){
-                            this.game.jellyfish.x -= frameWidth
-                            this.game.jellyfish.y -= frameHeight
-                        }
-                        if (this.box1Frame === "topRight"){
-                            this.game.jellyfish.y -= frameHeight;
-                        }
-                        if (this.box1Frame === "botLeft"){
-                            this.game.jellyfish.x -= (2 * frameWidth);
-                        }
-                        if (this.box1Frame === "botMid"){
-                            this.game.jellyfish.x -= frameWidth;
-                        }
-                    }
-
-                    if (key === "goal"){
-                        if (this.box1Frame === "topLeft"){
-                            this.game.goal.x -= (2 * frameWidth);
-                            this.game.goal.y -= frameHeight;
-                        }
-                        if (this.box1Frame === "topMid"){
-                            this.game.goal.x -= frameWidth
-                            this.game.goal.y -= frameHeight
-                        }
-                        if (this.box1Frame === "topRight"){
-                            this.game.goal.y -= frameHeight;
-                        }
-                        if (this.box1Frame === "botLeft"){
-                            this.game.goal.x -= (2 * frameWidth);
-                        }
-                        if (this.box1Frame === "botMid"){
-                            this.game.goal.x -= frameWidth;
-                        }
-                    }
-                }
-            }
+            this._checkStatus(this.box1, this.box1Frame, this.box2Frame);
+            this._checkStatus(this.box2, this.box2Frame, this.box1Frame)
             this.box1 = {};
             this.box2 = {};
             this.selectFrame = 0;
-            // this.game.pause = true;
         }
         // requestAnimationFrame(this.checkStatus.bind(this));
     }
@@ -1069,19 +311,14 @@ export default class Swap{
             if (
                 (e.offsetX > this.topLeft[0] && e.offsetX < this.topLeft[1]) &&
                 (e.offsetY > this.topLeft[2] && e.offsetY < this.topLeft[3])
-                // this.frame.ctx.isPointInPath(x, y)
             ){ 
                 // console.log("hi");
                 this.selectFrame += 1;
-                // console.log(this.game.gary.x);
-                // console.log(this.selectFrame)
                 if (this.selectFrame === 1){
                     this.box1Frame = "topLeft";
                     if (
                         (this.game.gary.x > this.topLeft[0] && this.game.gary.x < this.topLeft[1] && this.game.gary.y < this.topLeft[3])
                     ){
-                        // this.box1.gary = 0;
-                        // console.log(this.box1Frame)
                         this.box1.gary = this.game.gary.x;
                     }
 
@@ -1091,16 +328,26 @@ export default class Swap{
                         this.box1.rock = this.game.rock.x;
                     }
 
-                    if (
-                        (this.game.jellyfish.x > this.topLeft[0] && this.game.jellyfish.x < this.topLeft[1] && this.game.jellyfish.y < this.topLeft[3])
-                    ){
-                        this.box1.jellyfish = this.game.jellyfish.x;
+                    if (this.game.level >= 2){
+                        if (
+                            (this.game.jellyfish.x > this.topLeft[0] && this.game.jellyfish.x < this.topLeft[1] && this.game.jellyfish.y < this.topLeft[3])
+                        ){
+                            this.box1.jellyfish = this.game.jellyfish.x;
+                        }
                     }
 
                     if (
                         (this.game.goal.x > this.topLeft[0] && this.game.goal.x < this.topLeft[1] && this.game.goal.y < this.topLeft[3])
                     ){
                         this.box1.goal = this.game.goal.x;
+                    }
+
+                    if (this.game.level >= 3){
+                        if (
+                            (this.game.rock2.x > this.topLeft[0] && this.game.rock2.x < this.topLeft[1] && this.game.rock2.y < this.topLeft[3])
+                        ){
+                            this.box1.rock2 = this.game.rock2.x;
+                        }
                     }
                 }
 
@@ -1118,10 +365,12 @@ export default class Swap{
                         this.box2.rock = this.game.rock.x;
                     }
 
-                    if (
-                        (this.game.jellyfish.x > this.topLeft[0] && this.game.jellyfish.x < this.topLeft[1] && this.game.jellyfish.y < this.topLeft[3])
-                    ){
-                        this.box2.jellyfish = this.game.jellyfish.x;
+                    if (this.game.level >= 2){
+                        if (
+                            (this.game.jellyfish.x > this.topLeft[0] && this.game.jellyfish.x < this.topLeft[1] && this.game.jellyfish.y < this.topLeft[3])
+                        ){
+                            this.box2.jellyfish = this.game.jellyfish.x;
+                        }
                     }
 
                     if (
@@ -1129,18 +378,16 @@ export default class Swap{
                     ){
                         this.box2.goal = this.game.goal.x;
                     }
+
+                    if (this.game.level >= 3){
+                        if (
+                            (this.game.rock2.x > this.topLeft[0] && this.game.rock2.x < this.topLeft[1] && this.game.rock2.y < this.topLeft[3])
+                        ){
+                            this.box2.rock2 = this.game.rock2.x;
+                        }
+                    }
                 }
-                // if (this.selectFrame === 1){
-                //     if (this.game.gary){}
-                // }
-                // this.ctx.strokeStyle = "red";
-                // this.ctx.strokeRect(this.topLeft[0], this.topLeft[2], this.x, this.y);
-                // this.ctx.stroke();
             } 
-            // this.ctx.strokeStyle = "lightgray";
-            // this.ctx.strokeRect(this.topLeft[0], this.topLeft[2], this.x, this.y);
-            // this.ctx.stroke();
-            // }
     
             //top mid frame
             if (
@@ -1154,10 +401,7 @@ export default class Swap{
                     if (
                         (this.game.gary.x > this.topMid[0] && this.game.gary.x < this.topMid[1] && this.game.gary.y < this.topLeft[3])
                     ){
-                        // console.log(this.topLeft[3])
                         this.box1.gary = this.game.gary.x;
-                        // console.log(this.box1)
-                        // console.log(this.box1Frame)
                     }
 
                     if (
@@ -1166,16 +410,26 @@ export default class Swap{
                         this.box1.rock = this.game.rock.x;
                     }
 
-                    if (
-                        (this.game.jellyfish.x > this.topMid[0] && this.game.jellyfish.x < this.topMid[1] && this.game.jellyfish.y < this.topLeft[3])
-                    ){
-                        this.box1.jellyfish = this.game.jellyfish.x;
+                    if (this.game.level >= 2){
+                        if (
+                            (this.game.jellyfish.x > this.topMid[0] && this.game.jellyfish.x < this.topMid[1] && this.game.jellyfish.y < this.topLeft[3])
+                        ){
+                            this.box1.jellyfish = this.game.jellyfish.x;
+                        }
                     }
 
                     if (
                         (this.game.goal.x > this.topMid[0] && this.game.goal.x < this.topMid[1] && this.game.goal.y < this.topLeft[3])
                     ){
                         this.box1.goal = this.game.goal.x;
+                    }
+
+                    if (this.game.level >= 3){
+                        if (
+                            (this.game.rock2.x > this.topMid[0] && this.game.rock2.x < this.topMid[1] && this.game.rock2.y < this.topLeft[3])
+                        ){
+                            this.box1.rock2 = this.game.rock2.x;
+                        }
                     }
                 }
 
@@ -1193,10 +447,12 @@ export default class Swap{
                         this.box2.rock = this.game.rock.x;
                     }
 
-                    if (
-                        (this.game.jellyfish.x > this.topMid[0] && this.game.jellyfish.x < this.topMid[1] && this.game.jellyfish.y < this.topLeft[3])
-                    ){
-                        this.box2.jellyfish = this.game.jellyfish.x;
+                    if (this.game.level >= 2){
+                        if (
+                            (this.game.jellyfish.x > this.topMid[0] && this.game.jellyfish.x < this.topMid[1] && this.game.jellyfish.y < this.topLeft[3])
+                        ){
+                            this.box2.jellyfish = this.game.jellyfish.x;
+                        }
                     }
 
                     if (
@@ -1204,16 +460,16 @@ export default class Swap{
                     ){
                         this.box1.goal = this.game.goal.x;
                     }
+
+                    if (this.game.level >= 3){
+                        if (
+                            (this.game.rock2.x > this.topMid[0] && this.game.rock2.x < this.topMid[1] && this.game.rock2.y < this.topLeft[3])
+                        ){
+                            this.box2.rock2 = this.game.rock2.x;
+                        }
+                    }
                 }
-                // this.ctx.strokeStyle = "red";
-                // this.ctx.strokeRect(this.topMid[0], this.topMid[2], this.x, this.y);
-                // this.ctx.stroke();
             }
-            // this.ctx.clearRect(0, 0, thisFrame.width, thisFrame.height);
-            // this.ctx.strokeStyle = "lightgray";
-            // this.ctx.strokeRect(this.topMid[0], this.topMid[2], this.x, this.y);
-            // this.ctx.stroke();
-            // }
     
             //top right frame
             if (
@@ -1235,17 +491,27 @@ export default class Swap{
                     ){
                         this.box1.rock = this.game.rock.x;
                     }
-
-                    if (
-                        (this.game.jellyfish.x > this.topRight[0] && this.game.jellyfish.x < this.topRight[1] && this.game.jellyfish.y < this.topLeft[3])
-                    ){
-                        this.box1.jellyfish = this.game.jellyfish.x;
+                    
+                    if (this.game.level >= 2){
+                        if (
+                            (this.game.jellyfish.x > this.topRight[0] && this.game.jellyfish.x < this.topRight[1] && this.game.jellyfish.y < this.topLeft[3])
+                        ){
+                            this.box1.jellyfish = this.game.jellyfish.x;
+                        }
                     }
 
                     if (
                         (this.game.goal.x > this.topRight[0] && this.game.goal.x < this.topRight[1] && this.game.goal.y < this.topLeft[3])
                     ){
                         this.box1.goal = this.game.goal.x;
+                    }
+
+                    if (this.game.level >= 3){
+                        if (
+                            (this.game.rock2.x > this.topRight[0] && this.game.rock2.x < this.topRight[1] && this.game.rock2.y < this.topLeft[3])
+                        ){
+                            this.box1.rock2 = this.game.rock2.x;
+                        }
                     }
                 }
 
@@ -1263,10 +529,12 @@ export default class Swap{
                         this.box2.rock = this.game.rock.x;
                     }
 
-                    if (
-                        (this.game.jellyfish.x > this.topRight[0] && this.game.jellyfish.x < this.topRight[1] && this.game.jellyfish.y < this.topLeft[3])
-                    ){
-                        this.box2.jellyfish = this.game.jellyfish.x;
+                    if (this.game.level >= 2){
+                        if (
+                            (this.game.jellyfish.x > this.topRight[0] && this.game.jellyfish.x < this.topRight[1] && this.game.jellyfish.y < this.topLeft[3])
+                        ){
+                            this.box2.jellyfish = this.game.jellyfish.x;
+                        }
                     }
 
                     if (
@@ -1274,16 +542,16 @@ export default class Swap{
                     ){
                         this.box2.goal = this.game.goal.x;
                     }
+
+                    if (this.game.level >= 3){
+                        if (
+                            (this.game.rock2.x > this.topRight[0] && this.game.rock2.x < this.topRight[1] && this.game.rock2.y < this.topLeft[3])
+                        ){
+                            this.box2.rock2 = this.game.rock2.x;
+                        }
+                    }
                 }
-                // this.ctx.strokeStyle = "red";
-                // this.ctx.strokeRect(this.topRight[0], this.topRight[2], this.x, this.y);
-                // this.ctx.stroke();
             }
-            // this.ctx.clearRect(0, 0, thisFrame.width, thisFrame.height);
-            // this.ctx.strokeStyle = "lightgray";
-            // this.ctx.strokeRect(this.topMid[0], this.topMid[2], this.x, this.y);
-            // this.ctx.stroke();
-            // }
     
             //bot left frame
             if (
@@ -1308,16 +576,26 @@ export default class Swap{
                         this.box1.rock = this.game.rock.x;
                     }
 
-                    if (
-                        (this.game.jellyfish.x > this.botLeft[0] && this.game.jellyfish.x < this.botLeft[1] && this.game.jellyfish.y > this.topLeft[3])
-                    ){
-                        this.box1.jellyfish = this.game.jellyfish.x;
+                    if (this.game.level >= 2){
+                        if (
+                            (this.game.jellyfish.x > this.botLeft[0] && this.game.jellyfish.x < this.botLeft[1] && this.game.jellyfish.y > this.topLeft[3])
+                        ){
+                            this.box1.jellyfish = this.game.jellyfish.x;
+                        }
                     }
 
                     if (
                         (this.game.goal.x > this.botLeft[0] && this.game.goal.x < this.botLeft[1] && this.game.goal.y > this.topLeft[3])
                     ){
                         this.box1.goal = this.game.goal.x;
+                    }
+
+                    if (this.game.level >= 3){
+                        if (
+                            (this.game.rock2.x > this.botLeft[0] && this.game.rock2.x < this.botLeft[1] && this.game.rock2.y > this.topLeft[3])
+                        ){
+                            this.box1.rock2 = this.game.rock2.x;
+                        }
                     }
                 }
 
@@ -1335,10 +613,12 @@ export default class Swap{
                         this.box2.rock = this.game.rock.x;
                     }
 
-                    if (
-                        (this.game.jellyfish.x > this.botLeft[0] && this.game.jellyfish.x < this.botLeft[1] && this.game.jellyfish.y > this.topLeft[3])
-                    ){
-                        this.box2.jellyfish = this.game.jellyfish.x;
+                    if (this.game.level >= 2){
+                        if (
+                            (this.game.jellyfish.x > this.botLeft[0] && this.game.jellyfish.x < this.botLeft[1] && this.game.jellyfish.y > this.topLeft[3])
+                        ){
+                            this.box2.jellyfish = this.game.jellyfish.x;
+                        }
                     }
 
                     if (
@@ -1346,14 +626,16 @@ export default class Swap{
                     ){
                         this.box2.goal = this.game.goal.x;
                     }
+
+                    if (this.game.level >= 3){
+                        if (
+                            (this.game.rock2.x > this.botLeft[0] && this.game.rock2.x < this.botLeft[1] && this.game.rock2.y > this.topLeft[3])
+                        ){
+                            this.box2.rock2 = this.game.rock2.x;
+                        }
+                    }
                 }
-                // this.ctx.strokeStyle = "red";
-                // this.ctx.strokeRect(this.botLeft[0], this.botLeft[2], this.x, this.y);
-                // this.ctx.stroke();
             }
-            // this.ctx.strokeStyle = "lightgray";
-            // this.ctx.strokeRect(this.topMid[0], this.topMid[2], this.x, this.y);
-            // this.ctx.stroke();
             
             //bot mid frame
             if (
@@ -1376,16 +658,26 @@ export default class Swap{
                         this.box1.rock = this.game.rock.x;
                     }
 
-                    if (
-                        (this.game.jellyfish.x > this.botMid[0] && this.game.jellyfish.x < this.botMid[1] && this.game.jellyfish.y > this.topLeft[3])
-                    ){
-                        this.box1.jellyfish = this.game.jellyfish.x;
+                    if (this.game.level >= 2){
+                        if (
+                            (this.game.jellyfish.x > this.botMid[0] && this.game.jellyfish.x < this.botMid[1] && this.game.jellyfish.y > this.topLeft[3])
+                        ){
+                            this.box1.jellyfish = this.game.jellyfish.x;
+                        }
                     }
 
                     if (
                         (this.game.goal.x > this.botMid[0] && this.game.goal.x < this.botMid[1] && this.game.goal.y > this.topLeft[3])
                     ){
                         this.box1.goal = this.game.goal.x;
+                    }
+
+                    if (this.game.level >= 3){
+                        if (
+                            (this.game.rock2.x > this.botMid[0] && this.game.rock2.x < this.botMid[1] && this.game.rock2.y > this.topLeft[3])
+                        ){
+                            this.box1.rock2 = this.game.rock2.x;
+                        }
                     }
                 }
 
@@ -1403,10 +695,12 @@ export default class Swap{
                         this.box2.rock = this.game.rock.x;
                     }
 
-                    if (
-                        (this.game.jellyfish.x > this.botMid[0] && this.game.jellyfish.x < this.botMid[1] && this.game.jellyfish.y > this.topLeft[3])
-                    ){
-                        this.box2.jellyfish = this.game.jellyfish.x;
+                    if (this.game.level >= 2){
+                        if (
+                            (this.game.jellyfish.x > this.botMid[0] && this.game.jellyfish.x < this.botMid[1] && this.game.jellyfish.y > this.topLeft[3])
+                        ){
+                            this.box2.jellyfish = this.game.jellyfish.x;
+                        }
                     }
 
                     if (
@@ -1414,14 +708,16 @@ export default class Swap{
                     ){
                         this.box2.goal = this.game.goal.x;
                     }
+
+                    if (this.game.level >= 3){
+                        if (
+                            (this.game.rock2.x > this.botMid[0] && this.game.rock2.x < this.botMid[1] && this.game.rock2.y > this.topLeft[3])
+                        ){
+                            this.box2.rock2 = this.game.rock2.x;
+                        }
+                    }
                 }
-                // this.ctx.strokeStyle = "red";
-                // this.ctx.strokeRect(this.botMid[0], this.botMid[2], this.x, this.y);
-                // this.ctx.stroke();
             }
-            // this.ctx.strokeStyle = "lightgray";
-            // this.ctx.strokeRect(this.topMid[0], this.topMid[2], this.x, this.y);
-            // this.ctx.stroke();
     
             //bot right frame
             if (
@@ -1444,16 +740,26 @@ export default class Swap{
                         this.box1.rock = this.game.rock.x;
                     }
 
-                    if (
-                        (this.game.jellyfish.x > this.botRight[0] && this.game.jellyfish.x < this.botRight[1] && this.game.jellyfish.y > this.topLeft[3])
-                    ){
-                        this.box1.jellyfish = this.game.jellyfish.x;
+                    if (this.game.level >= 2){
+                        if (
+                            (this.game.jellyfish.x > this.botRight[0] && this.game.jellyfish.x < this.botRight[1] && this.game.jellyfish.y > this.topLeft[3])
+                        ){
+                            this.box1.jellyfish = this.game.jellyfish.x;
+                        }
                     }
 
                     if (
                         (this.game.goal.x > this.botRight[0] && this.game.goal.x < this.botRight[1] && this.game.goal.y > this.topLeft[3])
                     ){
                         this.box1.goal = this.game.goal.x;
+                    }
+
+                    if (this.game.level >= 3){
+                        if (
+                            (this.game.rock2.x > this.botRight[0] && this.game.rock2.x < this.botRight[1] && this.game.rock2.y > this.topLeft[3])
+                        ){
+                            this.box1.rock2 = this.game.rock2.x;
+                        }
                     }
                 }
 
@@ -1471,10 +777,12 @@ export default class Swap{
                         this.box2.rock = this.game.rock.x;
                     }
 
-                    if (
-                        (this.game.jellyfish.x > this.botRight[0] && this.game.jellyfish.x < this.botRight[1] && this.game.jellyfish.y > this.topLeft[3])
-                    ){
-                        this.box2.jellyfish = this.game.jellyfish.x;
+                    if (this.game.level >= 2){
+                        if (
+                            (this.game.jellyfish.x > this.botRight[0] && this.game.jellyfish.x < this.botRight[1] && this.game.jellyfish.y > this.topLeft[3])
+                        ){
+                            this.box2.jellyfish = this.game.jellyfish.x;
+                        }
                     }
 
                     if (
@@ -1482,25 +790,16 @@ export default class Swap{
                     ){
                         this.box2.goal = this.game.goal.x;
                     }
+
+                    if (this.game.level >= 3){
+                        if (
+                            (this.game.rock2.x > this.botRight[0] && this.game.rock2.x < this.botRight[1] && this.game.rock2.y > this.topLeft[3])
+                        ){
+                            this.box2.rock2 = this.game.rock2.x;
+                        }
+                    }
                 }
-                // this.ctx.strokeStyle = "red";
-                // this.ctx.strokeRect(this.botRight[0], this.botRight[2], this.x, this.y);
-                // this.ctx.stroke();
             }
-            // this.ctx.strokeStyle = "lightgray";
-            // this.ctx.strokeRect(this.topMid[0], this.topMid[2], this.x, this.y);
-            // this.ctx.stroke();
-    
-            // for (let row = 0; row <= this.game.width; row += x){
-            //     for (let col = 0; col <= this.game.height; col += y){
-            //         this.game.ctx.strokeStyle = this.strokeStyle;
-            //         this.game.ctx.strokeRect(row, col, this.x, this.y);
-            //         // (row,col), (row+x,col), (row, col+y), (row+x, col+y)
-            //         // (row,col,row+x,col+y)
-            //         this.game.ctx.stroke();
-            //     }
-            //     // }
-            // }
         })
     }
 }

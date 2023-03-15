@@ -43,24 +43,11 @@ export default class Frame {
         }
         if (this.selectFrame === 0) {
             this.game.pause = false;
-            // this.game.animate.call(this.game);
-            // this.game.animate;
-            // console.log(this.game.pause)
-            // this.game.animate(0);
         }
         requestAnimationFrame(this.checkStatus.bind(this));
-        // setInterval(this.checkStatus.bind(this))
     }
 
     draw(){
-        // const background = document.getElementById("board")
-        // background.src = '../../assets/image/background.jpg';
-        // background.onload = function(){
-            // const width = 1000;
-            // const height = 500;
-
-        // this.frame.ctx.drawImage(this.background, 0, 0, this.frame.width, this.frame.height);
-
         const xPts = []
         const yPts = []
 

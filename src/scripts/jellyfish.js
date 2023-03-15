@@ -3,9 +3,9 @@ export default class Jellyfish {
         this.game = game;
 
         // this.fps = 20;
-        this.fps = 30;
-        this.frameInterval = 1000/this.fps;
-        this.frameTimer = 0;
+        // this.fps = 30;
+        // this.frameInterval = 1000/this.fps;
+        // this.frameTimer = 0;
         this.frame = 0;
         this.maxFrame = 1; //27
 
@@ -14,8 +14,9 @@ export default class Jellyfish {
         // this.sourceWidth = 590;
         this.sourceWidth = 40;
         this.sourceHeight = 30;
-        this.x = 10;
+        // this.x = 10;
         // this.x = 350;
+        this.x = 950;
         this.y = 470;
         this.objectWidth = 60;
         this.objectHeight = 60;
@@ -50,7 +51,7 @@ export default class Jellyfish {
     // }
 
     draw(){
-        this.game.ctx.strokeRect(this.x, this.y, this.objectWidth, this.objectHeight);
+        // this.game.ctx.strokeRect(this.x, this.y, this.objectWidth, this.objectHeight);
         this.game.ctx.drawImage(this.image, this.frame * (this.sourceX + this.sourceWidth), this.sourceY, this.sourceWidth, this.sourceHeight, this.x, this.y, this.objectWidth, this.objectHeight);
     }
 

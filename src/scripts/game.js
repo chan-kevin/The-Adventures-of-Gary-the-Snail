@@ -7,7 +7,7 @@ import Ground from "./ground";
 import Jellyfish from "./jellyfish";
 import Swap from "./swap";
 import Frame from "./frame";
-import Obstacles from "./rock";
+import Level from "./level";
 import Gameover from "./gameover";
 
 export default class Game {
@@ -23,12 +23,13 @@ export default class Game {
         this.width = canvas.width;
         this.height = canvas.height;
         // this.frame = new Frame(this);
+        this.next = new Level(this);
+        this.swap = new Swap(this);
         this.ground = new Ground(this);
         this.rock = new Rock(this);
         this.rock2 = new Rock2(this);
         // this.rocks = [];
         this.jellyfish = new Jellyfish(this);
-        this.swap = new Swap(this);
         this.gary = new Gary(this);
         this.goal = new Goal(this);
         this.over = new Gameover(this);
@@ -101,8 +102,8 @@ export default class Game {
 
     update(){
         this.rock.update();
-        if (this.level === 2) this.rock2.update();
-        this.jellyfish.update();
+        if (this.level >= 3) this.rock2.update();
+        if (this.level >= 2) this.jellyfish.update();
         this.gary.update();
         this.goal.update();
     }
@@ -113,10 +114,8 @@ export default class Game {
         // if (this.rock.collision()) this.rock.collision();
         // else this.rock.draw();
         this.rock.draw();
-        if (this.level === 2) this.rock2.draw();
-        // if (this.level === 2) this.rock2.draw();
-        // this.rocks.forEach((rock) => rock.draw());
-        this.jellyfish.draw();
+        if (this.level >= 3) this.rock2.draw();
+        if (this.level >= 2) this.jellyfish.draw();
         this.gary.draw();
         this.goal.draw();
     }
@@ -129,16 +128,14 @@ export default class Game {
         // this.lastTime = timeStamp;
         // console.log(this.lastTime)
         this.ctx.clearRect(0,0,this.width,this.height);
-        // this.swap.click();
-        // this.swap.click();
-        // this.frame.checkStatus();
         this.swap.checkStatus();
+
         // this.update(deltaTime);
         this.update();
         this.draw();
-        // console.log(this.pause)
-        // console.log(this.swap.box1)
-        // console.log(this.gary.x)
+
+
+
         setTimeout(() => {
         // setInterval(() => {
         // requestAnimationFrame(() => {
@@ -150,15 +147,23 @@ export default class Game {
             // cancelAnimationFrame(this.animate.bind(this));
         })
 
-        if (this.goal.y <= 0){
-            // this.level += 1;
-            console.log(this.level)
+        if (this.goal.y < 1){
             this.gary.goal = false;
-            this.gary.x = 120;
-            this.goal.y = 440;
+
+            if (this.level === 1){
+                this.goal.x = 640;
+                this.goal.y = 440;
+
+                this.rock.x = 420;
+                this.rock.y = 375;
+                
+                this.gary.x = 1;
+                this.gary.y = 485;
+            }
+
             this.level += 1;
-            console.log(this.level)
         }
+            // this.next.nextLevel();
 
         // if (this.gameover) {
         //     this.over.draw();
@@ -171,28 +176,4 @@ export default class Game {
         // }, 20)
         // setInterval(this.resume.bind(this))
     }
-
-    // draw (){
-    //     new Frame(this.ctx, this.width, this.height);
-    //     new Gary(this.ctx, this.width, this.height);
-    //     new rock(this.ctx, this.width, this.height);
-    //     new Goal(this.ctx, this.width, this.height);
-        // const background = new Image();
-        // background.src = '../../assets/image/background.jpg';
-        // // background.onload = function(){
-        //     // const width = 1000;
-        //     // const height = 500;
-        // this.ctx.drawImage(background, 0, 0, this.dimension.width, this.dimension.height/2);
-        // this.ctx.drawImage(background, 0, this.dimension.height/2, this.dimension.width, this.dimension.height/2);
-        // const x = this.dimension.width/3;
-        // const y = this.dimension.height/2;
-        // for (let row = 0; row <= this.dimension.width - x; row += x){
-        //     for (let col = 0; col <= this.dimension.height - y; col += y){
-        //         this.ctx.strokeStyle = "lightgray";
-        //         this.ctx.strokeRect(row, col, x, y);
-        //         this.ctx.stroke();
-        //     }
-        //     // }
-        // }
-    // } 
 }

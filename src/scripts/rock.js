@@ -6,9 +6,9 @@ export default class Rock {
         // 28
         this.game = game;
         // this.fps = 100;
-        this.fps = 30;
-        this.frameInterval = 1000/this.fps;
-        this.frameTimer = 0;
+        // this.fps = 30;
+        // this.frameInterval = 1000/this.fps;
+        // this.frameTimer = 0;
         this.frame = 0;
         this.maxFrame = 0; //27
 

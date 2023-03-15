@@ -57,24 +57,8 @@ export default class Rock2 {
     // }
 
     draw(){
-        // this.game.ctx.strokeRect(this.boxX, this.y, this.objectWidth, this.objectHeight);
-
-        // if (this.frame < this.maxFrame) this.frame++;
-        // else this.frame = 0;
         this.game.ctx.drawImage(this.image, this.frame * (this.sourceX + this.sourceWidth), this.sourceY, this.sourceWidth, this.sourceHeight, this.x, this.y, this.objectWidth, this.objectHeight);
-        // this.game.ctx.drawImage(this.image, this.sourceX, this.sourceY, this.sourceWidth, this.sourceHeight, this.x, this.y, this.objectWidth, this.objectHeight);
-        // if (this.x < (this.game.gary.x + this.game.gary.objectWidth)) {
-        //     //     console.log(this.frame)
-        //     this.game.ctx.drawImage(this.image, this.frame * this.sourceX, this.sourceY, this.sourceWidth, this.sourceHeight, this.x, this.y, this.objectWidth, this.objectHeight);
-        // }
-        // this.ctx.drawImage(this.image, this.imageWidth, this.imageHeight, 180, 500, this.positionX[Math.floor(Math.random()*this.positionX.length)], 400, 300, 1000);
-        // this.ctx.drawImage(this.image, 0, 0);
     }
-
-    // animate(frame){
-    //     console.log("hi")
-    //     this.game.ctx.drawImage(this.image, frame * (this.sourceX + this.sourceWidth), this.sourceY, this.sourceWidth, this.sourceHeight, this.x, this.y, this.objectWidth, this.objectHeight);
-    // }
 
     collision(){
         if (
