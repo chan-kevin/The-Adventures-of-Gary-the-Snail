@@ -87,12 +87,12 @@ export default class Frame {
     }
 
     hover(){
-        this.ctx.font = "30px Verdana";
-        var gradient = this.ctx.createLinearGradient(0, 0, this.game.canvas.width, 0);
-        gradient.addColorStop("0", "magenta");
-        gradient.addColorStop("0.5", "blue");
-        gradient.addColorStop("1.0", "red");
-        this.ctx.lineWidth = 5;
+        // this.ctx.font = "30px Verdana";
+        // var gradient = this.ctx.createLinearGradient(0, 0, this.game.canvas.width, 0);
+        // gradient.addColorStop("0", "magenta");
+        // gradient.addColorStop("0.5", "blue");
+        // gradient.addColorStop("1.0", "black");
+        // this.ctx.lineWidth = 5;
         this.frame.addEventListener("mousemove", e => {
             // refresh every frames
             if (this.selectFrame < 1){
@@ -118,7 +118,7 @@ export default class Frame {
                 // this.frame.ctx.isPointInPath(x, y)
             ){ 
                 // console.log("hi");
-                this.ctx.strokeStyle = gradient;
+                this.ctx.strokeStyle = "black";
                 this.ctx.strokeRect(this.topLeft[0], this.topLeft[2], this.x, this.y);
                 this.ctx.stroke();
                 this.ctx.beginPath();
@@ -242,7 +242,8 @@ export default class Frame {
                 // console.log(this.selectFrame);
                 this.game.pause = true;
                 this.selectFrame += 1;
-                this.ctx.strokeStyle = "red";
+                this.ctx.lineWidth = 5;
+                this.ctx.strokeStyle = `rgb(73, 100, 133)`;
                 this.ctx.strokeRect(this.topLeft[0], this.topLeft[2], this.x, this.y);
                 this.ctx.stroke();
             } 
@@ -258,7 +259,8 @@ export default class Frame {
             ){ 
                 this.game.pause = true;
                 this.selectFrame += 1;
-                this.ctx.strokeStyle = "red";
+                this.ctx.lineWidth = 5;
+                this.ctx.strokeStyle = `rgb(73, 100, 133)`;
                 this.ctx.strokeRect(this.topMid[0], this.topMid[2], this.x, this.y);
                 this.ctx.stroke();
             }
@@ -275,7 +277,8 @@ export default class Frame {
             ){ 
                 this.game.pause = true;
                 this.selectFrame += 1;
-                this.ctx.strokeStyle = "red";
+                this.ctx.lineWidth = 5;
+                this.ctx.strokeStyle = `rgb(73, 100, 133)`;
                 this.ctx.strokeRect(this.topRight[0], this.topRight[2], this.x, this.y);
                 this.ctx.stroke();
             }
@@ -292,7 +295,8 @@ export default class Frame {
             ){ 
                 this.game.pause = true;
                 this.selectFrame += 1;
-                this.ctx.strokeStyle = "red";
+                this.ctx.lineWidth = 5;
+                this.ctx.strokeStyle = `rgb(73, 100, 133)`;
                 this.ctx.strokeRect(this.botLeft[0], this.botLeft[2], this.x, this.y);
                 this.ctx.stroke();
             }
@@ -307,7 +311,8 @@ export default class Frame {
             ){ 
                 this.game.pause = true;
                 this.selectFrame += 1;
-                this.ctx.strokeStyle = "red";
+                this.ctx.lineWidth = 5;
+                this.ctx.strokeStyle = `rgb(73, 100, 133)`;
                 this.ctx.strokeRect(this.botMid[0], this.botMid[2], this.x, this.y);
                 this.ctx.stroke();
             }
@@ -322,7 +327,8 @@ export default class Frame {
             ){ 
                 this.game.pause = true;
                 this.selectFrame += 1;
-                this.ctx.strokeStyle = "red";
+                this.ctx.lineWidth = 5;
+                this.ctx.strokeStyle = `rgb(73, 100, 133)`;
                 this.ctx.strokeRect(this.botRight[0], this.botRight[2], this.x, this.y);
                 this.ctx.stroke();
             }

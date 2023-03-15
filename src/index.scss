@@ -10,14 +10,25 @@
     box-sizing: border-box;
 }
 
+body, html {
+    height: 100%;
+}
+  
+
 h1 {
     margin-top: 30px;
     text-align: center;
 }
 
-.border {
-    background-image: url("../assets/image/bg_title.png");
-    z-index: 3;
+#instruction {
+    background-image: url("../assets/image/instructions.png");
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    // z-index: 3;
 //     // border: 20px solid transparent;
 //     background-image: url("../assets/image/frame.png");
 //     background-size: 120% 120%;
@@ -29,7 +40,7 @@ h1 {
 #game {
     // background-image: url("../assets/image/frame.png");
     
-    border: 3px solid black;
+    border: 14px solid rgb(73, 100, 133);
     // border-image: url("../assets/image/frame.png");
     // box-shadow: 25px 25px rgb(194, 188, 188);
     // border-image: url("../assets/image/bg_frame.png");
@@ -65,11 +76,19 @@ h1 {
     display: none;
 }
 
-body {
+#game_background {
     background-image: url("../assets/image/bg_title.png");
+    // background-size: cover;
+    // display: none;
+    // // background-position: center;
+    // top: 0%;
+    // left: 0%;
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
-    // background-position: center;
-    top: 0%;
-    left: 0%;
+    display: none;
     // background-color: rgb(219, 216, 162);
 }

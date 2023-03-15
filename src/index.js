@@ -10,6 +10,14 @@ import Frame from "./scripts/frame";
 // // });
 
 document.addEventListener("DOMContentLoaded", () => {
+    function startGame(){
+        document.getElementById("instruction").style.display = "none";
+        document.getElementById("game_background").style.display = "block";
+        document.body.removeEventListener('keydown', startGame);
+    }
+
+    document.body.addEventListener('keydown', startGame, true);
+
     const canvas = document.getElementById("game");
     const background = document.getElementById("background");
     const frame = document.getElementById("frame");

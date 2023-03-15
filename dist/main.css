@@ -16,18 +16,26 @@
   box-sizing: border-box;
 }
 
+body, html {
+  height: 100%;
+}
+
 h1 {
   margin-top: 30px;
   text-align: center;
 }
 
-.border {
-  background-image: url("../assets/image/bg_title.png");
-  z-index: 3;
+#instruction {
+  background-image: url("../assets/image/instructions.png");
+  height: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #game {
-  border: 3px solid black;
+  border: 14px solid rgb(73, 100, 133);
   position: absolute;
   top: 60%;
   left: 50%;
@@ -56,9 +64,12 @@ h1 {
   display: none;
 }
 
-body {
+#game_background {
   background-image: url("../assets/image/bg_title.png");
+  height: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
-  top: 0%;
-  left: 0%;
+  display: none;
 }
