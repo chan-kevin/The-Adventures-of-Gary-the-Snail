@@ -20,21 +20,20 @@ export default class Game {
         this.canvas = canvas;
         this.frame = new Frame(frame, this);
         this.ctx = canvas.getContext("2d");
-        // this.dimension = {width: canvas.width, height: canvas.height}
         this.width = canvas.width;
         this.height = canvas.height;
-        // this.frame = new Frame(this);
+
         this.next = new Level(this);
         this.swap = new Swap(this);
         this.ground = new Ground(this);
         this.rock = new Rock(this);
         this.rock2 = new Rock2(this);
         this.rock3 = new Rock3(this);
-        // this.rocks = [];
         this.jellyfish = new Jellyfish(this);
         this.gary = new Gary(this);
         this.goal = new Goal(this);
         this.over = new Gameover(this);
+
         this.fps = 25;
         // this.event = new Event(this);
         this.lastTime = 0;
@@ -159,7 +158,7 @@ export default class Game {
             this.gary.goal = false;
 
             if (this.level === 1){
-                this.goal.x = 1040;
+                this.goal.x = 1020;
                 this.goal.y = 120;
 
                 this.rock.x = 1020;
@@ -167,6 +166,23 @@ export default class Game {
                 
                 this.gary.x = 1;
                 this.gary.y = 485;
+            }
+
+            if (this.level === 2){
+                this.goal.x = 1020;
+                this.goal.y = 120;
+
+                this.rock.x = 1020;
+                this.rock.y = 375;
+
+                this.gary.x = 240;
+                this.gary.y = 485;
+                
+                this.rock2.x = 20;
+                this.rock2.y = 375;
+
+                this.rock3.x = 820;
+                this.rock3.y = 80;
             }
 
             this.level += 1;

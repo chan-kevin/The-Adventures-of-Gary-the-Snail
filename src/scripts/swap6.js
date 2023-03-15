@@ -38,6 +38,8 @@ export default class Swap{
             obj.x += (2 * this.frameWidth);
             obj.y += this.frameHeight;
         }
+        console.log(this.box1)
+        console.log(this.box2)
     }
 
     fromTopMid(obj, box2Frame){
@@ -58,6 +60,8 @@ export default class Swap{
             obj.x += this.frameWidth;
             obj.y += this.frameHeight;
         }
+        console.log(this.box1)
+        console.log(this.box2)
     }
 
     fromTopRight(obj, box2Frame){
@@ -78,6 +82,8 @@ export default class Swap{
         if (box2Frame === "botRight"){
             obj.y += this.frameHeight;
         }
+        console.log(this.box1)
+        console.log(this.box2)
     }
 
     fromBotLeft(obj, box2Frame){
@@ -98,6 +104,8 @@ export default class Swap{
         if (box2Frame === "botRight"){
             obj.x += (2 * this.frameWidth);
         }
+        console.log(this.box1)
+        console.log(this.box2)
     }
 
     fromBotMid(obj, box2Frame){
@@ -118,6 +126,8 @@ export default class Swap{
         if (box2Frame === "botRight"){
             obj.x += this.frameWidth;
         }
+        console.log(this.box1)
+        console.log(this.box2)
     }
 
     fromBotRight(obj, box2Frame){
@@ -138,6 +148,8 @@ export default class Swap{
         if (box2Frame === "botMid"){
             obj.x -= this.frameWidth;
         }
+        console.log(this.box1)
+        console.log(this.box2)
     }
 
     _checkStatus(box, box1Frame, box2Frame){
@@ -189,7 +201,6 @@ export default class Swap{
                 if (key === "rock2"){
                     this.fromTopMid(this.game.rock2, box2Frame);
                 }
-
                 if (key === "rock3"){
                     this.fromTopMid(this.game.rock3, box2Frame);
                 }
@@ -215,7 +226,6 @@ export default class Swap{
                 if (key === "rock2"){
                     this.fromTopRight(this.game.rock2, box2Frame);
                 }
-
                 if (key === "rock3"){
                     this.fromTopRight(this.game.rock3, box2Frame);
                 }
@@ -241,7 +251,6 @@ export default class Swap{
                 if (key === "rock2"){
                     this.fromBotLeft(this.game.rock2, box2Frame);
                 }
-
                 if (key === "rock3"){
                     this.fromBotLeft(this.game.rock3, box2Frame);
                 }
@@ -267,7 +276,6 @@ export default class Swap{
                 if (key === "rock2"){
                     this.fromBotMid(this.game.rock2, box2Frame);
                 }
-
                 if (key === "rock3"){
                     this.fromBotMid(this.game.rock3, box2Frame);
                 }
@@ -293,7 +301,6 @@ export default class Swap{
                 if (key === "rock2"){
                     this.fromBotRight(this.game.rock2, box2Frame);
                 }
-
                 if (key === "rock3"){
                     this.fromBotRight(this.game.rock3, box2Frame);
                 }
@@ -344,12 +351,16 @@ export default class Swap{
                         (this.game.gary.x > this.topLeft[0] && this.game.gary.x < this.topLeft[1] && this.game.gary.y < this.topLeft[3])
                     ){
                         this.box1.gary = this.game.gary.x;
+                        console.log(this.box1)
+                        console.log(this.box2)
                     }
 
                     if (
                         (this.game.rock.x > this.topLeft[0] && this.game.rock.x < this.topLeft[1] && this.game.rock.y < this.topLeft[3])
                     ){
                         this.box1.rock = this.game.rock.x;
+                        console.log(this.box1)
+                        console.log(this.box2)
                     }
 
                     if (this.game.level >= 3){
@@ -357,6 +368,8 @@ export default class Swap{
                             (this.game.jellyfish.x > this.topLeft[0] && this.game.jellyfish.x < this.topLeft[1] && this.game.jellyfish.y < this.topLeft[3])
                         ){
                             this.box1.jellyfish = this.game.jellyfish.x;
+                            console.log(this.box1)
+                            console.log(this.box2)
                         }
                     }
 
@@ -364,6 +377,8 @@ export default class Swap{
                         (this.game.goal.x > this.topLeft[0] && this.game.goal.x < this.topLeft[1] && this.game.goal.y < this.topLeft[3])
                     ){
                         this.box1.goal = this.game.goal.x;
+                        console.log(this.box1)
+                        console.log(this.box2)
                     }
 
                     if (this.game.level >= 2){
@@ -372,7 +387,6 @@ export default class Swap{
                         ){
                             this.box1.rock2 = this.game.rock2.x;
                         }
-
                         if (
                             (this.game.rock3.x > this.topLeft[0] && this.game.rock3.x < this.topLeft[1] && this.game.rock3.y < this.topLeft[3])
                         ){
@@ -415,7 +429,6 @@ export default class Swap{
                         ){
                             this.box2.rock2 = this.game.rock2.x;
                         }
-
                         if (
                             (this.game.rock3.x > this.topLeft[0] && this.game.rock3.x < this.topLeft[1] && this.game.rock3.y < this.topLeft[3])
                         ){
@@ -466,7 +479,6 @@ export default class Swap{
                         ){
                             this.box1.rock2 = this.game.rock2.x;
                         }
-
                         if (
                             (this.game.rock3.x > this.topMid[0] && this.game.rock3.x < this.topMid[1] && this.game.rock3.y < this.topLeft[3])
                         ){
@@ -509,7 +521,6 @@ export default class Swap{
                         ){
                             this.box2.rock2 = this.game.rock2.x;
                         }
-
                         if (
                             (this.game.rock3.x > this.topMid[0] && this.game.rock3.x < this.topMid[1] && this.game.rock3.y < this.topLeft[3])
                         ){
@@ -560,7 +571,6 @@ export default class Swap{
                         ){
                             this.box1.rock2 = this.game.rock2.x;
                         }
-
                         if (
                             (this.game.rock3.x > this.topRight[0] && this.game.rock3.x < this.topRight[1] && this.game.rock3.y < this.topLeft[3])
                         ){
@@ -603,7 +613,6 @@ export default class Swap{
                         ){
                             this.box2.rock2 = this.game.rock2.x;
                         }
-
                         if (
                             (this.game.rock3.x > this.topRight[0] && this.game.rock3.x < this.topRight[1] && this.game.rock3.y < this.topLeft[3])
                         ){
@@ -656,7 +665,6 @@ export default class Swap{
                         ){
                             this.box1.rock2 = this.game.rock2.x;
                         }
-
                         if (
                             (this.game.rock3.x > this.botLeft[0] && this.game.rock3.x < this.botLeft[1] && this.game.rock3.y > this.topLeft[3])
                         ){
@@ -699,7 +707,6 @@ export default class Swap{
                         ){
                             this.box2.rock2 = this.game.rock2.x;
                         }
-
                         if (
                             (this.game.rock3.x > this.botLeft[0] && this.game.rock3.x < this.botLeft[1] && this.game.rock3.y > this.topLeft[3])
                         ){
@@ -750,7 +757,6 @@ export default class Swap{
                         ){
                             this.box1.rock2 = this.game.rock2.x;
                         }
-
                         if (
                             (this.game.rock3.x > this.botMid[0] && this.game.rock3.x < this.botMid[1] && this.game.rock3.y > this.topLeft[3])
                         ){
@@ -793,7 +799,6 @@ export default class Swap{
                         ){
                             this.box2.rock2 = this.game.rock2.x;
                         }
-
                         if (
                             (this.game.rock3.x > this.botMid[0] && this.game.rock3.x < this.botMid[1] && this.game.rock3.y > this.topLeft[3])
                         ){
@@ -843,9 +848,7 @@ export default class Swap{
                             (this.game.rock2.x > this.botRight[0] && this.game.rock2.x < this.botRight[1] && this.game.rock2.y > this.topLeft[3])
                         ){
                             this.box1.rock2 = this.game.rock2.x;
-                        }
-                        
-                        if (
+                        }if (
                             (this.game.rock3.x > this.botRight[0] && this.game.rock3.x < this.botRight[1] && this.game.rock3.y > this.topLeft[3])
                         ){
                             this.box1.rock3 = this.game.rock3.x;
@@ -887,7 +890,6 @@ export default class Swap{
                         ){
                             this.box2.rock2 = this.game.rock2.x;
                         }
-                        
                         if (
                             (this.game.rock3.x > this.botRight[0] && this.game.rock3.x < this.botRight[1] && this.game.rock3.y > this.topLeft[3])
                         ){

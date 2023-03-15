@@ -16,7 +16,7 @@ export default class Jellyfish {
         this.sourceHeight = 30;
         // this.x = 10;
         // this.x = 350;
-        this.x = 950;
+        this.x = 450;
         this.y = 470;
         this.objectWidth = 60;
         this.objectHeight = 60;

@@ -87,6 +87,12 @@ export default class Frame {
     }
 
     hover(){
+        this.ctx.font = "30px Verdana";
+        var gradient = this.ctx.createLinearGradient(0, 0, this.game.canvas.width, 0);
+        gradient.addColorStop("0", "magenta");
+        gradient.addColorStop("0.5", "blue");
+        gradient.addColorStop("1.0", "red");
+        this.ctx.lineWidth = 5;
         this.frame.addEventListener("mousemove", e => {
             // refresh every frames
             if (this.selectFrame < 1){
@@ -94,6 +100,7 @@ export default class Frame {
                 for (let row = 0; row <= this.frame.width; row += this.x){
                     for (let col = 0; col <= this.frame.height; col += this.y){
                         this.ctx.strokeStyle = this.strokeStyle;
+                        this.ctx.lineWidth = 1;
                         this.ctx.strokeRect(row, col, this.x, this.y);
                         // (row,col), (row+x,col), (row, col+y), (row+x, col+y)
                         // (row,col,row+x,col+y)
@@ -111,7 +118,7 @@ export default class Frame {
                 // this.frame.ctx.isPointInPath(x, y)
             ){ 
                 // console.log("hi");
-                this.ctx.strokeStyle = "black";
+                this.ctx.strokeStyle = gradient;
                 this.ctx.strokeRect(this.topLeft[0], this.topLeft[2], this.x, this.y);
                 this.ctx.stroke();
             } 

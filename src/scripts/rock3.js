@@ -17,7 +17,7 @@ export default class Rock3 {
         // this.sourceWidth = 590;
         this.sourceWidth = 642;
         this.sourceHeight = 500;
-        this.x = 800;
+        this.x = 820;
         this.y = 80;
         // this.x = x;
         // this.y = y;
