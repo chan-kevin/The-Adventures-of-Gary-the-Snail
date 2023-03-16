@@ -139,100 +139,89 @@ export default class Game {
         this.goal.draw();
     }
 
-    // animate(timeStamp){
-    animate(){
-        // console.log(timeStamp)
-        // const deltaTime = timeStamp - this.lastTime;
-        // console.log(deltaTime)
-        // this.lastTime = timeStamp;
-        // console.log(this.lastTime)
+    async animate() {
+        // while (!this.pause){
         this.ctx.clearRect(0,0,this.width,this.height);
         this.swap.checkStatus();
-
-        // this.update(deltaTime);
+    
         this.update();
         this.draw();
-
-
+    
+        await this.nextLevel();
 
         setTimeout(() => {
-        // setInterval(() => {
-        // requestAnimationFrame(() => {
-        // if (!this.pause){
-        //     // setInterval(() => requestAnimationFrame(this.animate.bind(this), 0), 5000)
             requestAnimationFrame(this.animate.bind(this), 1000/this.fps);
-        // } else {
-        //     this.animate();
-            // cancelAnimationFrame(this.animate.bind(this));
-        })
-
-        if (this.goal.y < 1){
-            this.gary.goal = false;
-
-            if (this.level === 1){
-                this.goal.x = 990;
-                this.goal.y = 120;
-                this.goal.bikiniY = 120;
-
-                this.rock.x = 1020;
-                this.rock.y = 375;
-                
-                this.gary.x = 1;
-                this.gary.y = 485;
+        });
+    // }
+    }
+    
+    async nextLevel() {
+        return new Promise(resolve => {
+            if (this.goal.y < 1) {
+                this.gary.goal = false;
+                document.getElementById("game_background").style.display = "none";
+                document.getElementById("loading").style.display = "block";
+                setTimeout(() => {
+                    document.getElementById("game_background").style.display = "block";
+                    document.getElementById("loading").style.display = "none";
+                    resolve();
+                }, 5000);
+    
+                if (this.level === 1) {
+                    this.goal.x = 990;
+                    this.goal.y = 120;
+                    this.goal.bikiniY = 120;
+    
+                    this.rock.x = 1020;
+                    this.rock.y = 375;
+    
+                    this.gary.x = 1;
+                    this.gary.y = 485;
+                }
+    
+                if (this.level === 2) {
+                    this.goal.x = 990;
+                    this.goal.y = 120;
+                    this.goal.bikiniY = 120;
+    
+                    this.rock.x = 1020;
+                    this.rock.y = 375;
+    
+                    this.gary.x = 240;
+                    this.gary.y = 485;
+    
+                    this.rock2.x = 20;
+                    this.rock2.y = 375;
+    
+                    this.rock3.x = 820;
+                    this.rock3.y = 80;
+                }
+    
+                if (this.level === 3) {
+                    this.goal.x = 820;
+                    this.goal.y = 120;
+                    this.goal.bikiniY = 120;
+    
+                    this.rock.x = 230;
+                    this.rock.y = 375;
+    
+                    this.gary.x = 0;
+                    this.gary.y = 485;
+    
+                    this.rock2.x = 230;
+                    this.rock2.y = 80;
+    
+                    this.rock3.x = 650;
+                    this.rock3.y = 80;
+    
+                    this.jellyfish.x = 20;
+                    this.jellyfish.y = 140;
+                }
+    
+                this.level += 1;
+            } else {
+                resolve();
             }
-
-            if (this.level === 2){
-                this.goal.x = 990;
-                this.goal.y = 120;
-                this.goal.bikiniY = 120;
-
-                this.rock.x = 1020;
-                this.rock.y = 375;
-
-                this.gary.x = 240;
-                this.gary.y = 485;
-                
-                this.rock2.x = 20;
-                this.rock2.y = 375;
-
-                this.rock3.x = 820;
-                this.rock3.y = 80;
-            }
-
-            if (this.level === 3){
-                this.goal.x = 820;
-                this.goal.y = 120;
-                this.goal.bikiniY = 120;
-
-                this.rock.x = 230;
-                this.rock.y = 375;
-
-                this.gary.x = 0;
-                this.gary.y = 485;
-                
-                this.rock2.x = 230;
-                this.rock2.y = 80;
-
-                this.rock3.x = 650;
-                this.rock3.y = 80;
-
-                this.jellyfish.x = 20;
-                this.jellyfish.y = 140;
-            }
-
-            this.level += 1;
-        }
-            // this.next.nextLevel();
-
-        // if (this.gameover) {
-        //     this.over.draw();
-        // }
-
-        // })
-        // }, 0)
-            // setInterval(() => {(this.animate.bind(this))}, 2000)
-        // }
-        // }, 20)
-        // setInterval(this.resume.bind(this))
+        });
     }
 }

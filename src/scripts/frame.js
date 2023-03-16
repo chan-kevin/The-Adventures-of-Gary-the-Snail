@@ -31,18 +31,32 @@ export default class Frame {
         // this.click();
     }
 
-    checkStatus(){
+    // checkStatus(){
+    //     // console.log(this.game.pause)
+    //     if (this.selectFrame === 2) {
+    //         this.selectFrame = 0;
+    //         this.game.pause = true;
+    //     }
+    //     if (this.selectFrame < 2) {
+    //         this.hover();
+    //         // this.game.pause = false;
+    //     }
+    //     if (this.selectFrame === 0) {
+    //         this.game.pause = false;
+    //     }
+    //     requestAnimationFrame(this.checkStatus.bind(this));
+    // }
+
+        checkStatus(){
         // console.log(this.game.pause)
         if (this.selectFrame === 2) {
             this.selectFrame = 0;
-            // this.game.pause = true;
-        }
-        if (this.selectFrame < 2) {
+            this.game.pause = true;
+        } else if (this.selectFrame === 0) {
+            this.game.pause = false;
+        } else {
             this.hover();
             // this.game.pause = false;
-        }
-        if (this.selectFrame === 0) {
-            this.game.pause = false;
         }
         requestAnimationFrame(this.checkStatus.bind(this));
     }

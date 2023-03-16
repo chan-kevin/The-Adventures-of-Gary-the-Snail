@@ -90,7 +90,7 @@ export default class Gary {
         // new Ground(this.game);
         // new rock(this.game);
         // new Goal(this.game);
-
+        this.showLevel();
        
         if (!this.shocked && !this.goal){
             if (this.directionRight) {
@@ -211,5 +211,12 @@ export default class Gary {
         ){
             this.shocked = true;
         }
+    }
+
+    showLevel(){
+        this.game.ctx.font = "30px Comic Sans MS";
+        this.game.ctx.fillStyle = "red";
+        this.game.ctx.textAlign = "center";
+        this.game.ctx.fillText(`Level ${this.game.level} - 4`, this.game.canvas.width/2, 40);
     }
 }

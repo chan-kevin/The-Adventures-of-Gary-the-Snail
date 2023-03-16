@@ -20,6 +20,79 @@ h1 {
     text-align: center;
 }
 
+#github {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 1%;
+    bottom: 1%;
+    // padding-right: 50px;
+    // padding-top: 50px;
+    
+    opacity: 1;
+    // position: absolute;
+    // // display: inline-block;
+    // // float: left;
+    // transform: translate(-50%, -50%);
+}
+
+#github:hover{
+    opacity: 0.5;
+}
+
+#linkedin {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 5%;
+    bottom: 1%;
+    // padding-right: 50px;
+    // padding-top: 50px;
+    
+    opacity: 1;
+    // position: absolute;
+    // // display: inline-block;
+    // // float: left;
+    // transform: translate(-50%, -50%);
+}
+
+#linkedin:hover{
+    opacity: 0.5;
+}
+
+#loading {
+    background-color: black;
+    height: 100%;
+    display: none;
+}
+
+#loading_gif{
+    width: 1200px;
+    height: 600px;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    // border: 3px solid;
+    border-width: 5px;
+    border-style: solid;
+    border-image: linear-gradient(#743ad5, #d53a9d) 25;
+    // background-image: url("../assets/image/loading_gary.gif");
+    // background-blend-mode: screen;
+    // background-color: back;
+    // background-position: center;
+    // background-repeat: no-repeat;
+    // background-size: 20%;
+    background-image: url("../assets/image/gary-spongebob.gif");
+    // background-blend-mode: screen;
+    background-color: white;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 20%;
+    // display: none;
+    // z-index: -10;
+}
+
 #instruction {
     background-image: url("../assets/image/instructions.png");
     height: 100%;
@@ -84,8 +157,8 @@ h1 {
     // top: 0%;
     // left: 0%;
     height: 100%;
+    // position: relative;
 
-    /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
