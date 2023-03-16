@@ -10,7 +10,9 @@ import Frame from "./scripts/frame";
 // // });
 
 document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("song").play();
     function startGame(){
+        document.getElementById("song").pause();
         document.getElementById("instruction").style.display = "none";
         document.getElementById("game_background").style.display = "block";
 

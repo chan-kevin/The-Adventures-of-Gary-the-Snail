@@ -61,6 +61,10 @@ h1 {
     opacity: 0.5;
 }
 
+// #theme {
+//     display: none;
+// }
+
 #loading {
     background-color: black;
     height: 100%;
@@ -84,9 +88,9 @@ h1 {
     // background-position: center;
     // background-repeat: no-repeat;
     // background-size: 20%;
-    background-image: url("../assets/image/gary-spongebob.gif");
+    background-image: url("../assets/image/test.gif");
     // background-blend-mode: screen;
-    background-color: white;
+    background-color: black;
     background-position: center;
     background-repeat: no-repeat;
     background-size: 20%;
@@ -94,29 +98,57 @@ h1 {
     // z-index: -10;
 }
 
+#loading_bar {
+    width: 1100px;
+    height: 500px;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    // border: 3px solid;
+    border-width: 5px;
+    border-style: solid;
+    background-image: url("../assets/image/loading_bar.gif");
+    // background-blend-mode: screen;
+    background-color: transparent;
+    background-position: center bottom 150px;
+    background-repeat: no-repeat;
+    background-size: 10%;
+}
+
 #gameover {
     background-image: url("../assets/image/gameover.gif");
     height: 100%;
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     display: none;
 }
 
-#gameover2 {
-    background-image: url("../assets/image/gameover.jpeg");
+// #gameover2 {
+//     background-image: url("../assets/image/gameover.jpeg");
+//     height: 100%;
+//     background-size:auto;
+//     background-repeat: no-repeat;
+//     background-size: cover;
+//     background-position: center center;
+//     display: none;
+// }
+
+#arrivedHome {
+    background-image: url("../assets/image/end.gif");
     height: 100%;
-    background-size:auto;
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center center;
-    // display: none;
+    display: none;
 }
+
 
 #instruction {
     background-image: url("../assets/image/instructions.png");
     height: 100%;
 
-    /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

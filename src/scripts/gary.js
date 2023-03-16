@@ -43,6 +43,8 @@ export default class Gary {
 
         this.zap = document.getElementById("zap");
         this.meow = document.getElementById("meow");
+        this.home = document.getElementById("arrivedHome");
+        this.spongebob = document.getElementById("spongebob")
 
         this.goal = false;
     }
@@ -187,6 +189,13 @@ export default class Gary {
             // this.game.gary = [];
             // this.directionRight = !this.directionRight;
             this.goal = true;
+
+            if (this.game.level === 4){
+                this.game.song.pause();
+                this.game.over.gamebackground.style.display = "none";
+                this.home.style.display = "block";
+                this.spongebob.play();
+            }
             // this.game.gameover = true;
         }
 

@@ -37,7 +37,7 @@ export default class Game {
         this.gary = new Gary(this);
         this.goal = new Goal(this);
         this.over = new Gameover(this);
-        this.song = document.getElementById("song");
+        this.song = document.getElementById("theme");
         this.song.play();
         this.song.volume = 0.5;
 
@@ -47,6 +47,7 @@ export default class Game {
         this.pause = false;
         this.gameover = false;
         this.level = 1;
+
         // this.swap.click();
         // requestAnimationFrame(this.animate.bind(this, 0))
         // setInterval(this.resume.bind(this))  //slowed down the animate
@@ -167,6 +168,7 @@ export default class Game {
                 this.gary.goal = false;
                 document.getElementById("game_background").style.display = "none";
                 document.getElementById("loading").style.display = "block";
+                this.gary.meow.play();
                 setTimeout(() => {
                     document.getElementById("game_background").style.display = "block";
                     document.getElementById("loading").style.display = "none";
@@ -230,4 +232,11 @@ export default class Game {
             }
         });
     }
+
+    // restart(){
+    //     this.level = 1;
+    //     this.over.overzap.style.display = "none";
+    //     this.over.gamebackground.style.display = "block";
+    //     document.body.addEventListener("keydown", new Game(this.canvas, this.frame));
+    // }
 }
