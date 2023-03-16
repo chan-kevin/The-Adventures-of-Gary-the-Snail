@@ -9,23 +9,50 @@ import Frame from "./scripts/frame";
 //     new SnailGame(canvas);
 // // });
 
+export function startGame(){
+    document.getElementById("song").pause();
+    document.getElementById("instruction").style.display = "none";
+    document.getElementById("game_background").style.display = "block";
+
+    const canvas = document.getElementById("game");
+    const background = document.getElementById("background");
+    const frame = document.getElementById("frame");
+    const ctx = background.getContext("2d");
+    const pic = document.getElementById("board");
+    ctx.drawImage(pic, 0, 0, background.width, background.height);
+    const game = new Game(canvas, frame);
+
+    game.over.overzap.style.display = "none";
+    game.gary.zap.pause();
+    game.gary.home.style.display = "none";
+
+    game.destroy();
+
+    document.body.removeEventListener('keydown', startGame);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("song").play();
-    function startGame(){
-        document.getElementById("song").pause();
-        document.getElementById("instruction").style.display = "none";
-        document.getElementById("game_background").style.display = "block";
+    // function startGame(){
+    //     document.getElementById("song").pause();
+    //     document.getElementById("instruction").style.display = "none";
+    //     document.getElementById("game_background").style.display = "block";
 
-        const canvas = document.getElementById("game");
-        const background = document.getElementById("background");
-        const frame = document.getElementById("frame");
-        const ctx = background.getContext("2d");
-        const pic = document.getElementById("board");
-        ctx.drawImage(pic, 0, 0, background.width, background.height);
-        new Game(canvas, frame);
+    //     const canvas = document.getElementById("game");
+    //     const background = document.getElementById("background");
+    //     const frame = document.getElementById("frame");
+    //     const ctx = background.getContext("2d");
+    //     const pic = document.getElementById("board");
+    //     ctx.drawImage(pic, 0, 0, background.width, background.height);
+    //     const game = new Game(canvas, frame);
 
-        document.body.removeEventListener('keydown', startGame);
-    }
+    //     game.over.overzap.style.display = "none";
+    //     game.gary.home.style.display = "none";
+
+    //     game.destroy();
+
+    //     // document.body.removeEventListener('keydown', startGame);
+    // }
 
     document.body.addEventListener('keydown', startGame);
 
@@ -121,4 +148,3 @@ document.addEventListener("DOMContentLoaded", () => {
         //     }
         // }
 })
-

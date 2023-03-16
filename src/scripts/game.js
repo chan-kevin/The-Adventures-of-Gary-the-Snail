@@ -47,6 +47,7 @@ export default class Game {
         this.pause = false;
         this.gameover = false;
         this.level = 1;
+        this.requestId = 0;
 
         // this.swap.click();
         // requestAnimationFrame(this.animate.bind(this, 0))
@@ -58,6 +59,7 @@ export default class Game {
         // this.resume();
         // this.event.hover_check();
         this.animate();
+        
         // this.draw();
         // this.debug = new Debug(this);
         // this.debug_status = true;
@@ -109,6 +111,10 @@ export default class Game {
     //     this.goal.update(deltaTime);
     // }
 
+    destroy(){
+        cancelAnimationFrame(this.requestId);
+    }
+
     update(){
         this.rock.update();
         if (this.level >= 2) {
@@ -152,11 +158,13 @@ export default class Game {
         this.update();
         this.draw();
     
-        await this.nextLevel();
+        if (!this.gameover){
+            await this.nextLevel();
+        }
 
         if (!this.gameover){
             setTimeout(() => {
-                requestAnimationFrame(this.animate.bind(this), 1000/this.fps);
+                this.requestId = requestAnimationFrame(this.animate.bind(this), 1000/this.fps);
             });
         }
     // }

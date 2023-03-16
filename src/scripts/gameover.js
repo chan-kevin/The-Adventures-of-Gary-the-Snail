@@ -1,4 +1,5 @@
 import Game from "./game";
+import { startGame } from "..";
 
 export default class Gameover {
     constructor(game){
@@ -10,23 +11,30 @@ export default class Gameover {
 
     update(){
         if (this.game.gameover){
+            // cancelAnimationFrame(this.game.requestId);
             this.game.gary.zap.pause();
             this.overzap.style.display = "block";
             this.gamebackground.style.display = "none";
             this.game.gary.zap.loop = true;
             this.game.gary.zap.play();
-            // setTimeout(() => {
-            //     // this.overzap.style.display = "none";
-            //     // this.nextgame.style.display = "block";
-            //     this.restart.bind(this)
-            // }, 4000)
+            // setTimeout(() => startGame, 4000)
+            document.addEventListener("keydown", startGame)
+
+            // this.game.level = 1;
+            // new Game(this.game.canvas, this.game.frame);
+            // setTimeout(() => this.restart.bind(this)
+            // //     // this.overzap.style.display = "none";
+            // //     // this.nextgame.style.display = "block";
+            // //     this.restart.bind(this)
+            // , 4000)
         }
     }
 
     // restart(){
     //     this.overzap.style.display = "none";
     //     this.gamebackground.style.display = "block";
-    //     // this.game.level = 1;
+    //     // cancelAnimationFrame(this.game.requestId);
+    //     this.game.level = 1;
     //     new Game(this.game.canvas, this.game.frame);
     // }
 

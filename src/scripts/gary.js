@@ -2,6 +2,7 @@
 // import rock from "./rock";
 // import Goal from "./goal";
 // import Ground from "./ground";
+import { startGame } from "..";
 
 export default class Gary {
     constructor(game){
@@ -191,6 +192,7 @@ export default class Gary {
             this.goal = true;
 
             if (this.game.level === 4){
+                document.addEventListener("keydown", startGame);
                 this.game.song.pause();
                 this.game.over.gamebackground.style.display = "none";
                 this.home.style.display = "block";
@@ -227,6 +229,7 @@ export default class Gary {
             this.game.song.pause();
             this.game.song.currentTime = 0;
             setTimeout(() => this.game.gameover = true, 4000);
+            // this.game.gameover = true;
         }
     }
 
