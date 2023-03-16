@@ -41,6 +41,9 @@ export default class Gary {
         this.shockedFrame = 0;
         this.shockedMaxFrame = 6;
 
+        this.zap = document.getElementById("zap");
+        this.meow = document.getElementById("meow");
+
         this.goal = false;
     }
 
@@ -199,6 +202,7 @@ export default class Gary {
             ((rock.y + rock.objectHeight) > this.y)
             ){
                 this.directionRight = !this.directionRight;
+                this.meow.play();
         }
     }
 
@@ -210,6 +214,10 @@ export default class Gary {
             ((jellyfish.y + jellyfish.objectHeight) > this.y)
         ){
             this.shocked = true;
+            this.zap.play();
+            this.game.song.pause();
+            this.game.song.currentTime = 0;
+            setTimeout(() => this.game.gameover = true, 4000);
         }
     }
 
@@ -217,6 +225,6 @@ export default class Gary {
         this.game.ctx.font = "30px Comic Sans MS";
         this.game.ctx.fillStyle = "red";
         this.game.ctx.textAlign = "center";
-        this.game.ctx.fillText(`Level ${this.game.level} - 4`, this.game.canvas.width/2, 40);
+        this.game.ctx.fillText(`Level ${this.game.level}`, this.game.canvas.width/2, 40);
     }
 }

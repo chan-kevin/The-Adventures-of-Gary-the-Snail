@@ -35,12 +35,12 @@ export default class Goal{
         // if (this.frameTimer > this.frameInterval){
         //     this.frameTimer = 0;
             // console.log("hi")
-
+        if (this.game.level < 4){
             if (this.game.gary.goal){
                 // console.log(this.y)
                 this.y -= 6;
             }
-
+        }
         // } else {
         //     this.frameTimer += deltaTime;
         // }

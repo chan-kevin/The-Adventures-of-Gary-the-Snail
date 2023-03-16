@@ -37,6 +37,9 @@ export default class Game {
         this.gary = new Gary(this);
         this.goal = new Goal(this);
         this.over = new Gameover(this);
+        this.song = document.getElementById("song");
+        this.song.play();
+        this.song.volume = 0.5;
 
         this.fps = 25;
         // this.event = new Event(this);
@@ -116,6 +119,7 @@ export default class Game {
             this.jellyfish2.update();
             this.jellyfish3.update();
         }
+        this.over.update();
         this.gary.update();
         this.goal.update();
     }
@@ -149,9 +153,11 @@ export default class Game {
     
         await this.nextLevel();
 
-        setTimeout(() => {
-            requestAnimationFrame(this.animate.bind(this), 1000/this.fps);
-        });
+        if (!this.gameover){
+            setTimeout(() => {
+                requestAnimationFrame(this.animate.bind(this), 1000/this.fps);
+            });
+        }
     // }
     }
     

@@ -28,9 +28,9 @@ h1 {
 #github {
   width: 50px;
   height: 50px;
-  position: absolute;
+  position: fixed;
   left: 1%;
-  bottom: 1%;
+  bottom: 3%;
   opacity: 1;
 }
 
@@ -39,10 +39,10 @@ h1 {
 }
 
 #linkedin {
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  left: 5%;
+  width: 90px;
+  height: 90px;
+  position: fixed;
+  left: 4%;
   bottom: 1%;
   opacity: 1;
 }
@@ -72,6 +72,23 @@ h1 {
   background-position: center;
   background-repeat: no-repeat;
   background-size: 20%;
+}
+
+#gameover {
+  background-image: url("../assets/image/gameover.gif");
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: none;
+}
+
+#gameover2 {
+  background-image: url("../assets/image/gameover.jpeg");
+  height: 100%;
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
 }
 
 #instruction {
