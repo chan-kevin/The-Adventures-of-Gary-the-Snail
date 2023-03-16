@@ -192,7 +192,7 @@ export default class Gary {
             this.goal = true;
 
             if (this.game.level === 4){
-                document.body.addEventListener("keydown", startGame);
+                // document.body.addEventListener("keydown", startGame);
                 this.game.song.pause();
                 this.game.over.gamebackground.style.display = "none";
                 this.home.style.display = "block";

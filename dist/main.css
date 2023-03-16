@@ -20,6 +20,17 @@
   font-family: "Castellar";
   src: url("../assets/image/CASTELAR.ttf");
 }
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 body, html {
   height: 100%;
 }
@@ -118,6 +129,30 @@ h1 {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+#instruction p {
+  font-family: "Castellar";
+  font-size: 30px;
+  font-weight: bold;
+  color: rgb(73, 100, 133);
+  position: absolute;
+  bottom: 12%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: blink 1s linear infinite;
+}
+
+#gameover p {
+  font-family: "Castellar";
+  font-size: 30px;
+  font-weight: bold;
+  color: rgb(73, 100, 133);
+  position: absolute;
+  bottom: 12%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: blink 1s linear infinite;
 }
 
 #game {
