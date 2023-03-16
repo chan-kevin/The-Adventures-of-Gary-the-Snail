@@ -25,6 +25,14 @@ In The Adventure of Gary the Snail, user will be able to:
 
 <br />
 
+<img src="./assets/image/select.png">
+
+<br />
+
+> ### It will shows a bold border after the player selects a frame. It will also show which frame player is hoving on.
+
+<br />
+
 # **Feature Implementation** #
 
 <img src="./assets/image/code.png">
@@ -61,25 +69,3 @@ In The Adventure of Gary the Snail, user will be able to:
 This project will be implemented with the following technologies:
 - The Canvas API to render the game board
 - Collisions Detection
-
-<br />
-
-# **Implementation Timeline**
-
-- **Friday Afternoon & Weekend:** Setup project. Get canvas to show up on the screen, and spend time getting comfortable with the Canvas API. Create Board and one tile to test out. Create Gary and get him automaticlly moving one direction.
-
-<br />
-
-- **Monday:** If one tile and Gary works and Gary can automatically moving one direction and moving in oppsite direction when hitting a wall. Try to create another tile and making two tiles connect and make Gary move smoothly on them. Once done, create a obstactle and a goal to test out game over and collisions detect.
-
-<br />
-
-- **Tuesday:** Adding user interaction and swapping two tiles. Make sure Gary can move the same after swapping. Next, add a tile with a hole to make Gary fall to the tile right below if the tile is at the uppper level.
-
-<br />
-
-- **Wednesday:** Start styling the page. Adding those nav links and make the page looks better.
-
-<br />
-
-- **Thursday Morning:** Deploy to GitHub pages. If time, rewrite this proposal as a production README.
