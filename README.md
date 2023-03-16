@@ -1,5 +1,4 @@
-# The Adventure of Gary the Snail
-## LIVE SITE: (https://kchannn13.github.io/Javascript_Project/)
+# <a href="https://kchannn13.github.io/Javascript_Project/">The Adventure of Gary the Snail</a>
 
 <img src="./assets/image/Level1.png">
 
