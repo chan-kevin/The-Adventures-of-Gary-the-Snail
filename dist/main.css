@@ -16,6 +16,10 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: "Castellar";
+  src: url("../assets/image/CASTELAR.ttf");
+}
 body, html {
   height: 100%;
 }

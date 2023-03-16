@@ -231,8 +231,8 @@ export default class Gary {
     }
 
     showLevel(){
-        this.game.ctx.font = "30px Comic Sans MS";
-        this.game.ctx.fillStyle = "red";
+        this.game.ctx.font = '30px "Castellar"';
+        this.game.ctx.fillStyle = "rgb(73, 100, 133)";
         this.game.ctx.textAlign = "center";
         this.game.ctx.fillText(`Level ${this.game.level}`, this.game.canvas.width/2, 40);
     }
