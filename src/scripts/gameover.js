@@ -18,7 +18,7 @@ export default class Gameover {
             this.game.gary.zap.loop = true;
             this.game.gary.zap.play();
             // setTimeout(() => startGame, 4000)
-            document.body.addEventListener("keydown", startGame)
+            // document.body.addEventListener("keydown", startGame)
 
             // this.game.level = 1;
             // new Game(this.game.canvas, this.game.frame);

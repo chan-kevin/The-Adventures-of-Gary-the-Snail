@@ -1,7 +1,12 @@
+# The Adventure of Gary the Snail
+## LIVE SITE: (https://kchannn13.github.io/Javascript_Project/)
+
+<img src="./assets/image/Level1.png">
+
 # **Background:**
 
 <p>
-Gary's Adventure is a 2D interactive puzzle game where Gary the snail is lost underwater. The main objective of the game is to help Gary get to home to Spongebob in Bikini Bottom. 
+The Adventure of Gary the Snail is a 2D interactive puzzle game where Gary the snail is lost underwater. The main objective of the game is to help Gary get to home to Spongebob in Bikini Bottom. 
 
 There are 6 frames in a 2x3 formation in every scene which can be moved around to help Gary get from the starting frame to the frame where the bubble is at. Each bubble leads to the next scene/level. Gary moves in one fixed direction until he hits an obstacle, where he will either lose a life (jellyfish) or start moving in the opposite direction (rock).
 
@@ -12,7 +17,7 @@ The game intends to introduce functionalities slowly to allow users to get the h
 
 # **Functionalities:**
 
-In Gary's Adventure, user will be able to:
+In The Adventure of Gary the Snail, user will be able to:
 1. Swap the position of two frames by clicking consecutively on both frames.
 2. Obstacles that cause the character to lose their lives will result in the level restarting.
 3. Upon touching bubble, Gary floats away in it and next level starts
@@ -21,9 +26,27 @@ In Gary's Adventure, user will be able to:
 
 <br />
 
+# **Feature Implementation** #
+
+<img src="./assets/image/code.png">
+
+<br />
+
+> ### While going into next level, the above code using async to make sure Gary won't starting moving while player is in the loading page.
+
+<br />
+
+<img src="./assets/image/code2.png">
+
+<br />
+
+> ### Collision detection for jellyfish and gary. While the collision happens, the jellyfish will start another animation and plays the sound. And also setting game to gameover, using setTimeout to make sure the animation is done.
+
+<br />
+
 # **Wireframe:**
 
-![Gary's Adventure Wireframe](./assets/readme/wireframe.jpg)
+![The Adventure of Gary the Snail Wireframe](./assets/readme/wireframe.jpg)
 
 > - Nav links include links to this project's Github repo and my LinkedIn
 

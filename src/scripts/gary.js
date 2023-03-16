@@ -229,7 +229,6 @@ export default class Gary {
             this.game.song.pause();
             this.game.song.currentTime = 0;
             setTimeout(() => this.game.gameover = true, 4000);
-            // this.game.gameover = true;
         }
     }
 

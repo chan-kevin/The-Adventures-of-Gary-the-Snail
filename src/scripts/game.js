@@ -151,7 +151,6 @@ export default class Game {
     }
 
     async animate() {
-        // while (!this.pause){
         this.ctx.clearRect(0,0,this.width,this.height);
         this.swap.checkStatus();
     
@@ -167,7 +166,6 @@ export default class Game {
                 this.requestId = requestAnimationFrame(this.animate.bind(this), 1000/this.fps);
             });
         }
-    // }
     }
     
     async nextLevel() {
