@@ -1,4 +1,4 @@
-# <a href="https://kchannn13.github.io/Javascript_Project/">The Adventure of Gary the Snail</a>
+# <a href="https://kchannn13.github.io/The-Advantures-of-Gary-the-Snail/">The Adventure of Gary the Snail</a>
 ## **For better experience, highly suggest sound on**
 
 <img src="./assets/image/Level1.png">
