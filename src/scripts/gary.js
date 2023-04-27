@@ -75,6 +75,29 @@ export default class Gary {
     //     }
     // }
 
+    // update(deltaTime){
+    //     this.checkCollision();
+
+    //     if (this.frameTimer > this.frameInterval) {
+    //         this.frameTimer = 0;
+    //         if (this.x < this.maxFrame) this.x++;
+    //         else this.frameX = 0;
+    //     } else {
+    //         this.frameTimer += deltaTime;
+    //     }
+
+    //     if (this.image_num < 2) this.image_num++;
+    //     else this.image_num = 0;
+    //     if (!this.shocked && !this.goal){
+    //         if (this.directionRight) this.x+=4;
+    //         else if (!this.directionRight) this.x-=4;
+    //     }
+    //     if (this.shocked){
+    //         if (this.shockedFrame < this.shockedMaxFrame) this.shockedFrame ++;
+    //         else this.shockedFrame = 0;
+    //     }
+    // }
+
     update(){
         this.checkCollision();
 

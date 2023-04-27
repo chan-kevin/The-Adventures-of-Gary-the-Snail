@@ -41,13 +41,12 @@ export default class Game {
         this.song.play();
         this.song.volume = 0.5;
 
-        this.fps = 25;
+        this.fps = 73;
         // this.event = new Event(this);
         this.lastTime = 0;
         this.pause = false;
         this.gameover = false;
         this.level = 1;
-        this.requestId = 0;
 
         // this.swap.click();
         // requestAnimationFrame(this.animate.bind(this, 0))
@@ -58,8 +57,8 @@ export default class Game {
         // }
         // this.resume();
         // this.event.hover_check();
+        // this.animate(0);
         this.animate();
-        
         // this.draw();
         // this.debug = new Debug(this);
         // this.debug_status = true;
@@ -111,9 +110,21 @@ export default class Game {
     //     this.goal.update(deltaTime);
     // }
 
-    destroy(){
-        cancelAnimationFrame(this.requestId);
-    }
+    // update(deltaTime){
+    //     this.rock.update(deltaTime);
+    //     if (this.level >= 2) {
+    //         this.rock2.update(deltaTime);
+    //         this.rock3.update(deltaTime);
+    //     }
+    //     if (this.level >= 3) this.jellyfish.update(deltaTime);
+    //     if (this.level >= 4) {
+    //         this.jellyfish2.update(deltaTime);
+    //         this.jellyfish3.update(deltaTime);
+    //     }
+    //     this.over.update(deltaTime);
+    //     this.gary.update(deltaTime);
+    //     this.goal.update(deltaTime);
+    // }
 
     update(){
         this.rock.update();
@@ -151,21 +162,27 @@ export default class Game {
     }
 
     async animate() {
+    // async animate(timeStamp) {
+        // while (!this.pause){
+        // const deltaTime = timeStamp - this.lastTime;
+        // this.lastTime = timeStamp;
+
         this.ctx.clearRect(0,0,this.width,this.height);
         this.swap.checkStatus();
     
         this.update();
+        // this.update(deltaTime);
         this.draw();
     
-        if (!this.gameover){
-            await this.nextLevel();
-        }
+        await this.nextLevel();
 
         if (!this.gameover){
             setTimeout(() => {
-                this.requestId = requestAnimationFrame(this.animate.bind(this), 1000/this.fps);
-            });
+                requestAnimationFrame(this.animate.bind(this));
+            }, 1000/this.fps);
+            // requestAnimationFrame(this.animate)
         }
+    // }
     }
     
     async nextLevel() {
