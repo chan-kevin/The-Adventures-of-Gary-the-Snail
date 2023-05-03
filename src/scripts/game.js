@@ -38,9 +38,12 @@ export default class Game {
         this.goal = new Goal(this);
         this.over = new Gameover(this);
         this.song = document.getElementById("theme");
+        this.song.addEventListener("ended", this.handleSong.bind(this));
         this.song.play();
         this.song.volume = 0.5;
-
+        this.volume = document.getElementById("volume");
+        this.volumeIcon = this.volume.querySelector("i");
+        this.volume.addEventListener("click", this.handleSongToggle.bind(this));
         this.fps = 73;
         // this.event = new Event(this);
         this.lastTime = 0;
@@ -62,6 +65,23 @@ export default class Game {
         // this.draw();
         // this.debug = new Debug(this);
         // this.debug_status = true;
+    }
+
+    handleSong() {
+        this.song.currentTime = 0;
+        this.song.play();
+    }
+
+    handleSongToggle(){
+        if (this.song.paused) {
+            this.volumeIcon.classList.remove("fa-volume-xmark");
+            this.volumeIcon.classList.add("fa-volume-high")
+            this.song.play();
+        } else {
+            this.volumeIcon.classList.remove("fa-volume-high");
+            this.volumeIcon.classList.add("fa-volume-xmark")
+            this.song.pause();
+        }
     }
 
     // addRock(){
@@ -159,6 +179,10 @@ export default class Game {
         }
         this.gary.draw();
         this.goal.draw();
+    }
+
+    destroy () {
+        this.ctx.clearRect(0,0,this.width,this.height);
     }
 
     async animate() {

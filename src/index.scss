@@ -247,3 +247,22 @@ h1 {
     display: none;
     // background-color: rgb(219, 216, 162);
 }
+
+#volume {
+    width: auto;
+    height: auto;
+    padding: 5px;
+    margin-right: 10px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+#volume i {
+    font-size: 40px;
+    color: #939598;
+}
+
+#volume:hover{
+    opacity: 0.5;
+}
