@@ -258,11 +258,21 @@ h1 {
     cursor: pointer;
 }
 
-#volume i {
+#volume i, #homeSong i {
     font-size: 40px;
     color: #939598;
 }
 
 #volume:hover{
     opacity: 0.5;
+}
+
+#homeSong {
+    width: auto;
+    height: auto;
+    padding: 5px;
+    margin-right: 10px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 }

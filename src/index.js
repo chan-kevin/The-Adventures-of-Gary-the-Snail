@@ -32,7 +32,31 @@ export function startGame(){
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+    const song = document.getElementById("song");
+    const volume = document.getElementById("homeSong");
+    const volumeIcon = volume.querySelector("i");
+    song.addEventListener("ended", handleSong);
+    volume.addEventListener("click", handleSongToggle);
+    song.play();
+
+    function handleSong() {
+        song.currentTime = 0;
+        song.play();
+    }
+
+    function handleSongToggle(){
+        if (song.paused) {
+            volumeIcon.classList.remove("fa-volume-xmark");
+            volumeIcon.classList.add("fa-volume-high")
+            song.play();
+        } else {
+            volumeIcon.classList.remove("fa-volume-high");
+            volumeIcon.classList.add("fa-volume-xmark")
+            song.pause();
+        }
+    }
     document.getElementById("song").play();
+    
     // function startGame(){
     //     document.getElementById("song").pause();
     //     document.getElementById("instruction").style.display = "none";
