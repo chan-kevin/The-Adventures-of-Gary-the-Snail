@@ -18,7 +18,7 @@ export default class Rock {
         this.sourceWidth = 642;
         this.sourceHeight = 500;
         this.x = 620;
-        this.y = 375;
+        this.y = 380;
         // this.x = x;
         // this.y = y;
         this.boxX = 655; //want to hit

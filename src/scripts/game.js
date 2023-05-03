@@ -201,10 +201,10 @@ export default class Game {
                 if (this.level === 1) {
                     this.goal.x = 990;
                     this.goal.y = 120;
-                    this.goal.bikiniY = 120;
+                    this.goal.bikiniY = 115;
     
                     this.rock.x = 1020;
-                    this.rock.y = 375;
+                    this.rock.y = 380;
     
                     this.gary.x = 1;
                     this.gary.y = 485;
@@ -213,16 +213,16 @@ export default class Game {
                 if (this.level === 2) {
                     this.goal.x = 990;
                     this.goal.y = 120;
-                    this.goal.bikiniY = 120;
+                    this.goal.bikiniY = 115;
     
                     this.rock.x = 1020;
-                    this.rock.y = 375;
+                    this.rock.y = 380;
     
                     this.gary.x = 240;
                     this.gary.y = 485;
     
                     this.rock2.x = 20;
-                    this.rock2.y = 375;
+                    this.rock2.y = 380;
     
                     this.rock3.x = 820;
                     this.rock3.y = 80;
@@ -231,10 +231,10 @@ export default class Game {
                 if (this.level === 3) {
                     this.goal.x = 820;
                     this.goal.y = 120;
-                    this.goal.bikiniY = 120;
+                    this.goal.bikiniY = 115;
     
                     this.rock.x = 230;
-                    this.rock.y = 375;
+                    this.rock.y = 380;
     
                     this.gary.x = 0;
                     this.gary.y = 485;

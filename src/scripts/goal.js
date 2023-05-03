@@ -14,8 +14,8 @@ export default class Goal{
         this.sourceWidth = 400;
         this.sourceHeight = 360;
         this.x = 970;
-        this.y = 440;
-        this.bikiniY = 440;
+        this.y = 420;
+        this.bikiniY = 415;
         this.objectWidth = 150;
         this.objectHeight = 145;
 

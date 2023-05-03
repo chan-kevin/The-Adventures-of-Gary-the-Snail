@@ -30,7 +30,7 @@ export default class Ground{
         // })
 
         // this.game.ctx.strokeRect(this.x, this.y, this.objectWidth, this.objectHeight);
-        if (this.game.level > 1){
+        // if (this.game.level > 1){
             this.game.ctx.drawImage(this.image[0], this.sourceX, this.sourceY, this.sourceWidth, this.sourceHeight, this.x, this.y, this.objectWidth, this.objectHeight);
             // this.x += this.game.canvas.width/3;
 
@@ -40,7 +40,7 @@ export default class Ground{
 
             // this.game.ctx.strokeRect(this.x + (2 * this.game.canvas.width/3), this.y, this.objectWidth, this.objectHeight);
             this.game.ctx.drawImage(this.image[2], this.sourceX, this.sourceY, this.sourceWidth, this.sourceHeight, this.x + (2 * this.game.canvas.width/3), this.y, this.objectWidth, this.objectHeight);
-        }
+        // }
         // this.x = 0;
         // this.y += this.game.canvas.height/2;
 
