@@ -218,6 +218,9 @@ h1 {
 }
 
 #homeSong {
+  position: absolute;
+  top: 2vh;
+  right: 1vw;
   width: auto;
   height: auto;
   padding: 5px;
