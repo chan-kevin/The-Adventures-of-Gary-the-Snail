@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
             song.pause();
         }
     }
-    document.getElementById("song").play();
+    song.play();
     
     // function startGame(){
     //     document.getElementById("song").pause();
@@ -79,6 +79,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // }
 
     document.body.addEventListener('keydown', startGame);
+    // document.body.addEventListener('keydown', function start (){
+    //     document.getElementById("instruction").style.display = "none";
+    //     document.getElementById("game_background").style.display = "block";
+    //     document.getElementById('page1').style.display = "block";
+    // });
 
     // const canvas = document.getElementById("game");
     // const background = document.getElementById("background");
