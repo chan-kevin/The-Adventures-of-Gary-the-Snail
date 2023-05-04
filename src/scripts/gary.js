@@ -35,6 +35,14 @@ export default class Gary {
         this.directionRight = true;
         // this.directionRight = false;
 
+        // this.mouse = document.getElementById("mouse");
+        // this.mouseX = 600;
+        // this.mouseY = 440;
+        // this.mouseEnd = false;
+        // this.clicked = document.getElementById("clicked");
+        // this.clickedX = 540;
+        // this.clickedY = 380;
+
         this.shocked = false;
         this.shockedLeftWidth = 687;
         this.shockedRightWidth = 897;
@@ -101,6 +109,23 @@ export default class Gary {
     update(){
         this.checkCollision();
 
+        // if (this.game.level === 1 && !this.mouseEnd) {
+        //     this.mouseX -= 1;
+        //     this.mouseY -= 1;
+        // }
+
+        // if (this.mouseY === 380) {
+        //     // console.log(this.mouseX) //540
+        //     this.mouseEnd = true
+        //     this.mouse.style.display = "none";
+        //     this.game.ctx.drawImage(this.clicked, 0, 0, 224, 209, this.clickedX, this.clickedY, 40, 40)
+        //     setInterval( function restartMouse (){
+        //         this.mouseEnd = false;
+        //         this.mouseY = 440;
+        //         this.mouseX = 600;
+        //     }, 1000)
+        // }
+
         if (this.image_num < 2) this.image_num++;
         else this.image_num = 0;
         if (!this.shocked && !this.goal){
@@ -120,6 +145,10 @@ export default class Gary {
         // new rock(this.game);
         // new Goal(this.game);
         this.showLevel();
+
+        // if (this.game.level === 1 && !this.mouseEnd) {
+        //     this.game.ctx.drawImage(this.mouse, 0, 0, 154, 156, this.mouseX, this.mouseY, 30, 30)
+        // }
        
         if (!this.shocked && !this.goal){
             if (this.directionRight) {

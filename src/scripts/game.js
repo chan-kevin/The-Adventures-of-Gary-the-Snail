@@ -51,6 +51,14 @@ export default class Game {
         this.gameover = false;
         this.level = 1;
 
+        if (this.level === 1) {
+            this.click = document.getElementById("first-box");
+            this.moveClick = this.moveClick.bind(this);
+            this.click.style.display = "flex";
+            this.click.style.left = "50%";
+            document.addEventListener("click", this.moveClick);
+        }
+
         // this.swap.click();
         // requestAnimationFrame(this.animate.bind(this, 0))
         // setInterval(this.resume.bind(this))  //slowed down the animate
@@ -65,6 +73,18 @@ export default class Game {
         // this.draw();
         // this.debug = new Debug(this);
         // this.debug_status = true;
+    }
+
+    moveClick() {
+        this.click.style.left = "75%";
+        document.removeEventListener("click", this.moveClick);
+        this.removeClick = this.removeClick.bind(this);
+        document.addEventListener("click", this.removeClick);
+    }
+
+    removeClick() {
+        this.click.style.display = "none";
+        document.removeEventListener("click", this.removeClick)
     }
 
     handleSong() {
