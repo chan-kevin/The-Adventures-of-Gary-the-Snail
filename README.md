@@ -1,4 +1,4 @@
-# <a href="https://kchannn13.github.io/The-Adventures-of-Gary-the-Snail/">The Adventure of Gary the Snail</a>
+# <a href="https://kchannn13.github.io/The-Adventures-of-Gary-the-Snail/">The Adventures of Gary the Snail</a>
 ## **For better experience, highly suggest sound on**
 
 <img src="./assets/image/Level1.png">
@@ -6,7 +6,7 @@
 # **Background:**
 
 <p>
-The Adventure of Gary the Snail is a 2D interactive puzzle game where Gary the snail is lost underwater. The main objective of the game is to help Gary get to home to Spongebob in Bikini Bottom. 
+The Adventures of Gary the Snail is a 2D interactive puzzle game where Gary the snail is lost underwater. The main objective of the game is to help Gary get to home to Spongebob in Bikini Bottom. 
 
 There are 6 frames in a 2x3 formation in every scene which can be moved around to help Gary get from the starting frame to the frame where the bubble is at. Each bubble leads to the next scene/level. Gary moves in one fixed direction until he hits an obstacle, where he will either lose a life (jellyfish) or start moving in the opposite direction (rock).
 
@@ -17,7 +17,7 @@ The game intends to introduce functionalities slowly to allow users to get the h
 
 # **Functionalities:**
 
-In The Adventure of Gary the Snail, user will be able to:
+In The Adventures of Gary the Snail, user will be able to:
 1. Swap the position of two frames by clicking consecutively on both frames.
 2. Obstacles that cause the character to lose their lives will result in the level restarting.
 3. Upon touching bubble, Gary floats away in it and next level starts
