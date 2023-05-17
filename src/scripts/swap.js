@@ -397,9 +397,12 @@ export default class Swap{
         this.botRight = [xPts[2], xPts[3], yPts[1], yPts[2]];
 
         addEventListener("click", e => {
+            const canvasRect = this.game.canvas.getBoundingClientRect();
+            const offsetX = e.clientX - canvasRect.left;
+            const offsetY = e.clientY - canvasRect.top;
             if (
-                (e.offsetX > this.topLeft[0] && e.offsetX < this.topLeft[1]) &&
-                (e.offsetY > this.topLeft[2] && e.offsetY < this.topLeft[3])
+                (offsetX > this.topLeft[0] && offsetX < this.topLeft[1]) &&
+                (offsetY > this.topLeft[2] && offsetY < this.topLeft[3])
             ){ 
                 // console.log("hi");
                 this.selectFrame += 1;
@@ -520,8 +523,8 @@ export default class Swap{
     
             //top mid frame
             if (
-                (e.offsetX > this.topMid[0] && e.offsetX < this.topMid[1]) &&
-                (e.offsetY > this.topMid[2] && e.offsetY < this.topMid[3])
+                (offsetX > this.topMid[0] && offsetX < this.topMid[1]) &&
+                (offsetY > this.topMid[2] && offsetY < this.topMid[3])
             ){ 
                 this.selectFrame += 1;
 
@@ -642,8 +645,8 @@ export default class Swap{
     
             //top right frame
             if (
-                (e.offsetX > this.topRight[0] && e.offsetX < this.topRight[1]) &&
-                (e.offsetY > this.topRight[2] && e.offsetY < this.topRight[3])
+                (offsetX > this.topRight[0] && offsetX < this.topRight[1]) &&
+                (offsetY > this.topRight[2] && offsetY < this.topRight[3])
             ){ 
                 this.selectFrame += 1;
 
@@ -764,8 +767,8 @@ export default class Swap{
     
             //bot left frame
             if (
-                (e.offsetX > this.botLeft[0] && e.offsetX < this.botLeft[1]) &&
-                (e.offsetY > this.botLeft[2] && e.offsetY < this.botLeft[3])
+                (offsetX > this.botLeft[0] && offsetX < this.botLeft[1]) &&
+                (offsetY > this.botLeft[2] && offsetY < this.botLeft[3])
             ){ 
                 this.selectFrame += 1;
 
@@ -888,8 +891,8 @@ export default class Swap{
             
             //bot mid frame
             if (
-                (e.offsetX > this.botMid[0] && e.offsetX < this.botMid[1]) &&
-                (e.offsetY > this.botMid[2] && e.offsetY < this.botMid[3])
+                (offsetX > this.botMid[0] && offsetX < this.botMid[1]) &&
+                (offsetY > this.botMid[2] && offsetY < this.botMid[3])
             ){ 
                 this.selectFrame += 1;
 
@@ -1010,8 +1013,8 @@ export default class Swap{
     
             //bot right frame
             if (
-                (e.offsetX > this.botRight[0] && e.offsetX < this.botRight[1]) &&
-                (e.offsetY > this.botRight[2] && e.offsetY < this.botRight[3])
+                (offsetX > this.botRight[0] && offsetX < this.botRight[1]) &&
+                (offsetY > this.botRight[2] && offsetY < this.botRight[3])
             ){ 
                 this.selectFrame += 1;
 

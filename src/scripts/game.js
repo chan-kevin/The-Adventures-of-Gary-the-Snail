@@ -87,22 +87,22 @@ export default class Game {
         document.removeEventListener("click", this.removeClick)
     }
 
-    handleSong() {
-        this.song.currentTime = 0;
-        this.song.play();
-    }
+    // handleSong() {
+    //     this.song.currentTime = 0;
+    //     this.song.play();
+    // }
 
-    handleSongToggle(){
-        if (this.song.paused) {
-            this.volumeIcon.classList.remove("fa-volume-xmark");
-            this.volumeIcon.classList.add("fa-volume-high")
-            this.song.play();
-        } else {
-            this.volumeIcon.classList.remove("fa-volume-high");
-            this.volumeIcon.classList.add("fa-volume-xmark")
-            this.song.pause();
-        }
-    }
+    // handleSongToggle(){
+    //     if (this.song.paused) {
+    //         this.volumeIcon.classList.remove("fa-volume-xmark");
+    //         this.volumeIcon.classList.add("fa-volume-high")
+    //         this.song.play();
+    //     } else {
+    //         this.volumeIcon.classList.remove("fa-volume-high");
+    //         this.volumeIcon.classList.add("fa-volume-xmark")
+    //         this.song.pause();
+    //     }
+    // }
 
     // addRock(){
     //     let posX = [620, 800, 400];
@@ -235,7 +235,7 @@ export default class Game {
                 this.gary.goal = false;
                 document.getElementById("game_background").style.display = "none";
                 document.getElementById("loading").style.display = "block";
-                this.gary.meow.play();
+                if (this.gary.hit) this.gary.meow.play();
                 setTimeout(() => {
                     document.getElementById("game_background").style.display = "block";
                     document.getElementById("loading").style.display = "none";
