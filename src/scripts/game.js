@@ -37,15 +37,7 @@ export default class Game {
         this.gary = new Gary(this);
         this.goal = new Goal(this);
         this.over = new Gameover(this);
-        // this.song = document.getElementById("theme");
-        // this.song.addEventListener("ended", this.handleSong.bind(this));
-        // this.song.play();
-        // this.song.volume = 0.5;
-        // this.volume = document.getElementById("volume");
-        // this.volumeIcon = this.volume.querySelector("i");
-        // this.volume.addEventListener("click", this.handleSongToggle.bind(this));
         this.fps = 73;
-        // this.event = new Event(this);
         this.lastTime = 0;
         this.pause = false;
         this.gameover = false;
@@ -71,8 +63,6 @@ export default class Game {
         // this.animate(0);
         this.animate();
         // this.draw();
-        // this.debug = new Debug(this);
-        // this.debug_status = true;
     }
 
     moveClick() {
@@ -86,23 +76,6 @@ export default class Game {
         this.click.style.display = "none";
         document.removeEventListener("click", this.removeClick)
     }
-
-    // handleSong() {
-    //     this.song.currentTime = 0;
-    //     this.song.play();
-    // }
-
-    // handleSongToggle(){
-    //     if (this.song.paused) {
-    //         this.volumeIcon.classList.remove("fa-volume-xmark");
-    //         this.volumeIcon.classList.add("fa-volume-high")
-    //         this.song.play();
-    //     } else {
-    //         this.volumeIcon.classList.remove("fa-volume-high");
-    //         this.volumeIcon.classList.add("fa-volume-xmark")
-    //         this.song.pause();
-    //     }
-    // }
 
     // addRock(){
     //     let posX = [620, 800, 400];
