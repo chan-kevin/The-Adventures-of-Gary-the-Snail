@@ -273,7 +273,7 @@ export default class Gary {
 
             if (this.game.level === 4){
                 // document.body.addEventListener("keydown", startGame);
-                this.game.song.pause();
+                this.song.pause();
                 this.game.over.gamebackground.style.display = "none";
                 this.home.style.display = "block";
                 this.spongebob.play();
@@ -306,8 +306,8 @@ export default class Gary {
         ){
             this.shocked = true;
             this.zap.play();
-            this.game.song.pause();
-            this.game.song.currentTime = 0;
+            this.song.pause();
+            this.song.currentTime = 0;
             setTimeout(() => this.game.gameover = true, 4000);
         }
     }
