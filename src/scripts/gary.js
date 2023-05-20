@@ -31,9 +31,7 @@ export default class Gary {
         this.shockedLeftGary = document.getElementById("shockedleftgary");
         this.shockedRightGary = document.getElementById("shockedrightgary");
         this.floatinggary = document.getElementById("floatinggary");
-        // this.draw();
         this.directionRight = true;
-        // this.directionRight = false;
 
         // this.mouse = document.getElementById("mouse");
         // this.mouseX = 600;
