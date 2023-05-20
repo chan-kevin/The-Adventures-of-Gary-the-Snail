@@ -1,8 +1,5 @@
 export default class Ground{
     constructor(game){
-        // this.ctx = ctx;
-        // this.width = width;
-        // this.height = height;
         this.game = game;
 
         this.sourceX = 0;

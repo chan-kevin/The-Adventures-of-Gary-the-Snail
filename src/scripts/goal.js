@@ -1,8 +1,5 @@
 export default class Goal{
     constructor(game){
-        // this.ctx = ctx;
-        // this.width = width;
-        // this.height = height;
         this.game = game;
 
         this.fps = 30;
