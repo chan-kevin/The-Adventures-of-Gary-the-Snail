@@ -15,15 +15,11 @@ export default class Rock {
         this.sourceHeight = 500;
         this.x = 620;
         this.y = 380;
-        // this.x = x;
-        // this.y = y;
         this.boxX = 655; //want to hit
         this.objectWidth = 180;
         this.objectHeight = 180;
 
         this.image = document.getElementById("rock");
-        // this.draw();
-        // this.collision();
     }
 
     update(){
