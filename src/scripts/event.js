@@ -15,7 +15,6 @@ export default class Event{
                 (e.offsetX > this.game.frame.topLeft[0] && e.offsetX < this.game.frame.topLeft[1]) &&
                 (e.offsetY > this.game.frame.topLeft[2] && e.offsetY < this.game.frame.topLeft[3])
             ){ 
-                console.log("hi")
                 this.game.ctx.strokeStyle = "black";
                 this.game.ctx.strokeRect(this.game.frame.topLeft[0], this.game.frame.topLeft[2], x, y);
                 this.game.ctx.stroke();
