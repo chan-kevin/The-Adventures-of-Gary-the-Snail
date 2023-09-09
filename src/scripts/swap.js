@@ -17,7 +17,6 @@ export default class Swap{
         this.x = this.game.canvas.width/3;
         this.y = this.game.canvas.height/2;
         this.click();
-        // this.checkStatus();
     }
 
     fromTopLeft(){
@@ -374,7 +373,6 @@ export default class Swap{
             this.box2 = {};
             this.selectFrame = 0;
         }
-        // requestAnimationFrame(this.checkStatus.bind(this));
     }
 
     click(){
@@ -404,7 +402,6 @@ export default class Swap{
                 (offsetX > this.topLeft[0] && offsetX < this.topLeft[1]) &&
                 (offsetY > this.topLeft[2] && offsetY < this.topLeft[3])
             ){ 
-                // console.log("hi");
                 this.selectFrame += 1;
                 if (this.selectFrame === 1){
                     this.box1Frame = "topLeft";
@@ -777,9 +774,7 @@ export default class Swap{
                     if (
                         (this.game.gary.x > this.botLeft[0] && this.game.gary.x < this.botLeft[1] && this.game.gary.y > this.topLeft[3])
                     ){
-                        // this.box1[gary_pos] = 0;
                         this.box1.gary = this.game.gary.x;
-                        // console.log(this.box1)
                     }
 
                     if (

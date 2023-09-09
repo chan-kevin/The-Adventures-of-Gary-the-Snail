@@ -14,10 +14,6 @@ import Jellyfish2 from "./jellyfish2";
 import Jellyfish3 from "./jellyfish3";
 
 export default class Game {
-    // constructor(ctx){
-    //     this.ctx = ctx;
-    //     this.draw(ctx);
-    // }
     constructor(canvas, frame){
         this.canvas = canvas;
         this.frame = new Frame(frame, this);
@@ -51,18 +47,7 @@ export default class Game {
             document.addEventListener("click", this.moveClick);
         }
 
-        // this.swap.click();
-        // requestAnimationFrame(this.animate.bind(this, 0))
-        // setInterval(this.resume.bind(this))  //slowed down the animate
-        // this.resume();
-        // while (!this.pause){
-        // this.animate(0);
-        // }
-        // this.resume();
-        // this.event.hover_check();
-        // this.animate(0);
         this.animate();
-        // this.draw();
     }
 
     moveClick() {
@@ -76,68 +61,6 @@ export default class Game {
         this.click.style.display = "none";
         document.removeEventListener("click", this.removeClick)
     }
-
-    // addRock(){
-    //     let posX = [620, 800, 400];
-    //     let posY = [375, 375, 375];
-
-    //     if (this.level === 1) {
-    //         for (let i = 0; i < 2; i++){
-    //             this.rocks.push(new Rock(this, posX[i], posY[i]));
-    //         }
-    //     }
-
-    //     if (this.level === 2){
-    //         for (let i = 0; i < 2; i++){
-    //             this.rocks.push(new Rock(this, posX[i], posY[i]));
-    //         }
-    //     }
-    // }
-
-    // resume(){
-    //     // if (this.level === 1 && this.rocks.length < 1) this.addRock();
-    //     // if (this.level === 2 && this.rocks.length < 3) this.addRock();
-
-    //     if (!this.pause){
-    //         // this.animate(0);
-    //         setTimeout(() => 
-    //         requestAnimationFrame(this.animate.bind(this)), 1000/this.fps
-    //         )
-    //     } else {
-    //         cancelAnimationFrame(this.animate.bind(this))
-    //     }
-    // }    
-
-    // update(deltaTime){
-    //     // let animateUpdate = ""
-    //     // if (this.rock.collision()){
-    //     //     animateUpdate = this.rock.update(deltaTime);
-    //     // }
-    //     // animateUpdate;
-    //     this.rock.update(deltaTime);
-    //     // this.rock2.update(deltaTime);
-    //     // if (this.level === 2) this.rock2.update(deltaTime);
-    //     // this.rocks.forEach((rock) => rock.update(deltaTime));
-    //     this.jellyfish.update(deltaTime);
-    //     this.gary.update(deltaTime);
-    //     this.goal.update(deltaTime);
-    // }
-
-    // update(deltaTime){
-    //     this.rock.update(deltaTime);
-    //     if (this.level >= 2) {
-    //         this.rock2.update(deltaTime);
-    //         this.rock3.update(deltaTime);
-    //     }
-    //     if (this.level >= 3) this.jellyfish.update(deltaTime);
-    //     if (this.level >= 4) {
-    //         this.jellyfish2.update(deltaTime);
-    //         this.jellyfish3.update(deltaTime);
-    //     }
-    //     this.over.update(deltaTime);
-    //     this.gary.update(deltaTime);
-    //     this.goal.update(deltaTime);
-    // }
 
     update(){
         this.rock.update();
@@ -156,10 +79,7 @@ export default class Game {
     }
 
     draw(){
-        // this.frame.draw();
         this.ground.draw();
-        // if (this.rock.collision()) this.rock.collision();
-        // else this.rock.draw();
         this.rock.draw();
         if (this.level >= 2) {
             this.rock2.draw();
@@ -179,16 +99,10 @@ export default class Game {
     }
 
     async animate() {
-    // async animate(timeStamp) {
-        // while (!this.pause){
-        // const deltaTime = timeStamp - this.lastTime;
-        // this.lastTime = timeStamp;
-
         this.ctx.clearRect(0,0,this.width,this.height);
         this.swap.checkStatus();
     
         this.update();
-        // this.update(deltaTime);
         this.draw();
     
         await this.nextLevel();
@@ -197,9 +111,7 @@ export default class Game {
             setTimeout(() => {
                 requestAnimationFrame(this.animate.bind(this));
             }, 1000/this.fps);
-            // requestAnimationFrame(this.animate)
         }
-    // }
     }
     
     async nextLevel() {
@@ -272,11 +184,4 @@ export default class Game {
             }
         });
     }
-
-    // restart(){
-    //     this.level = 1;
-    //     this.over.overzap.style.display = "none";
-    //     this.over.gamebackground.style.display = "block";
-    //     document.body.addEventListener("keydown", new Game(this.canvas, this.frame));
-    // }
 }

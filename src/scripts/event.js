@@ -5,8 +5,6 @@ export default class Event{
 
     hover_check(){
         this.game.canvas.addEventListener("mousemove", e => {
-            // e.preventDefault();
-            // e.stopPropagation();
             const x = this.game.width/3;
             const y = this.game.height/2;
 
@@ -73,12 +71,5 @@ export default class Event{
                 this.game.ctx.stroke();
             }
         })
-
-        
-
-        // this.game.canvas.addEventListener("mouseup", el => {
-        //     console.log("mouseup");
-        //     console.log(el);
-        // })
     }
 }

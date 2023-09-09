@@ -1,21 +1,13 @@
 export default class Jellyfish3 {
     constructor(game){
         this.game = game;
-
-        // this.fps = 20;
-        // this.fps = 30;
-        // this.frameInterval = 1000/this.fps;
-        // this.frameTimer = 0;
         this.frame = 0;
-        this.maxFrame = 1; //27
+        this.maxFrame = 1;
 
         this.sourceX = 0;
         this.sourceY = 0;
-        // this.sourceWidth = 590;
         this.sourceWidth = 40;
         this.sourceHeight = 30;
-        // this.x = 10;
-        // this.x = 350;
         this.x = 1100;
         this.y = 140;
         this.objectWidth = 60;
@@ -23,35 +15,13 @@ export default class Jellyfish3 {
 
         this.image = document.getElementById("jellyfish");
     }
-
-    // update(deltaTime){
     update(){
-        // if (this.frameTimer > this.frameInterval){
-        //     this.frameTimer = 0;
-
-            this.collision();
-            if (this.frame < this.maxFrame) this.frame++;
-            else this.frame = 0;
-            // setTimeout(() => {this.maxFrame = 1;}, 5000)
-            // this.maxFrame = 1;
-            
-            // if (this.frame === this.maxFrame) {
-            //     this.maxFrame = 1;
-            //     this.frame = 0;
-            // }
-        // } else {
-        //     this.frameTimer += deltaTime;
-        // }
+        this.collision();
+        if (this.frame < this.maxFrame) this.frame++;
+        else this.frame = 0;
     }
 
-    // update(){
-    //     this.collision();
-    //     if (this.frame < this.maxFrame) this.frame++;
-    //     else this.frame = 0;
-    // }
-
     draw(){
-        // this.game.ctx.strokeRect(this.x, this.y, this.objectWidth, this.objectHeight);
         this.game.ctx.drawImage(this.image, this.frame * (this.sourceX + this.sourceWidth), this.sourceY, this.sourceWidth, this.sourceHeight, this.x, this.y, this.objectWidth, this.objectHeight);
     }
 
@@ -63,7 +33,6 @@ export default class Jellyfish3 {
             ((this.game.gary.y + this.game.gary.objectHeight) > this.y)
             ){
             this.maxFrame = 3;
-            // console.log("hi")
         }
     }
 }
