@@ -15,7 +15,7 @@ export default class Gameover {
             this.gamebackground.style.display = "none";
             this.game.gary.zap.loop = true;
             this.game.gary.zap.play();
-            document.body.addEventListener("keydown", startGame)
+            document.body.addEventListener("keydown", startGame);
         }
     }
 }

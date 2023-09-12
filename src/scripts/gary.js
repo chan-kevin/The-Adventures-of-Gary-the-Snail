@@ -39,9 +39,8 @@ export default class Gary {
         this.song.volume = 0.5;
         this.volume = document.getElementById("volume");
         this.volumeIcon = this.volume.querySelector("i");
-        this.volume.addEventListener("click", this.handleSongToggle.bind(this));
-        this.hit = false;
-
+        this.hit = true;
+        this.addSongToggle();
         this.goal = false;
     }
 
@@ -62,6 +61,14 @@ export default class Gary {
             this.hit = false;
             this.song.pause();
         }
+    }
+
+    addSongToggle(){
+        this.volume.addEventListener("click", this.handleSongToggle.bind(this));
+    }
+
+    removeSongToggle(){
+        this.volume.removeEventListener("click", this.handleSongToggle.bind(this));
     }
 
     update(){

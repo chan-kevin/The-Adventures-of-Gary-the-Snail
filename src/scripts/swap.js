@@ -394,7 +394,7 @@ export default class Swap{
         this.botMid = [xPts[1], xPts[2], yPts[1], yPts[2]];
         this.botRight = [xPts[2], xPts[3], yPts[1], yPts[2]];
 
-        addEventListener("click", e => {
+        this.swap = e => {
             const canvasRect = this.game.canvas.getBoundingClientRect();
             const offsetX = e.clientX - canvasRect.left;
             const offsetY = e.clientY - canvasRect.top;
@@ -1127,6 +1127,11 @@ export default class Swap{
                     }
                 }
             }
-        })
+        }
+        document.addEventListener("click", this.swap);
+    }
+
+    removeSwap() {
+        document.removeEventListener("click", this.swap);
     }
 }

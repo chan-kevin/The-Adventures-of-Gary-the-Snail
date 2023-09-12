@@ -5,6 +5,7 @@ export function startGame(){
     document.getElementById("song").pause();
     document.getElementById("instruction").style.display = "none";
     document.getElementById("game_background").style.display = "block";
+    volume.removeEventListener("click", this.handleSongToggle);
 
     const canvas = document.getElementById("game");
     const background = document.getElementById("background");

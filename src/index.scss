@@ -1,15 +1,3 @@
-@import "./styles/example.scss";
-
-#main {
-    color: $color;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 @font-face {
     font-family: 'Castellar';
     src: url("../assets/image/CASTELAR.ttf");
@@ -67,10 +55,6 @@ h1 {
     opacity: 0.5;
 }
 
-// #theme {
-//     display: none;
-// }
-
 #loading {
     background-color: black;
     height: 100%;
@@ -84,24 +68,14 @@ h1 {
     top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
-    // border: 3px solid;
     border-width: 5px;
     border-style: solid;
     border-image: linear-gradient(#743ad5, #d53a9d) 25;
-    // background-image: url("../assets/image/loading_gary.gif");
-    // background-blend-mode: screen;
-    // background-color: back;
-    // background-position: center;
-    // background-repeat: no-repeat;
-    // background-size: 20%;
     background-image: url("../assets/image/test.gif");
-    // background-blend-mode: screen;
     background-color: black;
     background-position: center;
     background-repeat: no-repeat;
     background-size: 20%;
-    // display: none;
-    // z-index: -10;
 }
 
 #loading_bar {
@@ -111,11 +85,9 @@ h1 {
     top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
-    // border: 3px solid;
     border-width: 5px;
     border-style: solid;
     background-image: url("../assets/image/loading_bar.gif");
-    // background-blend-mode: screen;
     background-color: transparent;
     background-position: center bottom 150px;
     background-repeat: no-repeat;
@@ -130,16 +102,6 @@ h1 {
     background-size: cover;
     display: none;
 }
-
-// #gameover2 {
-//     background-image: url("../assets/image/gameover.jpeg");
-//     height: 100%;
-//     background-size:auto;
-//     background-repeat: no-repeat;
-//     background-size: cover;
-//     background-position: center center;
-//     display: none;
-// }
 
 #arrivedHome {
     background-image: url("../assets/image/end.gif");
@@ -158,13 +120,6 @@ h1 {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    // z-index: 3;
-//     // border: 20px solid transparent;
-//     background-image: url("../assets/image/frame.png");
-//     background-size: 120% 120%;
-//     // background-size: cover;
-//     // padding: 20px;
-//     // background-clip: padding-box;
 }
 
 #instruction p {
@@ -177,7 +132,6 @@ h1 {
     left: 50%;
     transform: translate(-50%, -50%);
     animation: blink 1s linear infinite;
-    // bottom: 20%;
 }
 
 #gameover p{
@@ -193,21 +147,12 @@ h1 {
 }
 
 #game {
-    // background-image: url("../assets/image/frame.png");
-    
     border: 14px solid rgb(73, 100, 133);
-    // border-image: url("../assets/image/frame.png");
-    // box-shadow: 25px 25px rgb(194, 188, 188);
-    // border-image: url("../assets/image/bg_frame.png");
     position: absolute;
     top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
-    // width: 1000px;
-    // height: 500px;
-    // display: flex;
-    // background-image: "../assets/image/background.jpeg";
 }
 
 #background {
@@ -224,6 +169,7 @@ h1 {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
+    cursor: pointer;
 }
 
 #board, #gary, #gary2, #gary3, #gary4, #gary5, #gary6, #rock, #goal, #ground, #ground2, #ground3, #ground4, #ground5, #ground6, 
@@ -233,19 +179,11 @@ h1 {
 
 #game_background {
     background-image: url("../assets/image/bg_title.png");
-    // background-size: cover;
-    // display: none;
-    // // background-position: center;
-    // top: 0%;
-    // left: 0%;
     height: 100%;
-    // position: relative;
-
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     display: none;
-    // background-color: rgb(219, 216, 162);
 }
 
 #volume {
@@ -279,26 +217,6 @@ h1 {
     border: none;
     cursor: pointer;
 }
-
-// #page1 {
-//     border: 14px solid rgb(73, 100, 133);
-//     width: 1200px;
-//     height: 600px;
-//     position: absolute;
-//     top: 60%;
-//     left: 50%;
-//     transform: translate(-50%, -50%);
-//     z-index: 1;
-//     background-color: antiquewhite;
-//     display: none;
-// }
-
-// #tutorial {
-//     height: 280px;
-//     z-index: 2;
-//     background-image: url("../assets/image/first-box.gif");
-//     background-repeat: no-repeat;
-// }
 
 #first-box {
     position: absolute;
