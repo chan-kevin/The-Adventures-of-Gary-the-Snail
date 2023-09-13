@@ -111,9 +111,6 @@ export default class Game {
             setTimeout(() => {
                 requestAnimationFrame(this.animate.bind(this));
             }, 1000/this.fps);
-        } else {
-            this.swap.removeSwap();
-            this.gary.removeSongToggle();
         }
     }
     

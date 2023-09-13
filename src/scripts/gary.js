@@ -40,7 +40,7 @@ export default class Gary {
         this.volume = document.getElementById("volume");
         this.volumeIcon = this.volume.querySelector("i");
         this.hit = true;
-        this.addSongToggle();
+        this.volume.addEventListener("click", this.handleSongToggle.bind(this));
         this.goal = false;
     }
 
@@ -61,10 +61,6 @@ export default class Gary {
             this.hit = false;
             this.song.pause();
         }
-    }
-
-    addSongToggle(){
-        this.volume.addEventListener("click", this.handleSongToggle.bind(this));
     }
 
     removeSongToggle(){
@@ -166,7 +162,7 @@ export default class Gary {
             ((jellyfish.y + jellyfish.objectHeight) > this.y)
         ){
             this.shocked = true;
-            this.zap.play();
+            if ( this.hit ) this.zap.play();
             this.song.pause();
             this.song.currentTime = 0;
             setTimeout(() => this.game.gameover = true, 4000);
