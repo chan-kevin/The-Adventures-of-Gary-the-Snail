@@ -12,15 +12,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kchannn13/Javascript_Project.git"
+    "url": "git+https://github.com/chan-kevin/The_Adventures_of_Gary_the_Snail.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/kchannn13/Javascript_Project/issues"
+    "url": "https://github.com/chan-kevin/The_Adventures_of_Gary_the_Snail/issues"
   },
-  "homepage": "https://github.com/kchannn13/Javascript_Project#readme",
+  "homepage": "https://github.com/chan-kevin/The_Adventures_of_Gary_the_Snail#readme",
   "dependencies": {
     "@babel/core": "^7.21.0",
     "@babel/preset-env": "^7.20.2",
