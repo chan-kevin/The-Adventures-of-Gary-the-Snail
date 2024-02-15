@@ -21,7 +21,7 @@ In The Adventures of Gary the Snail, user will be able to:
 1. Swap the position of two frames by clicking consecutively on both frames.
 2. Obstacles that cause the character to lose their lives will result in game over.
 3. Upon touching bubble, Gary floats away in it and next level starts
-4. Upon reaching SPongebob's house (pineapple) in final level, Spongebob appears
+4. Upon reaching Spongebob's house (pineapple) in final level, ending screen will appear and victory
 5. A rule page will also be provided to the users
 
 <br />
